@@ -1,0 +1,112 @@
+<template>
+  <div>
+    <TopnavC></TopnavC>
+    <div class="main-wrap VIP-contain">
+      <div>
+        <img src="../../assets/images/VIP/VIP-T.png" alt="">
+      </div>
+      <div>
+        <el-row>
+          <el-tabs type="border-card">
+            <el-tab-pane label="普通">
+              <span slot="label"><img class="VipTop-level-sign" src="../../assets/images/VIP/pt.png" alt=""> <p class="VipTop-level-text">普通</p></span>
+              <!-- <div class="vip-level-wrap">
+                <ul>
+                  <li>
+                    <img src="../../assets/images/VIP/hg.png" alt="">
+                    <p>晋级礼金暂无</p>
+                  </li>
+                </ul>
+              </div> -->
+            </el-tab-pane>
+            <el-tab-pane label="黄金">
+              <span slot="label"><img class="VipTop-level-sign" src="../../assets/images/VIP/hj.png" alt=""> <p class="VipTop-level">黄金</p></span>
+            </el-tab-pane>
+            <el-tab-pane label="铂金">
+              <span slot="label"><img class="VipTop-level-sign" src="../../assets/images/VIP/bj.png" alt=""> <p class="VipTop-level">铂金</p></span>
+            </el-tab-pane>
+            <el-tab-pane label="钻石">
+              <span slot="label"><img class="VipTop-level-sign" src="../../assets/images/VIP/zs.png" alt=""> <p class="VipTop-level">钻石</p></span>
+            </el-tab-pane>
+            <el-tab-pane label="至尊">
+              <span slot="label"><img class="VipTop-level-sign" src="../../assets/images/VIP/zz.png" alt=""> <p class="VipTop-level">至尊</p></span>
+            </el-tab-pane>
+            <el-tab-pane label="王者">
+              <span slot="label"><img class="VipTop-level-sign" src="../../assets/images/VIP/wz.png" alt=""> <p class="VipTop-level">王者</p></span>
+            </el-tab-pane>
+            <el-tab-pane label="特邀">
+              <span slot="label"><img class="VipTop-level-sign" src="../../assets/images/VIP/ty.png" alt=""> <p class="VipTop-level">特邀</p></span>
+            </el-tab-pane>
+          </el-tabs>
+        </el-row>
+      </div>
+    </div>
+    <Bottomnav></Bottomnav>
+  </div>
+</template>
+<script>
+import TopnavC from '@/components/common/Topnav-c'
+import Bottomnav from '@/components/common/Bottomnav'
+
+export default {
+  name: 'App',
+  components: {
+    TopnavC,
+    Bottomnav
+  }
+}
+</script>
+<style>
+.el-tabs__nav,.el-tabs__nav-wrap{
+  width: 100%
+}
+
+.el-tabs--border-card{
+  border: 0;
+}
+.el-tabs--border-card>.el-tabs__header .el-tabs__item{
+  border: 0;
+  font-size: .8rem;
+}
+.el-tabs--border-card>.el-tabs__header{
+  padding: 10px 3.65% 0;
+  background: #151515
+}
+.el-tabs--border-card>.el-tabs__header .el-tabs__item:not(.is-disabled):hover{
+  color: #ffffff;
+}
+.el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active{
+  height: 39px;
+  color: #ffffff;
+  background: #292C35;
+}
+.el-tabs--border-card>.el-tabs__header .el-tabs__item{
+  color: #666666;
+}
+.el-tabs__nav-wrap.is-scrollable{
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.el-tabs--border-card{
+  box-shadow: 0 0 0 0 rgb(0, 0, 0, 0)
+}
+.el-tabs--border-card>.el-tabs__content {
+  margin-top: -2px;
+  background: #292C35;
+}
+.el-tabs--border-card>.el-tabs__header .el-tabs__item,.el-tabs--top.el-tabs--border-card>.el-tabs__header .el-tabs__item:nth-child(2),.el-tabs--top.el-tabs--border-card>.el-tabs__header .el-tabs__item:last-child{
+  padding: 2px 4.1% 0;
+  height: 62px;
+  vertical-align: bottom;
+}
+@media screen and (max-width: 360px) {
+  .el-tabs--border-card>.el-tabs__header .el-tabs__item,.el-tabs--top.el-tabs--border-card>.el-tabs__header .el-tabs__item:nth-child(2),.el-tabs--top.el-tabs--border-card>.el-tabs__header .el-tabs__item:last-child{
+  padding: 2px 3.5% 0;
+  height: 62px;
+  vertical-align: bottom;
+}
+}
+.el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active{
+  height: 62px;
+}
+</style>

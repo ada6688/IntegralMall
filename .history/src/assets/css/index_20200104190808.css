@@ -1,0 +1,279 @@
+/****************** 首页商品 *****************/
+.products-item{
+  width: 46.9%;
+  height: 100px;
+  padding-right: 2.9%;
+  border-right: 1px solid #161616;
+  border-bottom: 1px solid #161616;
+  background: #292C35;
+  float: left;
+}
+.products-item-even{
+  width: 46.9%;
+  height: 100px;
+  border-bottom: 1px solid #161616;
+  background: #292C35;
+  padding-left: 2.9%;
+  float: left;
+}
+.product-item-text{
+  width: 50%;
+  height: 70px;
+  color: #ffffff;
+  margin-top: 15px;
+  float: left;
+  text-align: left;
+}
+.product-item-text p{
+  height: 43px;
+  font-size: 15px;
+  margin-bottom: 5px;
+  display: -webkit-box;/*作为弹性伸缩盒子模型显示*/
+  -webkit-line-clamp: 2; /*显示的行数；如果要设置2行加...则设置为2*/
+  overflow: hidden; /*超出的文本隐藏*/
+  text-overflow: ellipsis; /* 溢出用省略号*/
+  -webkit-box-orient: vertical;
+}
+.product-item-text span{
+  color: #B58024;
+  font-size: 13px;
+}
+.product-item-img{
+  width: 12%;
+  height: 100px;
+  display: table-cell;
+  vertical-align: middle;
+  /* float: left; */
+}
+.product-item-img img{
+  max-width: 100%;
+}
+/******************* 优惠 *******************/
+.yh-wrap div{
+  padding: 1rem 1rem 0 1rem;
+}
+.yh-wrap img{
+  width: 100%;
+}
+/******************* VIP *******************/
+.level-welfare-wrap, .level-require-wrap{
+  padding-bottom: 20px;
+}
+.VipTop-level-sign{
+  display: inline-block;
+}
+.VipTop-level-text{
+  position: absolute;
+  bottom: -5px;
+}
+.vip-level-wrap ul li{
+  float: left;
+  width: 33.33%;
+  height: 79px;
+}
+.vip-level-wrap ul div{
+  width: 34px;
+  height: 34px;
+  border: 1px solid #CCCCCC;
+  border-radius: 17px;
+  margin-bottom: 9px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.vip-level-wrap ul img{
+  margin-top: 7px;
+}
+.vip-level-wrap ul li>p{
+  color: #CCCCCC;
+  font-size: 13px;
+}
+.Vip-level-T{
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  padding: 15px 0 10px 17px;
+  background: #2A2C35;
+}
+.Vip-level-tips{
+  color: #F5BF1B;
+  font-size: 13px;
+  text-align: left;
+  padding: 15px 20px 10px 17px;
+  background: #2A2C35;
+}
+.level-rules-wrap{
+  color: #CCCCCC;
+  font-size: 12px;
+  background: #2A2C35;
+  text-align: left;
+  padding: 15px 17px 16px 17px;
+  margin-bottom: 50px;
+}
+.level-rules-wrap span{
+  font-size: 16px;
+  color: #ffffff;
+  display: inline-block;
+  margin-bottom: 9px;
+}
+.level-rules-wrap p{
+  line-height: 24px;
+  /* margin-top: 5px; */
+}
+.level-rules-wrap p:last-child{
+  margin-bottom: 10px;
+}
+/******************* 个人中心 *******************/
+.member-person-info{
+  padding-top: 10vh;
+  background: url('../images//member/member-bg.png') no-repeat;
+  background-size: 100% 100%;
+}
+.member-half-circle{
+  width: 111%;
+  height: 31%;
+  border-radius: 50%;
+  position: fixed;
+  top: -13%;
+  background: #661115;
+  left: -5.8%;
+  z-index: -1;
+}
+.member-wrap{
+  width: 100%;
+}
+.member-img > img{
+  width: 7vh;
+  height: 7vh;
+  border-radius: 100%;
+  border: 2px solid #CCCCCC;
+}
+.member-name{
+  color: #ffffff;
+  font-size: 16px;
+  position: relative;
+}
+.member-name img{
+  position: absolute;
+  margin-left: 5px;
+  bottom: 8px;
+}
+.member-level-sign{
+  margin: 8px 0 10px 0;
+}
+.member-integral{
+  text-align: center;
+}
+.member-integral-slice{
+  display: inline-block;
+  color: #666666;
+  margin: 0 15px;
+}
+.member-integral span{
+  font-size: 13px;
+  color: #ffffff;
+}
+.member-integral p{
+  font-size: 13px;
+  color: #666666;
+  display: inline-block;
+}
+.member-total{
+  width: 42%;
+  display: inline-block;
+  text-align: right;
+}
+.member-useful{
+  width: 42%;
+  display: inline-block;
+  text-align: left;
+}
+.member-signIn{
+  background: #2A2C35;
+  padding: 15px 1rem 1rem 1rem;
+  margin: 16px 0;
+}
+.member-signIn-status-1{
+  width: 12%;
+  text-align: left;
+  display: inline-block;
+}
+.member-signIn-in{
+  color: #666666;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.member-signIn-date{
+  color: #999899;
+  font-size: 13px;
+  margin-top: 5px;
+}
+.member-signIn-date-active{
+  color: #B58024;
+  font-size: 13px;
+  margin-top: 5px;
+}
+.el-icon-success{
+  color: #34363D;
+}
+.member-signIn-line{
+  width: 84%;
+  height: 3px;
+  display: inline-block;
+  background: #34363D;
+  margin: 0 -34px 3px -6px;
+}
+.member-signIn-icon-active{
+  color: #B58024 !important;
+}
+.member-signIn-active{
+  background: #B58024 !important;
+}
+.member-signIn-tips{
+  font-size: 12px;
+  text-align-last: justify;
+  padding: 0 5%;
+  margin-top: 10px;
+}
+.member-signIn-tips p{
+  display: inline-block;
+}
+.member-signIn-tips p:first-child{
+  color: #666666;
+}
+.member-signIn-tips p:last-child{
+  color: #B58024;
+}
+.member-signIn-button{
+  width:200px;
+  height:26px;
+  line-height: 26px;
+  color: #ffffff;
+  font-size: 15px;
+  margin: 0 auto;
+  background:linear-gradient(0deg,rgba(181,128,36,1) 26%,rgba(231,174,75,1) 100%);
+  margin-top: 10px;
+}
+.member-more-detail{
+  width: 96%;
+  line-height: 44px;
+  color: #ffffff;
+  background: #2A2C35;
+  padding: 0 4%;
+}
+.member-jifen,.member-duihuan,.member-guanyu,.member-yiwen,.member-guize{
+  height: 44px;
+  border-bottom: 1px solid #373B45;
+}
+.member-jifen-T{
+  font-size: 14px;
+  float: left;
+  margin-right: 66%;
+}
+.el-icon-arrow-right{
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  right: 20px;
+  margin-top: 12px;
+}

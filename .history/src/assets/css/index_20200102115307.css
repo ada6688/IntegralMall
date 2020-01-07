@@ -1,0 +1,8 @@
+/* VIP */
+.VipTop-level-sign{
+  display: inline-block;
+}
+.VipTop-level{
+  position: absolute;
+  bottom: -5px;
+}

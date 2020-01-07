@@ -1,0 +1,24 @@
+<template>
+  <div>
+    <div class="yh-wrap main-wrap">
+      <div><img src="../../assets/images/yh/yh-banner.png" alt=""></div>
+      <div><img src="../../assets/images/yh/yh2-banner.png" alt=""></div>
+      <div><img src="../../assets/images/yh/yh3-banner.png" alt=""></div>
+      <div><img src="../../assets/images/yh/yh-banner.png" alt=""></div>
+    </div>
+    <BottomNav></BottomNav>
+  </div>
+</template>
+<script>
+import BottomNav from '@/components/common/Bottomnav'
+
+export default {
+  name: 'App',
+  components: {
+    BottomNav
+  }
+}
+</script>
+<style>
+
+</style>
