@@ -1,5 +1,6 @@
 <template>
   <div>
+    <TopNav></TopNav>
     <div class="main-wrap">
       <div class="member-half-circle"></div>
       <div class="member-wrap">
@@ -86,28 +87,36 @@
         </div>
         <!-- 积分明细，兑换记录，积分详情疑问规则等 -->
         <div class="member-more-detail">
-          <router-link to="/member/jifen">
+          <router-link :to="{path: 'mingxi'}">
             <div class="member-jifen">
-              <div  class="member-jifen-T">积分明细</div>
+              <div class="member-jifen-T">积分明细</div>
               <i class="el-icon-arrow-right"></i>
             </div>
           </router-link>
-          <div class="member-duihuan">
-            <div  class="member-jifen-T">兑换记录</div>
-            <i class="el-icon-arrow-right"></i>
-          </div>
-          <div class="member-guanyu">
-            <div  class="member-jifen-T">关于积分</div>
-            <i class="el-icon-arrow-right"></i>
-          </div>
-          <div class="member-yiwen">
-            <div  class="member-jifen-T">常见疑问</div>
-            <i class="el-icon-arrow-right"></i>
-          </div>
-          <div class="member-guize">
-            <div  class="member-jifen-T">规则与条款</div>
-            <i class="el-icon-arrow-right"></i>
-          </div>
+          <router-link :to="{path: 'duihuan'}">
+            <div class="member-duihuan">
+              <div class="member-jifen-T">兑换记录</div>
+              <i class="el-icon-arrow-right"></i>
+            </div>
+          </router-link>
+          <router-link :to="{path: 'guanyu'}">
+            <div class="member-guanyu">
+              <div  class="member-jifen-T">关于积分</div>
+              <i class="el-icon-arrow-right"></i>
+            </div>
+          </router-link>
+          <router-link :to="{path: 'yiwen'}">
+            <div class="member-yiwen">
+              <div  class="member-jifen-T">常见疑问</div>
+              <i class="el-icon-arrow-right"></i>
+            </div>
+          </router-link>
+          <router-link :to="{path: 'guize'}">
+            <div class="member-guize">
+              <div  class="member-jifen-T">规则与条款</div>
+              <i class="el-icon-arrow-right"></i>
+            </div>
+          </router-link>
         </div>
       </div>
     </div>
@@ -116,11 +125,13 @@
 </template>
 <script>
 import BottomNav from '@/components/common/Bottomnav'
+import TopNav from '@/components/common/Topnav'
 
 export default {
   name: 'App',
   components: {
-    BottomNav
+    BottomNav,
+    TopNav
   },
   data () {
     return {

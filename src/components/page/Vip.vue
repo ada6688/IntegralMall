@@ -227,30 +227,17 @@ export default {
   padding-left: 20px;
   background: url(../../assets/images/VIP/ty.png) no-repeat;
 }
-.VIP-contain .el-tabs__nav,.el-tabs__nav-wrap{
+.VIP-contain .el-tabs__nav{
   width: 100%
 }
-.VIP-contain .el-tabs--border-card{
-  border: 0;
-}
 .VIP-contain .el-tabs--border-card>.el-tabs__header .el-tabs__item{
-  border: 0;
   font-size: .8rem;
 }
 .VIP-contain .el-tabs--border-card>.el-tabs__header{
   padding: 10px 3.65% 0;
-  background: #151515
 }
 .VIP-contain .el-tabs--border-card>.el-tabs__header .el-tabs__item:not(.is-disabled):hover{
   color: #ffffff;
-}
-.VIP-contain .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active{
-  height: 39px;
-  color: #ffffff;
-  background: #292C35;
-}
-.VIP-contain .el-tabs--border-card>.el-tabs__header .el-tabs__item{
-  color: #666666;
 }
 .VIP-contain .el-tabs__nav-wrap.is-scrollable{
   padding: 0 20px;
@@ -258,10 +245,6 @@ export default {
 }
 .VIP-contain .el-tabs--border-card{
   box-shadow: 0 0 0 0 rgb(0, 0, 0, 0)
-}
-.VIP-contain .el-tabs--border-card>.el-tabs__content {
-  margin-top: -2px;
-  background: #292C35;
 }
 .VIP-contain .el-tabs--border-card .el-tabs__item{
   padding: 2px 4.1% 0;
@@ -274,9 +257,6 @@ export default {
   height: 62px;
   vertical-align: bottom;
   }
-  /* .el-tabs--top.el-tabs--border-card>.el-tabs__header .el-tabs__item:nth-child(2){
-    padding-left: 3.3%
-  } */
 }
 .VIP-contain .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active{
   height: 62px;

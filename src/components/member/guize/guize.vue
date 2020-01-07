@@ -17,15 +17,20 @@ export default {
   components: {
     TopNavC
   },
+  mounted: function () {
+    this.change()
+  },
   methods: {
     goBack () {
       if (window.history.length <= 1) {
-        console.log(1)
         this.$router.push({path: '/'})
         return false
       } else {
         this.$router.go(-1)
       }
+    },
+    change () {
+      document.getElementById('top-logo-change').innerHTML = '<p>规则与条款</P>'
     }
   }
 }

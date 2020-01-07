@@ -3,7 +3,7 @@
     <div id="top-nav-left" class="top-nav-left">
       <img src="../../assets/images/topnav/cd.png" alt="logo">
     </div>
-    <div class="top-nav-logo">
+    <div id="top-nav-logo" class="top-nav-logo">
       <img src="../../assets/images/topnav/logo.png" alt="logo">
     </div>
     <div id="top-nav-right" class="top-nav-right">
