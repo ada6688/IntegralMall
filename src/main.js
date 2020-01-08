@@ -12,7 +12,7 @@ import {Cell, CellGroup, Tabbar, TabbarItem, PullRefresh, Stepper, Tab, Tabs, Bu
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 // import BScroll from 'better-scroll'
 
-// Vue.use(BScroll)
+Vue.prototype.HOST = '/api'
 Vue.use(VueAwesomeSwiper)
 Vue.use(ElementUI)
 Vue.use(Cell).use(CellGroup).use(Tabbar).use(TabbarItem).use(Stepper).use(PullRefresh).use(Tab).use(Tabs).use(Field).use(NavBar).use(Button).use(Row).use(Col).use(Swipe).use(SwipeItem).use(Lazyload).use(List)

@@ -164,6 +164,15 @@ export default {
         picture: '../../assets/images/VIP/pt.png'
       }]
     }
+  },
+  mounted: function () {
+    this.change()
+  },
+  methods: {
+    change () {
+      // console.log(22213425)
+      document.getElementById('top-nav-logo').innerHTML = '<p>VIP专区</p>'
+    }
   }
 }
 </script>

@@ -31,83 +31,60 @@
         <el-row>
           <el-tabs type="border-card">
             <el-tab-pane label="推荐">
-              <div class="products-item">
+              <div v-for="goods in recommend" v-bind:key="goods.item" class="products-item">
                 <div class="product-item-text">
-                  <p>商品详情商品详情商品详情商品详情商品详</p>
-                  <span>72000积分</span>
+                  <p>{{goods.title}}</p>
+                  <span>{{goods.points}}积分</span>
                 </div>
                 <div class="product-item-img">
-                  <img src="../../assets/images/products/bsbb.png" alt="">
-                </div>
-              </div>
-              <div class="products-item-even">
-                <div class="product-item-text">
-                  <p>商品详情商品详情商品详情商品详情商品详</p>
-                  <span>72000积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img src="../../assets/images/products/kh.png" alt="">
-                </div>
-              </div>
-              <div class="products-item">
-                <div class="product-item-text">
-                  <p>商品详情商品详情商品详情商品详情商品详</p>
-                  <span>72000积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img src="../../assets/images/products/lsbb.png" alt="">
-                </div>
-              </div>
-              <div class="products-item-even">
-                <div class="product-item-text">
-                  <p>商品详情商品详情商品详情商品详情商品详</p>
-                  <span>72000积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img src="../../assets/images/products/sb.png" alt="">
-                </div>
-              </div>
-              <div class="products-item">
-                <div class="product-item-text">
-                  <p>商品详情商品详情商品详情商品详情商品详</p>
-                  <span>72000积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img src="../../assets/images/products/xs.png" alt="">
-                </div>
-              </div>
-              <div class="products-item-even">
-                <div class="product-item-text">
-                  <p>商品详情商品详情商品详情商品详情商品详</p>
-                  <span>72000积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img src="../../assets/images/products/xsfs.png" alt="">
-                </div>
-              </div>
-              <div class="products-item">
-                <div class="product-item-text">
-                  <p>商品详情商品详情商品详情商品详情商品详</p>
-                  <span>72000积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img src="../../assets/images/products/yx.png" alt="">
-                </div>
-              </div>
-              <div class="products-item-even">
-                <div class="product-item-text">
-                  <p>商品详情商品详情商品详情商品详情商品详</p>
-                  <span>72000积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img src="../../assets/images/products/hw.png" alt="">
+                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
                 </div>
               </div>
             </el-tab-pane>
-            <el-tab-pane label="数码">数码</el-tab-pane>
-            <el-tab-pane label="奖金">奖金</el-tab-pane>
-            <el-tab-pane label="生活精品">生活精品</el-tab-pane>
-            <el-tab-pane label="奢华品">奢华品</el-tab-pane>
+            <el-tab-pane label="数码">
+              <div v-for="goods in digital" v-bind:key="goods.item" class="products-item">
+                <div class="product-item-text">
+                  <p>{{goods.title}}</p>
+                  <span>{{goods.points}}积分</span>
+                </div>
+                <div class="product-item-img">
+                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
+                </div>
+              </div>
+            </el-tab-pane>
+            <el-tab-pane label="奖金">
+              <div v-for="goods in bonus" v-bind:key="goods.item" class="products-item">
+                <div class="product-item-text">
+                  <p>{{goods.title}}</p>
+                  <span>{{goods.points}}积分</span>
+                </div>
+                <div class="product-item-img">
+                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
+                </div>
+              </div>
+            </el-tab-pane>
+            <el-tab-pane label="生活精品">
+              <div v-for="goods in life" v-bind:key="goods.item" class="products-item">
+                <div class="product-item-text">
+                  <p>{{goods.title}}</p>
+                  <span>{{goods.points}}积分</span>
+                </div>
+                <div class="product-item-img">
+                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
+                </div>
+              </div>
+            </el-tab-pane>
+            <el-tab-pane label="奢华品">
+              <div v-for="goods in luxury" v-bind:key="goods.item" class="products-item">
+                <div class="product-item-text">
+                  <p>{{goods.title}}</p>
+                  <span>{{goods.points}}积分</span>
+                </div>
+                <div class="product-item-img">
+                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
+                </div>
+              </div>
+            </el-tab-pane>
           </el-tabs>
         </el-row>
       </div>
@@ -121,6 +98,7 @@ import BottomNav from '@/components/common/Bottomnav'
 import TopNav from '@/components/common/Topnav'
 import Notice from '@/components/page/Notice'
 import {swiper, swiperSlide} from 'vue-awesome-swiper'
+import axios from 'axios'
 
 export default {
   name: 'App',
@@ -143,8 +121,57 @@ export default {
           disableOnInteraction: false
         },
         loop: true
-      }
+      },
+      recommend: [], // 推荐
+      digital: [], // 数码
+      bonus: [], // 奖金
+      life: [], // 生活精品
+      luxury: [] // 奢华品
     }
+  },
+  created () {
+    axios.get('http://45.64.53.115:8000/api/mulu/tuijian/?format=json')
+      .then(Response => {
+        this.recommend = Response.data.results
+      })
+      .catch(error => {
+        console.log(error)
+        alert('商品加载错误，请联系在线客服！')
+      })
+    axios.get('http://45.64.53.115:8000/api/mulu/shuma/?format=json')
+      .then(Response => {
+        this.digital = Response.data.results
+      })
+      .catch(error => {
+        console.log(error)
+        alert('商品加载错误，请联系在线客服！')
+      })
+    axios.get('http://45.64.53.115:8000/api/mulu/jiangjin/?format=json')
+      .then(Response => {
+        this.bonus = Response.data.results
+      })
+      .catch(error => {
+        console.log(error)
+        alert('商品加载错误，请联系在线客服！')
+      })
+    axios.get('http://45.64.53.115:8000/api/mulu/shenghuo/?format=json')
+      .then(Response => {
+        this.life = Response.data.results
+      })
+      .catch(error => {
+        console.log(error)
+        alert('商品加载错误，请联系在线客服！')
+      })
+    axios.get('http://45.64.53.115:8000/api/mulu/shehua/?format=json')
+      .then(Response => {
+        this.luxury = Response.data.results
+      })
+      .catch(error => {
+        console.log(error)
+        alert('商品加载错误，请联系在线客服！')
+      })
+  },
+  methods: {
   }
 }
 </script>

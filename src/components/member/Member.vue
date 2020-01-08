@@ -137,6 +137,16 @@ export default {
     return {
       active: 0
     }
+  },
+  mounted: function () {
+    this.change()
+  },
+  methods: {
+    change () {
+      // console.log(22213425)
+      document.getElementById('top-nav-logo').innerHTML = '<p>个人中心</p>'
+      document.getElementById('top-nav-right').innerHTML = '<img src="../../static/topnav/kf.png" alt="客服">'
+    }
   }
 }
 </script>
