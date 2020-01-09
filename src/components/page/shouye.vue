@@ -41,7 +41,7 @@
                   </div>
                   <div class="product-item-img">
                     <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
-                  </div>
+                </div>
                 </div>
                 <div class="product-item-img">
                   <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
