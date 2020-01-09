@@ -130,9 +130,10 @@ export default {
 }
 .game-detail h4{
     margin-top: 0px;
-    height: 14px;
+    height: 20px;
     text-align: left;
     color: #ffffff;
+    font-size: 14px;
 }
 .game-detail p {
     color: #FBE38B;
