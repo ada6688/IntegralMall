@@ -122,9 +122,6 @@ export default {
   data () {
     return {
       swiperOption: {
-        scrollbar: {
-          el: '.swiper-scrollbar'
-        },
         slidesPerView: 1,
         autoplay: {
           delay: 5000,

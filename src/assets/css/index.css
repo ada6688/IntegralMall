@@ -270,10 +270,216 @@
   float: left;
   margin-right: 66%;
 }
-.el-icon-arrow-right{
+.member-wrap .el-icon-arrow-right{
   width: 7px;
   height: 7px;
   position: absolute;
   right: 20px;
   margin-top: 12px;
+}
+.el-icon-arrow-left{
+  color: #ffffff
+}
+/* 积分明细 */
+.integral-details{
+  width: 100%;
+  padding: 15px 0;
+  display: inline-block;
+  border-bottom: 1px solid #373B45;
+}
+.integral-details li:first-child{
+  text-align: left;
+  float: left;
+}
+.integral-details li:last-child{
+  height: 44px;
+  line-height: 44px;
+  color: #B58024;
+  font-size: 13px;
+  float: right;
+}
+.integral-details li p{
+  color: #CCCCCC;
+  font-size: 13px;
+  margin-bottom: 9px;
+}
+.integral-details li span{
+  color: #666666;
+  font-size: 12px;
+}
+.exchange-integral li:last-child{
+  color: #AC2524;
+}
+/* 兑换详情 */
+.exchange-item-wrap{
+  background: #2A2C35;
+  padding: 23px 17px 17px 17px;
+  margin-bottom: 16px;
+}
+.exchange-item-top{
+  font-size: 12px;
+  margin-bottom: 25px;
+}
+.exchange-item-date{
+  color: #999899;
+  float: left;
+}
+.exchange-item-status{
+  color: #F5BF1B;
+  float: right;
+}
+.exchange-item-main{
+  width: 100%;
+  display: table;
+  vertical-align: middle;
+  border-bottom: 1px solid #373B45;
+}
+.exchange-item-img{
+  width: 32%;
+  text-align: center;
+  display: inline-block;
+}
+.exchange-item-des{
+  width: 66.6%;
+  color: #CCCCCC;
+  font-size: 13px;
+  float: right;
+}
+.exchange-item-des p:first-child{
+  letter-spacing:1px;
+  text-align: left;
+}
+.exchange-item-des p:last-child{
+  color: #CCCCCC;
+  font-size: 12px;
+  text-align: right;
+  margin: 10px 0;
+}
+.exchange-item-des p:last-child span{
+  color: #F5BF1B;
+}
+.exchange-item-info{
+  font-size: 12px;
+  text-align: left;
+  margin-top: 10px;
+}
+.exchange-item-info p span:first-child{
+  color: #999899;
+}
+.exchange-item-info p span:last-child{
+  color: #CCCCCC;
+}
+/* 关于积分 */
+.about-integral{
+  padding: 17px;
+  margin-bottom: 20px;
+  text-align: left;
+  background: #2A2C35;
+  letter-spacing:1px;
+  line-height:20px
+}
+.about-integral-detail{
+  font-size: 13px;
+  color: #CCCCCC;
+}
+.about-integral-detail>p{
+  letter-spacing:2px;
+}
+.about-integral-T span:first-child{
+  width: 2px;
+  height: 15px;
+  background: #F5BF1B;
+  display: inline-block;
+}
+.about-integral-T span:last-child{
+  font-size: 16px;
+  color: #FFFFFF;
+  margin-left: 5px;
+}
+.about-integral-detail p:first-child{
+  margin-top: 5px;
+}
+.about-integral-detail span{
+  color: #F5BF1B;
+}
+.about-integral-tips{
+  font-size: 12px;
+  color: #666666;
+}
+.about-integral-table{
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.about-integral-table table{
+  width: 100%;
+  border-collapse: collapse;
+}
+.about-integral-table>table,.about-integral-table tr td,.about-integral-table tr th{
+  border: 1px solid #373A45;
+}
+
+.about-integral-table tr{
+  height: 30px;
+}
+/* 常见疑问 */
+.integral-question{
+  margin-bottom: 16px;
+  background: #2A2C35;
+}
+.integral-question-item-T,.integral-question-text{
+  text-align: left;
+  padding: 16px 16px;
+  border-top: 1px solid #373B45;
+}
+.integral-question-item{
+  text-align: left;
+  position: relative;
+}
+.integral-question-item-T span:first-child{
+  width: 2px;
+  height: 15px;
+  background: #F5BF1B;
+  display: inline-block;
+}
+.integral-question-item-T span:last-child{
+  font-size: 15px;
+  color: #ffffff;
+  margin-left: 5px;
+}
+.integral-question-item li{
+  width: 100%;
+  display: inline-block;
+}
+.integral-question-text span{
+  color: #CCCCCC;
+  font-size: 13px;
+  text-align: left;
+}
+.integral-question-text i{
+  color: #ffffff;
+  position: absolute;
+  right: 16px;
+}
+.integral-answer p{
+  color: #999999;
+  font-size: 12px;
+  padding: 10px 16px;
+  background: #151515;
+}
+/* 规则与条款 */
+.rules-request-wrap{
+  color: #CCCCCC;
+  font-size: 13px;
+  text-align: left;
+  line-height: 20px;
+  letter-spacing: 1px;
+  background: #2A2D36;
+  padding: 17px;
+}
+.rules-request-tips{
+  color: #B58024;
+  font-size: 12px;
+  text-align: left;
+  padding: 15px 0 15px 15px;
 }
