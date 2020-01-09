@@ -2,7 +2,7 @@
     <div>
         <TopNavC></TopNavC>
         <div class="choujiang-page" :style="{backgroundImage: 'url(' + mainbg + ')'}">
-            <div class="game-detail">
+          <div class="game-detail">
                 <h4>活动详情：</h4>
                 <p>应广大会员的强烈要求，宝马会特将十一活动【开宝箱、领奖金】设 置为日常优惠活动，任何会员只要每天投注额≥6000元，即可在次日 14:00后参与【开宝箱、领奖金】活动，宝箱中奖率为100%，最高单 笔奖金可达66666元。</p>
             </div>
