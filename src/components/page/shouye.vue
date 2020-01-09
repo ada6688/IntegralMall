@@ -121,7 +121,7 @@ export default {
         autoplay: {
           delay: 5000,
           disableOnInteraction: false
-        },
+        }
       },
       noData: false, // 判断是否数据全部加载完成 true为全部加载完
       recommend: [], // 推荐
