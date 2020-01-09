@@ -104,123 +104,124 @@ export default {
 </script>
 <style>
 .choujiang-page {
-  margin-top: 3rem;
-  padding-bottom: 60px;
+    margin-top: 3rem;
+    padding-bottom: 60px;
+
 }
 .lottery-rule {
-  background-color: #f9c74a;
-  margin: 17px 17px 0 17px;
-  border-radius: 6px;
+    background-color: #F9C74A;
+    margin: 17px 17px 0 17px;
+    border-radius: 6px;
 }
-.lottery-rule p {
-  color: #c9463a;
-  font-size: 12px;
-  text-align: left;
-  margin: 0 10px 0 10px;
+.lottery-rule p{
+    color: #C9463A;
+    font-size: 12px;
+    text-align: left;
+    margin: 0 10px 0 10px;
 }
-.lottery-rule .notice-title {
-  text-align: left;
+.lottery-rule .notice-title{
+    text-align: left;
 }
-.el-icon-arrow-left {
-  color: #ffffff;
+.el-icon-arrow-left{
+  color: #ffffff
 }
 .game-detail {
-  padding: 17px 17px 17px 17px;
+    padding: 17px 17px 17px 17px;
 }
-.game-detail h4 {
-  margin-top: 0px;
-  height: 14px;
-  text-align: left;
-  color: #ffffff;
+.game-detail h4{
+    margin-top: 0px;
+    height: 14px;
+    text-align: left;
+    color: #ffffff;
 }
 .game-detail p {
-  color: #fbe38b;
-  font-size: 12px;
-  text-align: left;
+    color: #FBE38B;
+    font-size: 12px;
+    text-align: left;
 }
 .game-zhuanlun {
-  padding: 0 17px 0 17px;
-  background-image: no-repeat;
-  position: relative;
+    padding: 0 17px 0 17px;
+    background-image: no-repeat;
+    position: relative;
 }
 .game-zhuanlun img {
-  width: 100%;
+    width: 100%;
 }
 .game-description {
-  clear: both;
-  position: absolute;
-  top: 12%;
-  left: 0%;
-  color: #c6393f;
-  width: 100%;
-  text-align: center;
-  font-size: 14px;
+    clear: both;
+    position: absolute;
+    top: 12%;
+    left: 0%;
+    color: #C6393F;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
 }
-.game-zhuanlun .first {
-  position: absolute;
-  top: 34%;
-  width: 16%;
-  left: 22%;
+.game-zhuanlun .first{
+    position: absolute;
+    top: 34%;
+    width: 16%;
+    left: 22%;
 }
-.game-zhuanlun .second {
-  position: absolute;
-  top: 34%;
-  width: 16%;
-  left: 41.5%;
+.game-zhuanlun .second{
+    position: absolute;
+    top: 34%;
+    width: 16%;
+    left: 41.5%;
 }
-.game-zhuanlun .third {
-  position: absolute;
-  top: 34%;
-  width: 16%;
-  left: 61%;
+.game-zhuanlun .third{
+    position: absolute;
+    top: 34%;
+    width: 16%;
+    left: 61%;
 }
 .lottery-button {
-  position: absolute;
-  top: 69%;
-  left: 25%;
-  width: 50%;
+    position: absolute;
+    top: 69%;
+    left: 25%;
+    width: 50%
 }
 .lottery-button:active {
-  position: absolute;
-  top: 69.5%;
-  left: 25.5%;
-  width: 49.2%;
+    position: absolute;
+    top: 69.5%;
+    left: 25.5%;
+    width: 49.2%
 }
 .lottery-notice {
-  background-color: #f9c74a;
-  margin: 0 17px 0 17px;
-  border-radius: 6px;
-  text-align: left;
+    background-color: #F9C74A;
+    margin: 0 17px 0 17px;
+    border-radius: 6px;
+    text-align: left;
 }
 .notice-title {
-  font-size: 14px;
-  font-weight: 400;
-  color: white;
-  padding: 10px 10px 10px 10px;
+    font-size: 14px;
+    font-weight: 400;
+    color: white;
+    padding: 10px 10px 10px 10px;
 }
-.letter-div {
-  background: rgba(255, 255, 255, 1);
-  border-radius: 55px;
-  height: 35px;
-  /* opacity:0.5; */
+.letter-div{
+    background:rgba(255,255,255,1);
+    border-radius:55px;
+    height: 35px;
+    /* opacity:0.5; */
 }
 .letter-div span {
-  display: block;
-  font-size: 0.1em;
-  color: #a50717;
-  margin-left: 3px;
+    display: block;
+    font-size: .1em;
+    color: #A50717;
+    margin-left: 3px;
 }
-.letter-div div:first-child {
-  float: left;
-  width: 20%;
-  margin: 3px 3px 3px 3px;
+.letter-div div:first-child{
+    float: left;
+    width: 20%;
+    margin: 3px 3px 3px 3px;
 }
-.letter-div div:nth-child(2) {
-  float: left;
-  width: 70%;
+.letter-div div:nth-child(2){
+    float: left;
+    width: 70%;
 }
-.lottery-notice .swiper-container {
-  height: 48px;
-  margin-left: 5px;
+.lottery-notice .swiper-container{
+    height: 48px;
+    margin-left: 5px;
 }
 </style>
