@@ -5,19 +5,21 @@
       <!-- banner -->
       <swiper :options="swiperOption" ref="mySwiper">
         <!-- slides -->
+        <swiper-slide >
+          <div class="banner-item" >
+            <img src="../../assets/images/banner/sy_NBA_banner@3x.png" alt="">
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <router-link to='/chouJiang'>
+          <div class="banner-item">
+            <img src="../../assets/images/banner/sy_cgcj_banner@3x.png" alt="">
+          </div>
+          </router-link>
+        </swiper-slide>
         <swiper-slide>
           <div class="banner-item">
             <img src="../../assets/images/banner/banner2.png" alt="">
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="banner-item">
-            <img src="../../assets/images/banner/banner2_2.png" alt="">
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="banner-item">
-            <img src="../../assets/images/banner/banner2_3.png" alt="">
           </div>
         </swiper-slide>
         <!-- Optional controls -->
@@ -115,11 +117,11 @@ export default {
     return {
       swiperOption: {
         slidesPerView: 1,
+        loop: true,
         autoplay: {
           delay: 5000,
           disableOnInteraction: false
         },
-        loop: true
       },
       noData: false, // 判断是否数据全部加载完成 true为全部加载完
       recommend: [], // 推荐
@@ -127,6 +129,7 @@ export default {
       bonus: [], // 奖金
       life: [], // 生活精品
       luxury: [] // 奢华品
+
     }
   },
   created () {
@@ -182,6 +185,9 @@ export default {
       setTimeout(() => {
         done()
       }, 1500)
+    },
+    switchTo (path) {
+      this.$router.replace(path)
     }
   }
 }

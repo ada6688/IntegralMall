@@ -12,6 +12,7 @@ import Duihuan from '@/components/member/duihuan/duihuan'
 import Guanyu from '@/components/member/guanyu/guanyu'
 import Yiwen from '@/components/member/yiwen/yiwen'
 import Guize from '@/components/member/guize/guize'
+import ChouJiang from '@/components/page/chouJiang'
 import { Step, Steps, Icon } from 'vant'
 
 Vue.use(Router)
@@ -57,6 +58,10 @@ export default new Router({
       path: '/guize',
       component: Guize,
       meta: {index: 2, title: '<p>规则与条款</p>'}
+    },
+    {
+      path: '/chouJiang',
+      component: ChouJiang,
     }
   ]
 })

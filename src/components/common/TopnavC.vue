@@ -24,15 +24,15 @@ export default {
   },
   methods: {
     goBack () {
-      console.log(2)
-      console.log(window.history)
-      if (window.history.length <= 1) {
-        console.log(1)
-        this.$router.push({path: '/'})
-        return false
-      } else {
-        this.$router.go(-1)
-      }
+      this.$router.go(-1)
+      // if (window.history.length <= 1) {
+      //   console.log(1)
+      //   // this.$router.push({path: '/'})
+      //   return false
+      // } else {
+      //   console.log(2)
+      //   this.$router.go(-1)
+      // }
     }
   }
 }
