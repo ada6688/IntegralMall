@@ -127,20 +127,11 @@ export default {
 .game-detail {
   padding: 17px 17px 17px 17px;
 }
-<<<<<<< HEAD
-.game-detail h4{
-    margin-top: 0px;
-    height: 20px;
-    text-align: left;
-    color: #ffffff;
-    font-size: 14px;
-=======
 .game-detail h4 {
   margin-top: 0px;
   height: 14px;
   text-align: left;
   color: #ffffff;
->>>>>>> f9bde18c856d784712f9a70ab9bbe16bfcc0cc20
 }
 .game-detail p {
   color: #fbe38b;

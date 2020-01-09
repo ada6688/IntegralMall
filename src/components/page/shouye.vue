@@ -33,7 +33,7 @@
         <el-row>
           <el-tabs type="border-card">
             <el-tab-pane label="推荐">
-              <vuescroll>
+              <div>
                 <div v-for="goods in recommend" v-bind:key="goods.item" class="products-item">
                   <div class="product-item-text">
                     <p>{{goods.title}}</p>
