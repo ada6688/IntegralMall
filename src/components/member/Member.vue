@@ -151,7 +151,5 @@ export default {
 }
 </script>
 <style>
-.el-icon-arrow-left{
-  color: #ffffff
-}
+
 </style>

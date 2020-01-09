@@ -5,6 +5,7 @@ import TopNav from '@/components/common/Topnav'
 import shouye from '@/components/page/shouye'
 import Youhui from '@/components/page/Youhui'
 import Vip from '@/components/page/Vip'
+import login from '@/components/page/login'
 import Member from '@/components/member/Member'
 import Mingxi from '@/components/member/mingxi/mingxi'
 import Duihuan from '@/components/member/duihuan/duihuan'
@@ -27,6 +28,7 @@ export default new Router({
     {path: '/shouye', component: shouye},
     {path: '/Youhui', component: Youhui},
     {path: '/Vip', component: Vip},
+    {path: '/login', component: login},
     {
       path: '/Member',
       component: Member,

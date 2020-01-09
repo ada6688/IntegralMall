@@ -1,9 +1,23 @@
-body,p,ul{
+body,p,ul,li{
   margin: 0;
   padding: 0;
 }
 li{
   list-style: none;
+}
+/* 每个一级页面外层共有class */
+.main-wrap{
+  margin-top: 3rem;
+  margin-bottom: 3.125rem;
+  background: #151515;
+}
+/* 每个二级页面外层共有class */
+.main-second-wrap{
+  width: 100%;
+  margin-bottom: 0;
+  background: #151515;
+  position: absolute;
+  top: 47px;
 }
 /* 顶部栏 */
 .top-nav{
@@ -38,12 +52,6 @@ li{
 }
 .top-nav-t{
   color: #B58024;
-}
-/* 每个一级页面共有class */
-.main-wrap{
-  margin-top: 3rem;
-  margin-bottom: 3.125rem;
-  background: #151515;
 }
 /* 公告 */
 .Notice-sign{
@@ -127,4 +135,16 @@ li{
 }
 .el-tabs--border-card>.el-tabs__content{
   background: #292C35;
+}
+/* 底部暂无更多分割线 */
+.bottom-cut{
+  margin-top: 10px;
+  padding-bottom: 10px;
+  color: #373B45;
+  font-size: 12px;
+}
+.bottom-cut hr{
+  width: 40%;
+  border-color: #373B45;
+  display: inline-block;
 }

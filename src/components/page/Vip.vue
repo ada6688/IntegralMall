@@ -256,7 +256,7 @@ export default {
   box-shadow: 0 0 0 0 rgb(0, 0, 0, 0)
 }
 .VIP-contain .el-tabs--border-card .el-tabs__item{
-  padding: 2px 4.1% 0;
+  padding: 2px 4.1% 0 !important;
   height: 62px;
   vertical-align: bottom;
 }
