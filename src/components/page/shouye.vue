@@ -33,34 +33,26 @@
         <el-row>
           <el-tabs type="border-card">
             <el-tab-pane label="推荐">
-              <vuescroll>
-                <div v-for="goods in recommend" v-bind:key="goods.item" class="products-item">
-                  <div class="product-item-text">
-                    <p>{{goods.title}}</p>
-                    <span>{{goods.points}}积分</span>
-                  </div>
-                  <div class="product-item-img">
-                    <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
-                  </div>
+              <div v-for="goods in recommend" v-bind:key="goods.item" class="products-item">
+                <div class="product-item-text">
+                  <p>{{goods.title}}</p>
+                  <span>{{goods.points}}积分</span>
                 </div>
-              </vuescroll>
+                <div class="product-item-img">
+                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
+                </div>
+              </div>
             </el-tab-pane>
             <el-tab-pane label="数码">
-              <vuescroll
-              :refreshStart='refreshStart'
-              :loadStart='loadStart'
-              :noData='noData'
-              >
-                <div v-for="goods in digital" v-bind:key="goods.item" class="products-item">
-                  <div class="product-item-text">
-                    <p>{{goods.title}}</p>
-                    <span>{{goods.points}}积分</span>
-                  </div>
-                  <div class="product-item-img">
-                    <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
-                  </div>
+              <div v-for="goods in digital" v-bind:key="goods.item" class="products-item">
+                <div class="product-item-text">
+                  <p>{{goods.title}}</p>
+                  <span>{{goods.points}}积分</span>
                 </div>
-              </vuescroll>
+                <div class="product-item-img">
+                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
+                </div>
+              </div>
             </el-tab-pane>
             <el-tab-pane label="奖金">
               <div v-for="goods in bonus" v-bind:key="goods.item" class="products-item">
@@ -110,7 +102,6 @@ import Notice from '@/components/page/Notice'
 import {swiper, swiperSlide} from 'vue-awesome-swiper'
 import axios from 'axios'
 import vuescroll from 'vuescroll'
-
 export default {
   name: 'App',
   components: {
@@ -129,7 +120,7 @@ export default {
         autoplay: {
           delay: 5000,
           disableOnInteraction: false
-        },
+        }
       },
       noData: false, // 判断是否数据全部加载完成 true为全部加载完
       recommend: [], // 推荐
@@ -137,7 +128,6 @@ export default {
       bonus: [], // 奖金
       life: [], // 生活精品
       luxury: [] // 奢华品
-
     }
   },
   created () {
