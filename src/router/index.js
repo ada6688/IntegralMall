@@ -58,7 +58,7 @@ export default new Router({
       meta: {index: 2, title: '<p>规则与条款</p>'}
     },
     {
-      path: '/Youhui/chouJiang',
+      path: '/chouJiang',
       component: ChouJiang,
     }
   ]
