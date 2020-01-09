@@ -33,7 +33,7 @@
         <el-row>
           <el-tabs type="border-card">
             <el-tab-pane label="推荐">
-              <div>
+              <vuescroll>
                 <div v-for="goods in recommend" v-bind:key="goods.item" class="products-item">
                   <div class="product-item-text">
                     <p>{{goods.title}}</p>
@@ -41,23 +41,26 @@
                   </div>
                   <div class="product-item-img">
                     <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
+                  </div>
                 </div>
-                </div>
-                <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
-                </div>
-              </div>
+              </vuescroll>
             </el-tab-pane>
             <el-tab-pane label="数码">
-              <div v-for="goods in digital" v-bind:key="goods.item" class="products-item">
-                <div class="product-item-text">
-                  <p>{{goods.title}}</p>
-                  <span>{{goods.points}}积分</span>
+              <vuescroll
+              :refreshStart='refreshStart'
+              :loadStart='loadStart'
+              :noData='noData'
+              >
+                <div v-for="goods in digital" v-bind:key="goods.item" class="products-item">
+                  <div class="product-item-text">
+                    <p>{{goods.title}}</p>
+                    <span>{{goods.points}}积分</span>
+                  </div>
+                  <div class="product-item-img">
+                    <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
+                  </div>
                 </div>
-                <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
-                </div>
-              </div>
+              </vuescroll>
             </el-tab-pane>
             <el-tab-pane label="奖金">
               <div v-for="goods in bonus" v-bind:key="goods.item" class="products-item">
