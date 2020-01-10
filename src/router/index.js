@@ -13,6 +13,7 @@ import Guanyu from '@/components/member/guanyu/guanyu'
 import Yiwen from '@/components/member/yiwen/yiwen'
 import Guize from '@/components/member/guize/guize'
 import ChouJiang from '@/components/page/chouJiang'
+import GuessNBA from '@/components/page/GuessNBA'
 import { Step, Steps, Icon } from 'vant'
 
 Vue.use(Router)
@@ -62,6 +63,10 @@ export default new Router({
     {
       path: '/chouJiang',
       component: ChouJiang
+    },
+    {
+      path: '/guessNBA',
+      component: GuessNBA
     }
   ]
 })
