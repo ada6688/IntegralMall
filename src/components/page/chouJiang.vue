@@ -93,7 +93,7 @@ export default {
         '宝马会xxx 已抽中红包9900元'
       ],
       swiperOption: {
-        slidesPerView: 2.3,
+        slidesPerView: 2,
         spaceBetween: 1,
         loop: true,
         freeMode: true,
