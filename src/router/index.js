@@ -12,9 +12,13 @@ import Duihuan from '@/components/member/duihuan/duihuan'
 import Guanyu from '@/components/member/guanyu/guanyu'
 import Yiwen from '@/components/member/yiwen/yiwen'
 import Guize from '@/components/member/guize/guize'
+import Order from '@/components/page/order'
 import ChouJiang from '@/components/page/chouJiang'
+import demo from '@/components/page/DEMO'
 import { Step, Steps, Icon } from 'vant'
+import VueScroller from 'vue-scroller'
 
+Vue.use(VueScroller)
 Vue.use(Router)
 Vue.use(Step).use(Steps)
 Vue.use(Icon)
@@ -29,10 +33,16 @@ export default new Router({
     {path: '/Youhui', component: Youhui},
     {path: '/Vip', component: Vip},
     {path: '/login', component: login},
+    {path: '/order', component: Order},
+    {path: '/demo', name: 'login', component: demo},
     {
       path: '/Member',
       component: Member,
-      meta: {index: 2, title: '<p>个人中心</p>'}
+      meta: {
+        index: 2,
+        title: '<p>个人中心</p>',
+        requireAuth: true
+      }
     },
     {
       path: '/mingxi',

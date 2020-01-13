@@ -5,21 +5,21 @@
       <!-- banner -->
       <swiper :options="swiperOption" ref="mySwiper">
         <!-- slides -->
-        <swiper-slide >
-          <div class="banner-item" >
-            <img src="../../assets/images/banner/sy_NBA_banner@3x.png" alt="">
+        <swiper-slide>
+          <div class="banner-item">
+            <img src="../../assets/images/banner/sy_NBA_banner@3x.png" alt />
           </div>
         </swiper-slide>
         <swiper-slide>
-          <router-link to='/chouJiang'>
-          <div class="banner-item">
-            <img src="../../assets/images/banner/sy_cgcj_banner@3x.png" alt="">
-          </div>
+          <router-link to="/chouJiang">
+            <div class="banner-item">
+              <img src="../../assets/images/banner/sy_cgcj_banner@3x.png" alt />
+            </div>
           </router-link>
         </swiper-slide>
         <swiper-slide>
           <div class="banner-item">
-            <img src="../../assets/images/banner/banner2.png" alt="">
+            <img src="../../assets/images/banner/banner2.png" alt />
           </div>
         </swiper-slide>
         <!-- Optional controls -->
@@ -39,7 +39,7 @@
                   <span>{{goods.points}}积分</span>
                 </div>
                 <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
+                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt />
                 </div>
               </div>
             </el-tab-pane>
@@ -50,7 +50,7 @@
                   <span>{{goods.points}}积分</span>
                 </div>
                 <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
+                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt />
                 </div>
               </div>
             </el-tab-pane>
@@ -61,18 +61,18 @@
                   <span>{{goods.points}}积分</span>
                 </div>
                 <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
+                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt />
                 </div>
               </div>
             </el-tab-pane>
-            <el-tab-pane label="生活精品">
+            <el-tab-pane label="生活精品" >
               <div v-for="goods in life" v-bind:key="goods.item" class="products-item">
                 <div class="product-item-text">
                   <p>{{goods.title}}</p>
                   <span>{{goods.points}}积分</span>
                 </div>
                 <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
+                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt />
                 </div>
               </div>
             </el-tab-pane>
@@ -83,7 +83,7 @@
                   <span>{{goods.points}}积分</span>
                 </div>
                 <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt="">
+                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt />
                 </div>
               </div>
             </el-tab-pane>
@@ -99,7 +99,7 @@
 import BottomNav from '@/components/common/Bottomnav'
 import TopNav from '@/components/common/Topnav'
 import Notice from '@/components/page/Notice'
-import {swiper, swiperSlide} from 'vue-awesome-swiper'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import axios from 'axios'
 import vuescroll from 'vuescroll'
 
@@ -128,20 +128,26 @@ export default {
       digital: [], // 数码
       bonus: [], // 奖金
       life: [], // 生活精品
+      lifeshow: [],
       luxury: [] // 奢华品
-
     }
   },
   created () {
-    axios.get('http://45.64.53.115:8000/api/mulu/tuijian/?format=json')
+    axios({
+      method: 'get',
+      url: 'http://45.64.53.115:8000/api/mulu/tuijian/?format=json',
+      withCredentials: true
+    })
       .then(Response => {
         this.recommend = Response.data.results
+        console.log(Response.headers)
       })
       .catch(error => {
         console.log(error)
         alert('商品加载错误，请联系在线客服！')
       })
-    axios.get('http://45.64.53.115:8000/api/mulu/shuma/?format=json')
+    axios
+      .get('http://45.64.53.115:8000/api/mulu/shuma/?format=json')
       .then(Response => {
         this.digital = Response.data.results
       })
@@ -149,7 +155,8 @@ export default {
         console.log(error)
         alert('商品加载错误，请联系在线客服！')
       })
-    axios.get('http://45.64.53.115:8000/api/mulu/jiangjin/?format=json')
+    axios
+      .get('http://45.64.53.115:8000/api/mulu/jiangjin/?format=json')
       .then(Response => {
         this.bonus = Response.data.results
       })
@@ -157,7 +164,8 @@ export default {
         console.log(error)
         alert('商品加载错误，请联系在线客服！')
       })
-    axios.get('http://45.64.53.115:8000/api/mulu/shenghuo/?format=json')
+    axios
+      .get('http://45.64.53.115:8000/api/mulu/shenghuo/?format=json')
       .then(Response => {
         this.life = Response.data.results
       })
@@ -165,7 +173,8 @@ export default {
         console.log(error)
         alert('商品加载错误，请联系在线客服！')
       })
-    axios.get('http://45.64.53.115:8000/api/mulu/shehua/?format=json')
+    axios
+      .get('http://45.64.53.115:8000/api/mulu/shehua/?format=json')
       .then(Response => {
         this.luxury = Response.data.results
       })
@@ -193,42 +202,44 @@ export default {
 }
 </script>
 <style>
-.swiper-container{
+.swiper-container {
   height: 100%;
   margin-bottom: -4px;
 }
 /* .el-tabs__nav-wrap{
   width: 100%
 } */
-.el-tabs--border-card>.el-tabs__header .el-tabs__item:not(.is-disabled):hover{
+.el-tabs--border-card
+  > .el-tabs__header
+  .el-tabs__item:not(.is-disabled):hover {
   color: #ffffff;
 }
-.el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active{
+.el-tabs--border-card > .el-tabs__header .el-tabs__item.is-active {
   height: 39px;
 }
-.el-tabs__nav-wrap.is-scrollable{
+.el-tabs__nav-wrap.is-scrollable {
   padding: 0 20px !important;
   box-sizing: border-box;
 }
-.shouye-contain .el-tabs--border-card>.el-tabs__content {
+.shouye-contain .el-tabs--border-card > .el-tabs__content {
   padding: 15px 15px 0 15px;
 }
-.el-tabs__nav-prev{
+.el-tabs__nav-prev {
   width: 20px;
   top: -5px;
 }
-.el-tabs__nav-next{
+.el-tabs__nav-next {
   width: 20px;
   height: 40px;
   position: absolute;
   top: -2px;
   right: 2px;
 }
-.el-icon-arrow-right{
+.el-icon-arrow-right {
   height: 40px;
   line-height: 40px;
   position: relative;
   right: 0;
-  margin: 0
+  margin: 0;
 }
 </style>

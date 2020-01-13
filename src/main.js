@@ -3,17 +3,20 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store/index'
 import ElementUI from 'element-ui'
+import MintUI from 'mint-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '../src/assets/css/common.css'
 import '../src/assets/css/index.css'
 import 'swiper/dist/css/swiper.css'
+import 'mint-ui/lib/style.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-// import BScroll from 'better-scroll'
 
 Vue.prototype.HOST = '/api'
 Vue.use(VueAwesomeSwiper)
 Vue.use(ElementUI)
+Vue.use(MintUI)
 
 Vue.config.productionTip = false
 
@@ -21,8 +24,24 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: {
     App
   },
   template: '<App/>'
+})
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requireAuth)) { // 判断该路由是否需要登录权限
+    console.log('需要登录')
+    if (localStorage.csrfmiddlewaretoken) { // 判断当前的token是否存在
+      next()
+    } else {
+      next({
+        path: '/login',
+        query: {redirect: router.fullPath} // 将跳转的路由path作为参数，登录成功后跳转到该路由
+      })
+    }
+  } else {
+    next()
+  }
 })
