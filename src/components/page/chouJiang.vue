@@ -98,7 +98,7 @@ export default {
         loop: true,
         freeMode: true,
         autoplay: {
-          delay: 2000
+          delay: 2000000
         }
       }
     }
@@ -220,15 +220,23 @@ export default {
   font-size: 0.1em;
   color: #a50717;
   margin-left: 3px;
+  position: absolute;
+  transform: translateY(7%);
+}
+@media screen and (min-width: 700px) {
+  .letter-div span {
+    transform: translateY(50%);
+  }
 }
 .letter-div div:first-child {
   float: left;
-  width: 20%;
-  margin: 3px 3px 3px 3px;
+  margin: 1px 3px 3px 3px;
 }
 .letter-div div:nth-child(2) {
   float: left;
   width: 70%;
+  height: 100%;
+  position: relative;
 }
 .lottery-notice .swiper-container {
   height: 48px;
