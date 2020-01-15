@@ -1,13 +1,13 @@
 <template>
   <div class="top-nav">
     <div id="top-nav-left" class="top-nav-left">
-      <img src="../../assets/images/topnav/cd.png" alt="logo">
+      <img src="../../assets/images/topnav/cd@3x.png" alt="logo">
     </div>
     <div id="top-nav-logo" class="top-nav-logo">
-      <img src="../../assets/images/topnav/logo.png" alt="logo">
+      <img src="../../assets/images/topnav/logo@3x.png" alt="logo">
     </div>
     <div id="top-nav-right" class="top-nav-right">
-      <img src="../../assets/images/topnav/ss.png" alt="搜索">
+      <img src="../../assets/images/topnav/ss@3x.png" alt="搜索">
     </div>
   </div>
 </template>
@@ -15,11 +15,6 @@
 export default {
   data () {
     return {
-      tabBarImgArr: [
-        {normal: require('../../assets/images/topnav/logo.png')},
-        {normal: require('../../assets/images/topnav/ss.png')},
-        {normal: require('../../assets/images/topnav/cd.png')}
-      ]
     }
   }
 }

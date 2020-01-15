@@ -135,8 +135,7 @@ export default {
   created () {
     axios({
       method: 'get',
-      url: 'http://45.64.53.115:8000/api/mulu/tuijian/?format=json',
-      withCredentials: true
+      url: 'http://45.64.53.115:8000/api/mulu/tuijian/?format=json'
     })
       .then(Response => {
         this.recommend = Response.data.results
@@ -150,6 +149,8 @@ export default {
       .get('http://45.64.53.115:8000/api/mulu/shuma/?format=json')
       .then(Response => {
         this.digital = Response.data.results
+        console.log(Response.data.results)
+
       })
       .catch(error => {
         console.log(error)
@@ -224,22 +225,11 @@ export default {
 .shouye-contain .el-tabs--border-card > .el-tabs__content {
   padding: 15px 15px 0 15px;
 }
-.el-tabs__nav-prev {
-  width: 20px;
-  top: -5px;
-}
-.el-tabs__nav-next {
+.el-tabs__nav-prev,.el-tabs__nav-next {
   width: 20px;
   height: 40px;
+  color: #ffffff;
   position: absolute;
-  top: -2px;
-  right: 2px;
-}
-.el-icon-arrow-right {
-  height: 40px;
-  line-height: 40px;
-  position: relative;
-  right: 0;
-  margin: 0;
+  top: -3px
 }
 </style>

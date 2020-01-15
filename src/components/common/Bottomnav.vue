@@ -27,11 +27,11 @@ export default {
   data () {
     return {
       tabBarImgArr: [
-        {normal: require('../../assets/images/navLogo/sy_x.png'), selected: require('../../assets/images/navLogo/sy.png')},
-        {normal: require('../../assets/images/navLogo/yh_x.png'), selected: require('../../assets/images/navLogo/yh.png')},
-        {normal: require('../../assets/images/navLogo/gw_x.png'), selected: require('../../assets/images/navLogo/gw.png')},
-        {normal: require('../../assets/images/navLogo/zs_x.png'), selected: require('../../assets/images/navLogo/zs.png')},
-        {normal: require('../../assets/images/navLogo/wd_x.png'), selected: require('../../assets/images/navLogo/wd.png')}
+        {normal: require('../../assets/images/navLogo/sy_x@3x.png'), selected: require('../../assets/images/navLogo/sy@3x.png')},
+        {normal: require('../../assets/images/navLogo/yh_x@3x.png'), selected: require('../../assets/images/navLogo/yh@3x.png')},
+        {normal: require('../../assets/images/navLogo/gw_x@3x.png'), selected: require('../../assets/images/navLogo/gw@3x.png')},
+        {normal: require('../../assets/images/navLogo/zs_x@3x.png'), selected: require('../../assets/images/navLogo/zs@3x.png')},
+        {normal: require('../../assets/images/navLogo/wd_x@3x.png'), selected: require('../../assets/images/navLogo/wd@3x.png')}
       ]
     }
   },

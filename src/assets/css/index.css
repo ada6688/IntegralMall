@@ -166,11 +166,15 @@ form{
   width: 100%;
 }
 /******************* VIP *******************/
+.VIP-T > img{
+  width: 90%;
+}
 .level-welfare-wrap, .level-require-wrap{
   padding-bottom: 20px;
 }
 .VipTop-level-sign{
   display: inline-block;
+  width: 22px;
 }
 .VipTop-level-text{
   position: absolute;
@@ -179,7 +183,7 @@ form{
 .vip-level-wrap ul li{
   float: left;
   width: 33.33%;
-  height: 79px;
+  margin-bottom: 20px;
 }
 .vip-level-wrap ul div{
   width: 34px;
@@ -388,9 +392,6 @@ form{
   position: absolute;
   right: 20px;
   margin-top: 12px;
-}
-.el-icon-arrow-left{
-  color: #ffffff
 }
 /* 积分明细 */
 .integral-details{

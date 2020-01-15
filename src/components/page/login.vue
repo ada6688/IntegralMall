@@ -1,6 +1,6 @@
 <template>
   <div class="loginBg">
-    <div class="login-wrap">
+    <form class="login-wrap">
         <img class="login-logo" src="../../assets/images/login/logo.png" alt=""/>
         <div class="login-input">
             <label for="loginName" class="loginName">
@@ -16,8 +16,19 @@
         <button class="login_bt" id="sub" type="submit" @click="login()">登录</button>
         <p class="login_tips">首次登陆请联系<a href="https://bmw-chat-service.com/?wgPortal=VONFpjLZtk">&nbsp;在线客服&nbsp;</a>获取密码</p>
         <img class="login-shadow" src="../../assets/images/login/shadow.png" alt=""/>
-    </div>
-</div>
+    </form>
+    <!-- <el-form :inline="true" :model="loginForm" class="demo-form-inline">
+      <el-form-item label="用户名" prop="username">
+        <el-input type="text" v-model="loginForm.username" placeholder="请输入您的用户名"></el-input>
+      </el-form-item>
+      <el-form-item label="密码" prop="password">
+        <el-input type="password" v-model="loginForm.password" placeholder="请输入您的密码"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="login">登录</el-button>
+      </el-form-item>
+    </el-form> -->
+  </div>
 </template>
 <script>
 import '../../assets/css/login.css'
