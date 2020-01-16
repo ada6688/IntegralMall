@@ -9,8 +9,10 @@ import '../src/assets/css/common.css'
 import '../src/assets/css/index.css'
 import 'swiper/dist/css/swiper.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-// import BScroll from 'better-scroll'
+import cookie from 'vue-cookie'
 
+// import BScroll from 'better-scroll'
+Vue.prototype.$cookie = cookie
 Vue.prototype.HOST = '/api'
 Vue.use(VueAwesomeSwiper)
 Vue.use(ElementUI)

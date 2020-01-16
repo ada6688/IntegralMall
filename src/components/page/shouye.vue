@@ -5,26 +5,13 @@
       <!-- banner -->
       <swiper :options="swiperOption" ref="mySwiper">
         <!-- slides -->
-        <swiper-slide >
+        <swiper-slide v-for="(data, index) in bannerData" :key="index">
+          <router-link :to=data.url>
           <div class="banner-item" >
-            <img src="../../assets/images/banner/sy_NBA_banner@3x.png" alt="">
+            <img :src=data.img alt="">
           </div>
+           </router-link>
         </swiper-slide>
-        <swiper-slide>
-          <router-link to='/chouJiang'>
-          <div class="banner-item">
-            <img src="../../assets/images/banner/sy_cgcj_banner@3x.png" alt="">
-          </div>
-          </router-link>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="banner-item">
-            <img src="../../assets/images/banner/banner2.png" alt="">
-          </div>
-        </swiper-slide>
-        <!-- Optional controls -->
-        <!-- <div class="swiper-pagination" slot="pagination"></div> -->
-        <!-- <div class="swiper-scrollbar index-banner-circle" slot="scrollbar"></div> -->
       </swiper>
       <!-- 滚动公告 -->
       <Notice></Notice>
@@ -128,8 +115,12 @@ export default {
       digital: [], // 数码
       bonus: [], // 奖金
       life: [], // 生活精品
-      luxury: [] // 奢华品
-
+      luxury: [], // 奢华品
+      bannerData: [
+        {url: '/chouJiang', img: require('../../assets/images/banner/sy_cgcj_banner@3x.png')},
+        {url: '/guessNBA', img: require('../../assets/images/banner/sy_NBA_banner@3x.png')},
+        {url: '/chouJiang', img: require('../../assets/images/banner/sy_cgcj_banner@3x.png')}
+      ]
     }
   },
   created () {
