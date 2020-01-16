@@ -3,34 +3,34 @@
     <TopNav></TopNav>
     <div class="main-wrap VIP-contain">
       <!-- VIP专区描述 -->
-      <div>
-        <img src="../../assets/images/VIP/VIP-T.png" alt="">
+      <div class="VIP-T">
+        <img src="../../assets/images/VIP/VIP-T@3x.png" alt="">
       </div>
       <!-- 各等级福利表 -->
       <div class="level-welfare-wrap">
         <el-row>
           <el-tabs type="border-card">
-            <el-tab-pane label="普通">
-              <span slot="label"><img class="VipTop-level-sign" src="../../assets/images/VIP/pt.png" alt=""> <p class="VipTop-level-text">普通</p></span>
+            <el-tab-pane label="" v-for="items in leverSign" :key="items.item">
+              <span slot="label"><img class="VipTop-level-sign" :src="items.img" alt=""> <p class="VipTop-level-text">{{items.level}}</p></span>
               <div class="vip-level-wrap">
                 <ul>
                   <li>
                     <div>
                       <img src="../../assets/images/VIP/hg.png" alt="">
                     </div>
-                    <p>晋级礼金暂无</p>
+                    <p>晋级礼金{{items.jjlj}}</p>
                   </li>
                   <li>
                     <div>
                       <img src="../../assets/images/VIP/dg.png" alt="">
                     </div>
-                    <p>生日礼金暂无</p>
+                    <p>生日礼金{{items.srlj}}</p>
                   </li>
                   <li>
                     <div>
                       <img src="../../assets/images/VIP/QQ.png" alt="">
                     </div>
-                    <p>QQ客服</p>
+                    <p>{{items.kf}}</p>
                   </li>
                 </ul>
                 <ul>
@@ -38,19 +38,19 @@
                     <div>
                       <img src="../../assets/images/VIP/jb.png" alt="">
                     </div>
-                    <p>每月免费筹码暂无</p>
+                    <p>每月免费筹码{{items.mfcm}}</p>
                   </li>
                   <li>
                     <div>
                       <img src="../../assets/images/VIP/sc.png" alt="">
                     </div>
-                    <p>积分商城折扣暂无</p>
+                    <p>积分商城折扣{{items.jfsc}}</p>
                   </li>
                   <li>
                     <div>
                       <img src="../../assets/images/VIP/yhk.png" alt="">
                     </div>
-                    <p>单日提款额度<br>限免3次</p>
+                    <p>单日的提款额度{{items.tked}}</p>
                   </li>
                 </ul>
                 <ul>
@@ -58,39 +58,21 @@
                     <div>
                       <img src="../../assets/images/VIP/qd.png" alt="">
                     </div>
-                    <p>VIP救援金暂无</p>
+                    <p>VIP救援金{{items.jyj}}</p>
                   </li>
                   <li>
                     <div>
                       <img src="../../assets/images/VIP/yhbq.png" alt="">
                     </div>
-                    <p>存款15%<br>最高需15倍流水</p>
+                    <p>{{items.csyh}}</p>
                   </li>
                 </ul>
               </div>
             </el-tab-pane>
-            <el-tab-pane label="黄金">
-              <span slot="label"><img class="VipTop-level-sign" src="../../assets/images/VIP/hj.png" alt=""> <p class="VipTop-level-text">黄金</p></span>
-            </el-tab-pane>
-            <el-tab-pane label="铂金">
-              <span slot="label"><img class="VipTop-level-sign" src="../../assets/images/VIP/bj.png" alt=""> <p class="VipTop-level-text">铂金</p></span>
-            </el-tab-pane>
-            <el-tab-pane label="钻石">
-              <span slot="label"><img class="VipTop-level-sign" src="../../assets/images/VIP/zs.png" alt=""> <p class="VipTop-level-text">钻石</p></span>
-            </el-tab-pane>
-            <el-tab-pane label="至尊">
-              <span slot="label"><img class="VipTop-level-sign" src="../../assets/images/VIP/zz.png" alt=""> <p class="VipTop-level-text">至尊</p></span>
-            </el-tab-pane>
-            <el-tab-pane label="王者">
-              <span slot="label"><img class="VipTop-level-sign" src="../../assets/images/VIP/wz.png" alt=""> <p class="VipTop-level-text">王者</p></span>
-            </el-tab-pane>
-            <el-tab-pane label="特邀">
-              <span slot="label"><img class="VipTop-level-sign" src="../../assets/images/VIP/ty.png" alt=""> <p class="VipTop-level-text">特邀</p></span>
-            </el-tab-pane>
           </el-tabs>
         </el-row>
       </div>
-      <!-- 晋级要求 -->
+      <!-- VIP晋级要求 -->
       <div class="level-require-wrap">
         <p class="Vip-level-T">VIP晋级要求</p>
         <el-table
@@ -143,26 +125,122 @@ export default {
     return {
       tableData: [{
         level: '黄金会员',
+        img: 'static/vip/hj@3x.png',
         detail: '1、单月(全部平台)总投注额50w' + '\n' + '2、单月(全部老虎机)平台总投注额20w'
       }, {
         level: '铂金会员',
+        img: '/static/vip/bj@3x.png',
         detail: '1、单月(全部平台)总投注额200w' + '\n' + '2、单月(全部老虎机)平台总投注额120w'
       }, {
         level: '钻石会员',
+        img: '/static/vip/zs@3x.png',
         detail: '1、单月(全部平台)总投注额500w' + '\n' + '2、单月(全部老虎机)平台总投注额300w'
       }, {
         level: '至尊会员',
+        img: '/static/vip/zz@3x.png',
         detail: '1、单月(全部平台)总投注额800w' + '\n' + '2、单月(全部老虎机)平台总投注额500w'
       }, {
         level: '王者会员',
+        img: '/static/vip/wz@3x.png',
         detail: '1、单月(全部平台)总投注额1000w' + '\n' + '2、单月(全部老虎机)平台总投注额600w'
       }, {
         level: '特邀会员',
+        img: '/static/vip/ty@3x.png',
         detail: '1、平台邀请' + '\n' + '2、客户经理推荐'
       }],
-      row: [{
-        picture: '../../assets/images/VIP/pt.png'
-      }]
+      leverSign: [
+        {
+          level: '普通',
+          img: 'static/vip/pt@3x.png',
+          jjlj: '暂无',
+          srlj: '暂无',
+          kf: '在线客服',
+          mfcm: '暂无',
+          jfsc: '暂无',
+          tked: '限免三次',
+          jyj: '暂无',
+          csyh: '存款送15%,最高888,需15倍流水'
+
+        },
+        {
+          level: '黄金',
+          img: 'static/vip/hj@3x.png',
+          jjlj: '58元',
+          srlj: '58元',
+          kf: 'QQ客服',
+          mfcm: '18元',
+          jfsc: '9.8折',
+          tked: '限免三次',
+          jyj: '暂无',
+          csyh: '存款送15%,最高2888,需18倍流水'
+
+        },
+        {
+          level: '铂金',
+          img: 'static/vip/bj@3x.png',
+          jjlj: '188元',
+          srlj: '188元',
+          kf: 'VIP专员',
+          mfcm: '88元',
+          jfsc: '9.5折',
+          tked: '限免三次',
+          jyj: '暂无',
+          csyh: '存款送16%,最高2888,需18倍流水'
+
+        },
+        {
+          level: '钻石',
+          img: 'static/vip/zs@3x.png',
+          jjlj: '588元',
+          srlj: '588元',
+          kf: 'VIP专员',
+          mfcm: '188元',
+          jfsc: '9.2折',
+          tked: '限免三次',
+          jyj: '暂无',
+          csyh: '存款送17%，最高2888，需18倍流水'
+
+        },
+        {
+          level: '至尊',
+          img: 'static/vip/zz@3x.png',
+          jjlj: '888元',
+          srlj: '888元',
+          kf: 'VIP专员',
+          mfcm: '388元',
+          jfsc: '8.8折',
+          tked: '请联系客服获取',
+          jyj: '0.5%，最高金额33333',
+          csyh: '存款送18%,最高2888,需18倍流水'
+
+        },
+        {
+          level: '王者',
+          img: 'static/vip/wz@3x.png',
+          jjlj: '1888元',
+          srlj: '1888元',
+          kf: '客户经理',
+          mfcm: '888元',
+          jfsc: '8.5折',
+          tked: '请联系客服获取',
+          jyj: '0.8%，最高金额66666',
+          csyh: '存款送19%,最高2888,需18倍流水'
+
+        },
+        {
+          level: '特邀',
+          img: 'static/vip/ty@3x.png',
+          jjlj: '2888元',
+          srlj: '2888元',
+          kf: '客户经理',
+          mfcm: '1288元',
+          jfsc: '8.2折',
+          tked: '请联系客服获取',
+          jyj: '1%，最高金额88888',
+          csyh: '存款送20%,最高2888,需18倍流水'
+
+        },
+      ]
     }
   },
   mounted: function () {
@@ -182,14 +260,21 @@ export default {
   font-size: .5em
 }
 .VIP-contain .el-table--border{
-  border: 0
+  border: 0 !important
 }
-.VIP-contain .el-table td, .el-table th.is-leaf,.el-table--border, .el-table--group{
+.VIP-contain li{
+  background-color: transparent !important;
+  border: none !important;
+}
+.VIP-contain .el-table td, .el-table th.is-leaf{
+  border-bottom: 1px solid #343947 !important
+}
+.VIP-contain .el-table td,.VIP-contain .el-table th.is-leaf,.VIP-contain .el-table--border,.VIP-contain .el-table--group{
   border-color: #343947;
-  background: #292C35;
+  background: #292C35 !important;
   color: #cccccc
 }
-.VIP-contain .el-table td, .el-table th{
+.VIP-contain .el-table td, .VIP-contain .el-table th{
   height: 58px;
   padding: 0
 }
@@ -210,31 +295,33 @@ export default {
 }
 .VIP-contain .el-table--border tr:first-child td:first-child .cell{
   padding-left: 20px;
-  background: url(../../assets/images/VIP/pt.png) no-repeat;
+  background: url(/static/vip/hj@3x.png) no-repeat;
+  background-size: 16px 22px;
 }
 .VIP-contain .el-table--border tr:nth-child(2) td:first-child .cell{
   padding-left: 20px;
-  background: url(../../assets/images/VIP/hj.png) no-repeat;
+  background: url(/static/vip/bj@3x.png) no-repeat;
+  background-size: 16px 22px;
 }
 .VIP-contain .el-table--border tr:nth-child(3) td:first-child .cell{
   padding-left: 20px;
-  background: url(../../assets/images/VIP/bj.png) no-repeat;
+  background: url(/static/vip/zs@3x.png) no-repeat;
+  background-size: 16px 22px;
 }
 .VIP-contain .el-table--border tr:nth-child(4) td:first-child .cell{
   padding-left: 20px;
-  background: url(../../assets/images/VIP/zs.png) no-repeat;
+  background: url(/static/vip/zz@3x.png) no-repeat;
+  background-size: 16px 22px;
 }
 .VIP-contain .el-table--border tr:nth-child(5) td:first-child .cell{
   padding-left: 20px;
-  background: url(../../assets/images/VIP/zz.png) no-repeat;
+  background: url(/static/vip/wz@3x.png) no-repeat;
+  background-size: 16px 22px;
 }
 .VIP-contain .el-table--border tr:nth-child(6) td:first-child .cell{
   padding-left: 20px;
-  background: url(../../assets/images/VIP/wz.png) no-repeat;
-}
-.VIP-contain .el-table--border tr:nth-child(7) td:first-child .cell{
-  padding-left: 20px;
-  background: url(../../assets/images/VIP/ty.png) no-repeat;
+  background: url(/static/vip/ty@3x.png) no-repeat;
+  background-size: 16px 22px;
 }
 .VIP-contain .el-tabs__nav{
   width: 100%
@@ -253,7 +340,8 @@ export default {
   box-sizing: border-box;
 }
 .VIP-contain .el-tabs--border-card{
-  box-shadow: 0 0 0 0 rgb(0, 0, 0, 0)
+  box-shadow: 0 0 0 0 rgb(0, 0, 0, 0);
+  background: transparent
 }
 .VIP-contain .el-tabs--border-card .el-tabs__item{
   padding: 2px 4.1% 0 !important;
@@ -269,5 +357,9 @@ export default {
 }
 .VIP-contain .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active{
   height: 62px;
+}
+.VIP-contain .el-table--border::after, .el-table--group::after, .el-table::before{
+  display: none;
+  background:transparent;
 }
 </style>

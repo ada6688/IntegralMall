@@ -1,7 +1,7 @@
 <template>
   <div>
     <TopNavC></TopNavC>
-    <div class="choujiang-page" :style="{backgroundImage: 'url(' + mainbg + ')'}">
+    <div class="choujiang-page main-second-wrap" :style="{backgroundImage: 'url(' + mainbg + ')'}">
       <div class="game-detail">
         <h4>活动详情：</h4>
         <p>应广大会员的强烈要求，宝马会特将十一活动【开宝箱、领奖金】设 置为日常优惠活动，任何会员只要每天投注额≥6000元，即可在次日 14:00后参与【开宝箱、领奖金】活动，宝箱中奖率为100%，最高单 笔奖金可达66666元。</p>
@@ -70,13 +70,13 @@ export default {
   data () {
     return {
       mainbg: require('../../assets/images/yh/background.png'),
-      zhuanlun: require('../../assets/images/yh/抽奖转轮.png'),
+      zhuanlun: require('../../assets/images/yh/cj-bg.png'),
       lottery: require('../../assets/images/yh/6.original.png'),
       lottery_button: require('../../assets/images/yh/cjan_dj@3x.png'),
       head: require('../../assets/images/yh/tx.png'),
       zhuanlunDiv: {
         backgroundImage:
-          'url(' + require('../../assets/images/yh/抽奖转轮.png') + ')',
+          'url(' + require('../../assets/images/yh/cj-bg.png') + ')',
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100% 100%'
       },
@@ -93,12 +93,12 @@ export default {
         '宝马会xxx 已抽中红包9900元'
       ],
       swiperOption: {
-        slidesPerView: 2.3,
+        slidesPerView: 2,
         spaceBetween: 1,
         loop: true,
         freeMode: true,
         autoplay: {
-          delay: 1000
+          delay: 2500
         }
       }
     }
@@ -115,25 +115,22 @@ export default {
 </script>
 <style>
 .choujiang-page {
-  margin-top: 3rem;
-  padding-bottom: 60px;
+  background-size: 100% 100%;
+  padding-bottom: 60px
 }
 .lottery-rule {
   background-color: #f9c74a;
   margin: 17px 17px 0 17px;
+  padding: 16px 10px;
   border-radius: 6px;
 }
 .lottery-rule p {
   color: #c9463a;
   font-size: 12px;
   text-align: left;
-  margin: 0 10px 0 10px;
 }
-.lottery-rule .notice-title {
+.lottery-rule {
   text-align: left;
-}
-.el-icon-arrow-left {
-  color: #ffffff;
 }
 .game-detail {
   padding: 17px 17px 17px 17px;
@@ -200,6 +197,7 @@ export default {
 .lottery-notice {
   background-color: #f9c74a;
   margin: 0 17px 0 17px;
+  padding: 10px 0 5px 10px;
   border-radius: 6px;
   text-align: left;
 }
@@ -207,10 +205,10 @@ export default {
   font-size: 14px;
   font-weight: 400;
   color: white;
-  padding: 10px 10px 10px 10px;
+  margin-bottom: 5px
 }
 .letter-div {
-  background: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, .6);
   border-radius: 55px;
   height: 35px;
   /* opacity:0.5; */
@@ -220,18 +218,25 @@ export default {
   font-size: 0.1em;
   color: #a50717;
   margin-left: 3px;
+  position: absolute;
+  transform: translateY(7%);
+}
+@media screen and (min-width: 700px) {
+  .letter-div span {
+    transform: translateY(50%);
+  }
 }
 .letter-div div:first-child {
   float: left;
-  width: 20%;
-  margin: 3px 3px 3px 3px;
+  margin: 1px 3px 3px 3px;
 }
 .letter-div div:nth-child(2) {
   float: left;
   width: 70%;
+  height: 100%;
+  position: relative;
 }
 .lottery-notice .swiper-container {
   height: 48px;
-  margin-left: 5px;
 }
 </style>

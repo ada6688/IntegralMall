@@ -17,7 +17,7 @@
     "axios": "^0.19.1",
     "better-scroll": "^1.15.2",
     "element-ui": "^2.13.0",
-    "qs": "^6.9.1",
+    "mint-ui": "^2.2.13",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
     "vant": "^2.4.1",
@@ -26,7 +26,9 @@
     "vue-cookie": "^1.1.4",
     "vue-cookies": "^1.6.1",
     "vue-router": "^3.0.1",
-    "vuescroll": "^4.14.4"
+    "vue-scroller": "^2.2.4",
+    "vuescroll": "^4.14.4",
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

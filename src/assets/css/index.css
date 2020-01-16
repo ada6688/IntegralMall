@@ -46,6 +46,119 @@
 .product-item-img img{
   max-width: 100%;
 }
+.el-icon-arrow-left {
+  color: #ffffff;
+}
+/* 订单 兑换信息填写 */
+.order-product-wrap{
+  padding: 25px 16px;
+}
+.order-img{
+  width: 35%;
+  height: 110px;
+  vertical-align: middle;
+  text-align: center;
+  float: left;
+  position: relative;
+}
+.order-img img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.order-text{
+  width: 65%;
+  text-align: left;
+  display: inline-block;
+}
+.order-text > p{
+  color: #BB8322;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.order-pro-detail{
+  color: #E5E5E5;
+  font-size: 13px;
+}
+.order-pro-cost{
+  font-size: 12px;
+}
+.order-pro-cost p{
+  display: inline-block;
+}
+.order-pro-cost p:last-child{
+  float: right;
+}
+.order-pro-cost p span:first-child{
+  color: #666666;
+}
+.order-pro-cost p:first-child span:last-child{
+  color: #999999;
+  text-decoration: line-through;
+}
+.order-pro-cost p:last-child span:last-child{
+  color: #BA1C22;
+}
+.order-pro-detail-button{
+  width: 100%;
+  font-size: 15px;
+  color: #E5E5E5;
+  margin-top: 10px;
+  text-align: center;
+}
+.order-pro-detail-button p{
+  width: 80%;
+  border: 1px solid #B58024;
+  margin: 0 auto;
+  padding: 5px 0;
+}
+form{
+  width: 100%;
+}
+.order-form div{
+  height: 40px;
+  line-height: 40px;
+  text-align: left;
+  padding-left: 20px;
+  background: #2A2C35;
+  border-top: 1px solid #151515;
+}
+.order-form div span:first-child{
+  color: #B31E23;
+  margin-right: 3px;
+}
+.order-form div span:nth-child(3){
+  color: #ffffff;
+}
+.order-name-T{
+  width: 20%;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 13px;
+  text-align-last: justify;
+}
+.order-form input{
+  font-size: 12px;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+}
+.order-form button{
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  color: #ffffff;
+  letter-spacing: 2px;
+  background:linear-gradient(#B58024,#E4B562);
+  border: none;
+  outline: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
 /******************* 优惠 *******************/
 .yh-wrap div{
   padding: 1rem 1rem 0 1rem;
@@ -54,11 +167,15 @@
   width: 100%;
 }
 /******************* VIP *******************/
+.VIP-T > img{
+  width: 90%;
+}
 .level-welfare-wrap, .level-require-wrap{
   padding-bottom: 20px;
 }
 .VipTop-level-sign{
   display: inline-block;
+  width: 22px;
 }
 .VipTop-level-text{
   position: absolute;
@@ -67,7 +184,7 @@
 .vip-level-wrap ul li{
   float: left;
   width: 33.33%;
-  height: 79px;
+  margin-bottom: 20px;
 }
 .vip-level-wrap ul div{
   width: 34px;
@@ -106,7 +223,6 @@
   background: #2A2C35;
   text-align: left;
   padding: 15px 17px 16px 17px;
-  margin-bottom: 50px;
 }
 .level-rules-wrap span{
   font-size: 16px;
@@ -277,9 +393,6 @@
   right: 20px;
   margin-top: 12px;
 }
-.el-icon-arrow-left{
-  color: #ffffff
-}
 /* 积分明细 */
 .integral-details{
   width: 100%;
@@ -338,6 +451,9 @@
   width: 32%;
   text-align: center;
   display: inline-block;
+}
+.exchange-item-img img{
+  width: 100%;
 }
 .exchange-item-des{
   width: 66.6%;
