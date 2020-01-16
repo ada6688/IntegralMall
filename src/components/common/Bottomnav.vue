@@ -9,8 +9,8 @@
       <p :class="{on: '/Youhui' === $route.path}">优惠</p>
     </div>
     <div class="tab-item">
-      <img class="NavSigh" :src="'/' === $route.path ? tabBarImgArr[2].selected : tabBarImgArr[2].normal" alt="搜索">
-      <p :class="{on: '/' === $route.path}">官网</p>
+      <img class="NavSigh" :src="'https://bmw-chat-service.com/?wgPortal=VONFpjLZtk' === $route.path ? tabBarImgArr[2].selected : tabBarImgArr[2].normal" alt="搜索">
+      <p :class="{on: 'https://bmw-chat-service.com/?wgPortal=VONFpjLZtk' === $route.path}">官网</p>
     </div>
     <div class="tab-item" @click="switchTo('/Vip')">
       <img class="NavSigh" :src="'/Vip' === $route.path ? tabBarImgArr[3].selected : tabBarImgArr[3].normal" alt="聊天">

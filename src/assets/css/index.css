@@ -46,6 +46,9 @@
 .product-item-img img{
   max-width: 100%;
 }
+.el-icon-arrow-left {
+  color: #ffffff;
+}
 /* 订单 兑换信息填写 */
 .order-product-wrap{
   padding: 25px 16px;
@@ -112,8 +115,6 @@
 }
 form{
   width: 100%;
-}
-.order-form{
 }
 .order-form div{
   height: 40px;
@@ -222,7 +223,6 @@ form{
   background: #2A2C35;
   text-align: left;
   padding: 15px 17px 16px 17px;
-  margin-bottom: 50px;
 }
 .level-rules-wrap span{
   font-size: 16px;
@@ -451,6 +451,9 @@ form{
   width: 32%;
   text-align: center;
   display: inline-block;
+}
+.exchange-item-img img{
+  width: 100%;
 }
 .exchange-item-des{
   width: 66.6%;

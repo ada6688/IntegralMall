@@ -70,13 +70,13 @@ export default {
   data () {
     return {
       mainbg: require('../../assets/images/yh/background.png'),
-      zhuanlun: require('../../assets/images/yh/抽奖转轮.png'),
+      zhuanlun: require('../../assets/images/yh/cj-bg.png'),
       lottery: require('../../assets/images/yh/6.original.png'),
       lottery_button: require('../../assets/images/yh/cjan_dj@3x.png'),
       head: require('../../assets/images/yh/tx.png'),
       zhuanlunDiv: {
         backgroundImage:
-          'url(' + require('../../assets/images/yh/抽奖转轮.png') + ')',
+          'url(' + require('../../assets/images/yh/cj-bg.png') + ')',
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100% 100%'
       },
@@ -98,7 +98,7 @@ export default {
         loop: true,
         freeMode: true,
         autoplay: {
-          delay: 2000000
+          delay: 2500
         }
       }
     }
@@ -131,9 +131,6 @@ export default {
 }
 .lottery-rule {
   text-align: left;
-}
-.el-icon-arrow-left {
-  color: #ffffff;
 }
 .game-detail {
   padding: 17px 17px 17px 17px;

@@ -4,15 +4,15 @@
     <div class="main-second-wrap">
       <div class="order-product-wrap">
         <div class="order-img">
-          <img src="../../assets/images/products/bsbb.png" alt="">
+          <img :src="'http://45.64.53.115:8000' + commodity.img_url.url" alt="">
         </div>
         <div class="order-text">
           <p>您要兑换的商品是</p>
-          <span class="order-pro-detail">Apple iPhone 11 Pro Max (A2220) 256G B 联通电信4G手机 双卡双待！</span>
+          <span class="order-pro-detail">{{commodity.title}}</span>
           <div class="order-pro-cost">
             <p>
               <span>原积分</span>
-              <span>4000</span>
+              <span>{{commodity.points}}</span>
             </p>
             <p>
               <span>折扣价</span>
@@ -56,10 +56,33 @@
 </template>
 <script>
 import TopNavC from '@/components/common/TopNavC'
+import Axios from 'axios'
 
 export default {
   components: {
     TopNavC
+  },
+  data () {
+    return {
+      commodity: []
+    }
+  },
+  created () {
+    // console.log(id)
+    Axios({
+      method: 'get',
+      url: 'http://45.64.53.115:8000/api/mulu/' + orderid +'/?format=json',
+      withCredentials: true
+    })
+      .then(Response => {
+        this.commodity = Response.data
+        console.log(Response.data)
+      })
+      .catch(error => {
+        console.log(error)
+        alert('商品加载错误，请联系在线客服！')
+        this.$router.push('/shouye')
+      })
   },
   mounted: function () {
     this.change()

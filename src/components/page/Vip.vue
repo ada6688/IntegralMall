@@ -259,15 +259,22 @@ export default {
   white-space: pre-line;
   font-size: .5em
 }
-/* .VIP-contain .el-table--border{
-  border: 0
-} */
-.VIP-contain .el-table td, .el-table th.is-leaf,.el-table--border, .el-table--group{
+.VIP-contain .el-table--border{
+  border: 0 !important
+}
+.VIP-contain li{
+  background-color: transparent !important;
+  border: none !important;
+}
+.VIP-contain .el-table td, .el-table th.is-leaf{
+  border-bottom: 1px solid #343947 !important
+}
+.VIP-contain .el-table td,.VIP-contain .el-table th.is-leaf,.VIP-contain .el-table--border,.VIP-contain .el-table--group{
   border-color: #343947;
-  background: #292C35;
+  background: #292C35 !important;
   color: #cccccc
 }
-.VIP-contain .el-table td, .el-table th{
+.VIP-contain .el-table td, .VIP-contain .el-table th{
   height: 58px;
   padding: 0
 }
@@ -336,9 +343,6 @@ export default {
   box-shadow: 0 0 0 0 rgb(0, 0, 0, 0);
   background: transparent
 }
-.VIP-contain .el-table th, .el-table tr{
-  background: transparent
-}
 .VIP-contain .el-tabs--border-card .el-tabs__item{
   padding: 2px 4.1% 0 !important;
   height: 62px;
@@ -355,6 +359,7 @@ export default {
   height: 62px;
 }
 .VIP-contain .el-table--border::after, .el-table--group::after, .el-table::before{
-  display: none
+  display: none;
+  background:transparent;
 }
 </style>

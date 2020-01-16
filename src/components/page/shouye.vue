@@ -44,7 +44,7 @@
               </div>
             </el-tab-pane>
             <el-tab-pane label="数码">
-              <div v-for="goods in digital" v-bind:key="goods.item" class="products-item">
+              <div v-for="goods in digital" v-bind:key="goods.item" class="products-item" @click="jump(goods.pk)">
                 <div class="product-item-text">
                   <p>{{goods.title}}</p>
                   <span>{{goods.points}}积分</span>
@@ -139,7 +139,6 @@ export default {
     })
       .then(Response => {
         this.recommend = Response.data.results
-        console.log(Response.headers)
       })
       .catch(error => {
         console.log(error)
@@ -149,8 +148,6 @@ export default {
       .get('http://45.64.53.115:8000/api/mulu/shuma/?format=json')
       .then(Response => {
         this.digital = Response.data.results
-        console.log(Response.data.results)
-
       })
       .catch(error => {
         console.log(error)
@@ -198,6 +195,10 @@ export default {
     },
     switchTo (path) {
       this.$router.replace(path)
+    },
+    jump (id) {
+      orderid = id
+      this.$router.push('/order')
     }
   }
 }
