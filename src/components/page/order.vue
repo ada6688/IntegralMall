@@ -2,13 +2,18 @@
   <div>
     <TopNavC></TopNavC>
     <div class="main-second-wrap">
+      <!-- 商品详情 -->
       <div class="order-product-wrap">
+        <!-- 左侧图片 -->
         <div class="order-img">
           <img :src="'http://45.64.53.115:8000' + commodity.img_url.url" alt="">
         </div>
+        <!-- 右侧文字介绍 -->
         <div class="order-text">
           <p>您要兑换的商品是</p>
+          <!-- 商品介绍文字 -->
           <span class="order-pro-detail">{{commodity.title}}</span>
+          <!-- 积分 -->
           <div class="order-pro-cost">
             <p>
               <span>原积分</span>
@@ -22,6 +27,7 @@
         <div class="order-pro-detail-button"><p>查看商品详情</p></div>
         </div>
       </div>
+      <!-- 表单 -->
       <div class="order-form">
         <form @submit="submit()">
           <div>

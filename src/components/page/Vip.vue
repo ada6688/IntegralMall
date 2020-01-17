@@ -262,10 +262,6 @@ export default {
 .VIP-contain .el-table--border{
   border: 0 !important
 }
-.VIP-contain li{
-  background-color: transparent !important;
-  border: none !important;
-}
 .VIP-contain .el-table td, .el-table th.is-leaf{
   border-bottom: 1px solid #343947 !important
 }

@@ -14,7 +14,7 @@ import Yiwen from '@/components/member/yiwen/yiwen'
 import Guize from '@/components/member/guize/guize'
 import Order from '@/components/page/order'
 import ChouJiang from '@/components/page/chouJiang'
-import demo from '@/components/page/DEMO'
+import shouyecopy from '@/components/page/shouyecopy'
 import { Step, Steps, Icon } from 'vant'
 import VueScroller from 'vue-scroller'
 
@@ -34,7 +34,7 @@ export default new Router({
     {path: '/Vip', component: Vip},
     {path: '/login', component: login},
     {path: '/order', component: Order},
-    {path: '/demo', name: 'login', component: demo},
+    {path: '/shouyecopy', name: 'shouyecopy', component: shouyecopy},
     {
       path: '/Member',
       component: Member,

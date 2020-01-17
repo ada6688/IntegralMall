@@ -29,8 +29,8 @@ export default {
   data () {
     return {
       loginForm: {
-        username: '',
-        password: ''
+        username: 'Thor',
+        password: '4rfv5tgb...'
       },
       token: ''
     }

@@ -7,7 +7,7 @@
       <p>积分明细</p>
     </div>
     <div id="top-nav-right" class="top-nav-right">
-      <a href="https://bmw-chat-service.com/?wgPortal=VONFpjLZtk" target="_blank"><img src="../../assets/images/topnav/kf.png" alt="客服"></a>
+      <img src="../../assets/images/topnav/kf.png" alt="客服">
     </div>
   </div>
 </template>
