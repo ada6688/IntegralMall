@@ -60,7 +60,7 @@ export default {
       method: 'get',
       url: 'http://45.64.53.115:8000/api/auth/orders/?format=json',
       headers: {
-        Authorization: 'Token ' + window.token
+        Authorization: 'Token ' + token
       }
     })
       .then(Response => {

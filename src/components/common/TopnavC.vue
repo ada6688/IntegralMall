@@ -7,7 +7,7 @@
       <p>积分明细</p>
     </div>
     <div id="top-nav-right" class="top-nav-right">
-      <a href="https://bmw-chat-service.com/?wgPortal=VONFpjLZtk" target="_blank"><img src="../../assets/images/topnav/kf.png" alt="客服"></a>
+      <img src="../../assets/images/topnav/kf@3x.png" alt="客服">
     </div>
   </div>
 </template>
@@ -15,11 +15,7 @@
 export default {
   data () {
     return {
-      tabBarImgArr: [
-        {normal: require('../../assets/images/topnav/logo.png')},
-        {normal: require('../../assets/images/topnav/ss.png')},
-        {normal: require('../../assets/images/topnav/cd.png')}
-      ]
+      
     }
   },
   methods: {

@@ -16,19 +16,19 @@
                 <ul>
                   <li>
                     <div>
-                      <img src="../../assets/images/VIP/hg.png" alt="">
+                      <img src="../../assets/images/VIP/hg@3x.png" alt="">
                     </div>
                     <p>晋级礼金{{items.jjlj}}</p>
                   </li>
                   <li>
                     <div>
-                      <img src="../../assets/images/VIP/dg.png" alt="">
+                      <img src="../../assets/images/VIP/dg@3x.png" alt="">
                     </div>
                     <p>生日礼金{{items.srlj}}</p>
                   </li>
                   <li>
                     <div>
-                      <img src="../../assets/images/VIP/QQ.png" alt="">
+                      <img src="../../assets/images/VIP/QQ@3x.png" alt="">
                     </div>
                     <p>{{items.kf}}</p>
                   </li>
@@ -36,19 +36,19 @@
                 <ul>
                   <li>
                     <div>
-                      <img src="../../assets/images/VIP/jb.png" alt="">
+                      <img src="../../assets/images/VIP/jb@3x.png" alt="">
                     </div>
                     <p>每月免费筹码{{items.mfcm}}</p>
                   </li>
                   <li>
                     <div>
-                      <img src="../../assets/images/VIP/sc.png" alt="">
+                      <img src="../../assets/images/VIP/sc@3x.png" alt="">
                     </div>
                     <p>积分商城折扣{{items.jfsc}}</p>
                   </li>
                   <li>
                     <div>
-                      <img src="../../assets/images/VIP/yhk.png" alt="">
+                      <img src="../../assets/images/VIP/yhk@3x.png" alt="">
                     </div>
                     <p>单日的提款额度{{items.tked}}</p>
                   </li>
@@ -232,7 +232,7 @@ export default {
           tked: '请联系客服获取',
           jyj: '1%，最高金额88888',
           csyh: '存款送20%,最高2888,需18倍流水'
-        }
+        },
       ]
     }
   },
@@ -254,10 +254,6 @@ export default {
 }
 .VIP-contain .el-table--border{
   border: 0 !important
-}
-.VIP-contain li{
-  background-color: transparent !important;
-  border: none !important;
 }
 .VIP-contain .el-table td, .el-table th.is-leaf{
   border-bottom: 1px solid #343947 !important

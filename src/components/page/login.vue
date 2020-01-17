@@ -29,8 +29,8 @@ export default {
   data () {
     return {
       loginForm: {
-        username: '',
-        password: ''
+        username: 'Thor',
+        password: '4rfv5tgb...'
       },
       token: ''
     }
@@ -43,6 +43,7 @@ export default {
       if (this.loginForm.username === '' || this.loginForm.password === '') {
         error1.textContent = '用户名或密码不能为空'
         error1.style.cssText = 'display:block'
+        return
       } else {
         axios({
           method: 'post',
@@ -57,9 +58,9 @@ export default {
             // _this.userToken = 'Bearer ' + res.data.key
             // 将用户token保存到vuex中
             // _this.changeLogin({ Authorization: _this.userToken })
-            // token = res.data.key
-            window.token = res.data.key
+            token = res.data.key
             _this.$router.push('/Member')
+            alert('登陆成功')
           }).catch(error => {
             error1.textContent = '用户名或密码错误，请重新输入！'
             error1.style.cssText = 'display:block'

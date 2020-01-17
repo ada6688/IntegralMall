@@ -12,11 +12,19 @@ import '../src/assets/css/index.css'
 import 'swiper/dist/css/swiper.css'
 import 'mint-ui/lib/style.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import { Step, Steps, Icon } from 'vant'
+import VueScroller from 'vue-scroller'
+import VueTouch from 'vue-touch'
+// import 'vue-touch/dist/vue-touch.js'
 
 Vue.prototype.HOST = '/api'
 Vue.use(VueAwesomeSwiper)
 Vue.use(ElementUI)
 Vue.use(MintUI)
+Vue.use(Step).use(Steps)
+Vue.use(Icon)
+Vue.use(VueTouch, {name: 'v-touch'})
+Vue.use(VueScroller)
 
 Vue.config.productionTip = false
 window.token = ''
@@ -34,7 +42,7 @@ new Vue({
 })
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requireAuth)) { // 判断该路由是否需要登录权限
-    if (window.token) { // 判断当前的token是否存在
+    if (token) { // 判断当前的token是否存在
       next()
     } else {
       console.log('需要登录')

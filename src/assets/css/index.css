@@ -46,10 +46,72 @@
 .product-item-img img{
   max-width: 100%;
 }
-.el-icon-arrow-left {
-  color: #ffffff;
+
+
+
+
+
+
+
+.recommend-wrap1{
+  padding: 20px 16px 0 16px;
 }
-/* 订单 兑换信息填写 */
+.products-T{
+  color: #666666;
+  font-size: 16px;
+  text-align-last: justify;
+}
+.products-T-active{
+  color: #B58024;
+  font-size: 18px;
+}
+.products-T p{
+  display: inline-block;
+}
+.items-pro{
+  width: 48%;
+  display: inline-block;
+}
+.items-pro:nth-of-type(even){
+  margin: 7px 2.4% 5px 0;
+}
+.items-pro:nth-of-type(odd){
+  margin: 7px 0 5px;
+}
+.item-img-wrap{
+  width: 100%;
+  height: 14.5vh;
+  background-color: #EEECEC;
+}
+.item-img-wrap img{
+  max-height: 100%;
+  max-width: 100%;
+}
+.item-pro-text{
+  text-align: left;
+  padding: 5px 6px 10px;
+  background: #2A2C35;
+}
+.item-pro-text b{
+  color: #FFFFFF;
+  font-size: 15px;
+}
+.item-pro-text p{
+  color: #CCCCCC;
+  font-size: 13px;
+  height: 44px;
+  line-height: 22px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  text-overflow:ellipsis;
+  -webkit-box-orient: vertical;
+}
+.item-pro-text span{
+  color: #B58024;
+  font-size: 12px;
+}
+/********************* 订单 兑换信息填写 *******************/
 .order-product-wrap{
   padding: 25px 16px;
 }
@@ -62,6 +124,7 @@
   position: relative;
 }
 .order-img img{
+  max-width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -124,6 +187,12 @@ form{
   background: #2A2C35;
   border-top: 1px solid #151515;
 }
+.order-bz-wrap{
+  height: 80px !important;
+}
+.order-bz-wrap textarea{
+  height: 100%;
+}
 .order-form div span:first-child{
   color: #B31E23;
   margin-right: 3px;
@@ -133,12 +202,18 @@ form{
 }
 .order-name-T{
   width: 20%;
-  color: #ffffff;
+  color: #ffffff !important;
   display: inline-block;
   font-size: 13px;
   text-align-last: justify;
 }
+.order-bz{
+  color: transparent !important;
+}
 .order-form input{
+  width: 70%;
+  height: 100%;
+  color: #ffffff;
   font-size: 12px;
   background: transparent;
   border: none;
@@ -193,10 +268,11 @@ form{
   border-radius: 17px;
   margin-bottom: 9px;
   display: inline-block;
-  vertical-align: middle;
 }
 .vip-level-wrap ul img{
-  margin-top: 7px;
+  max-width: 50%;
+  position: relative;
+  transform: translate(5%,50%);
 }
 .vip-level-wrap ul li>p{
   color: #CCCCCC;
@@ -272,7 +348,11 @@ form{
   bottom: 8px;
 }
 .member-level-sign{
+  height: 20px;
   margin: 8px 0 10px 0;
+}
+.member-level-sign img{
+  height: 100%;
 }
 .member-integral{
   text-align: center;
@@ -307,7 +387,7 @@ form{
   margin: 16px 0;
 }
 .member-signIn-status-1{
-  width: 12%;
+  width: 14%;
   text-align: left;
   display: inline-block;
 }
@@ -330,7 +410,7 @@ form{
   color: #34363D;
 }
 .member-signIn-line{
-  width: 84%;
+  width: 76%;
   height: 3px;
   display: inline-block;
   background: #34363D;
@@ -385,6 +465,9 @@ form{
   font-size: 14px;
   float: left;
   margin-right: 66%;
+}
+.el-icon-arrow-left {
+  color: #ffffff;
 }
 .member-wrap .el-icon-arrow-right{
   width: 7px;
@@ -453,7 +536,7 @@ form{
   display: inline-block;
 }
 .exchange-item-img img{
-  width: 100%;
+  max-width: 100% !important;
 }
 .exchange-item-des{
   width: 66.6%;

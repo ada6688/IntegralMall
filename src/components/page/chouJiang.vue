@@ -136,10 +136,9 @@ export default {
   padding: 17px 17px 17px 17px;
 }
 .game-detail h4 {
-  margin-top: 0px;
   text-align: left;
   color: #ffffff;
-  font-size: 15px;
+  margin-bottom: 8px
 }
 .game-detail p {
   color: #fbe38b;

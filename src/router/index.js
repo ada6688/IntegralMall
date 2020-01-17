@@ -14,14 +14,9 @@ import Yiwen from '@/components/member/yiwen/yiwen'
 import Guize from '@/components/member/guize/guize'
 import Order from '@/components/page/order'
 import ChouJiang from '@/components/page/chouJiang'
-import GuessNBA from '@/components/page/GuessNBA'
-import { Step, Steps, Icon } from 'vant'
-import VueScroller from 'vue-scroller'
+import shouyecopy from '@/components/page/shouyecopy'
 
-Vue.use(VueScroller)
 Vue.use(Router)
-Vue.use(Step).use(Steps)
-Vue.use(Icon)
 
 export default new Router({
   mode: 'history',
@@ -34,6 +29,7 @@ export default new Router({
     {path: '/Vip', component: Vip},
     {path: '/login', component: login},
     {path: '/order', component: Order},
+    {path: '/shouyecopy', name: 'shouyecopy', component: shouyecopy},
     {
       path: '/Member',
       component: Member,
@@ -71,10 +67,6 @@ export default new Router({
     {
       path: '/chouJiang',
       component: ChouJiang
-    },
-    {
-      path: '/guessNBA',
-      component: GuessNBA
     }
   ]
 })
