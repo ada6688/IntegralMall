@@ -34,7 +34,6 @@ export default new Router({
     {path: '/Vip', component: Vip},
     {path: '/login', component: login},
     {path: '/order', component: Order},
-    {path: '/demo', name: 'login', component: demo},
     {
       path: '/Member',
       component: Member,

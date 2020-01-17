@@ -65,17 +65,18 @@ export default {
   created () {
     axios({
       // method: 'POST',
-      // url: 'http://45.64.53.115:8000/rest-auth/login/',
+      // url: 'http://127.0.0.1:8000/rest-auth/login/',
       // data: {
-      //   username: 'Thor',
-      //   password: '4rfv5tgb...'
+      //   username: 'yyyyxy',
+      //   password: 'jfsc8888'
       // },
       method: 'GET',
-      url: 'http://45.64.53.115:8000/api/nba/lottery/?format=json',
+      url: 'http://127.0.0.1:8000/api/auth/points/?format=json',
       headers: {
-        Authorization: 'Token 556f140a28d12eef26475833e735b52eec750154',
-        // Authorization: 'Token 5784b4ccf4f60a5d2ef9c8aa2b9da32ab5bceeee',
         // Authorization: 'Token 556f140a28d12eef26475833e735b52eec750154',
+        // Authorization: 'Token 5784b4ccf4f60a5d2ef9c8aa2b9da32ab5bceeee',
+        Authorization: 'Token 460f1c34e7e1bb716b0b980d0c0ca3c9e5452914',
+        // Authorization: 'Token 4334194aca108dd35ddebcd235688c21e647a144',
       },
       // data: {
       //   take_name: "API测试",

@@ -188,7 +188,7 @@ export default {
       this.$router.replace(path)
     },
     jump (id) {
-      orderid = id
+      window.orderid = id
       this.$router.push('/order')
     }
   }

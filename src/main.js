@@ -13,8 +13,6 @@ import 'swiper/dist/css/swiper.css'
 import 'mint-ui/lib/style.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
-// import BScroll from 'better-scroll'
-Vue.prototype.$cookie = cookie
 Vue.prototype.HOST = '/api'
 Vue.use(VueAwesomeSwiper)
 Vue.use(ElementUI)
@@ -36,7 +34,7 @@ new Vue({
 })
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requireAuth)) { // 判断该路由是否需要登录权限
-    if (token) { // 判断当前的token是否存在
+    if (window.token) { // 判断当前的token是否存在
       next()
     } else {
       console.log('需要登录')

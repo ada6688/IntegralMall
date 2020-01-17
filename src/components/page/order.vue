@@ -71,7 +71,7 @@ export default {
     // console.log(id)
     Axios({
       method: 'get',
-      url: 'http://45.64.53.115:8000/api/mulu/' + orderid +'/?format=json',
+      url: 'http://45.64.53.115:8000/api/mulu/' + window.orderid + '/?format=json',
       withCredentials: true
     })
       .then(Response => {
