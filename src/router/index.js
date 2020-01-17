@@ -15,13 +15,8 @@ import Guize from '@/components/member/guize/guize'
 import Order from '@/components/page/order'
 import ChouJiang from '@/components/page/chouJiang'
 import shouyecopy from '@/components/page/shouyecopy'
-import { Step, Steps, Icon } from 'vant'
-import VueScroller from 'vue-scroller'
 
-Vue.use(VueScroller)
 Vue.use(Router)
-Vue.use(Step).use(Steps)
-Vue.use(Icon)
 
 export default new Router({
   mode: 'history',

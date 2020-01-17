@@ -29,66 +29,7 @@
       <!-- 滚动公告 -->
       <Notice></Notice>
       <!-- 推荐分类栏 -->
-      <div class="recommend-wrap">
-        <!-- <el-row>
-          <el-tabs type="border-card">
-            <el-tab-pane label="推荐">
-              <div v-for="goods in recommend" v-bind:key="goods.item" class="products-item">
-                <div class="product-item-text">
-                  <p>{{goods.title}}</p>
-                  <span>{{goods.points}}积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt />
-                </div>
-              </div>
-            </el-tab-pane>
-            <el-tab-pane label="数码">
-              <div v-for="goods in digital" v-bind:key="goods.item" class="products-item" @click="jumpOrder(goods.pk)">
-                <div class="product-item-text">
-                  <p>{{goods.title}}</p>
-                  <span>{{goods.points}}积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt />
-                </div>
-              </div>
-            </el-tab-pane>
-            <el-tab-pane label="奖金">
-              <div v-for="goods in bonus" v-bind:key="goods.item" class="products-item">
-                <div class="product-item-text">
-                  <p>{{goods.title}}</p>
-                  <span>{{goods.points}}积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt />
-                </div>
-              </div>
-            </el-tab-pane>
-            <el-tab-pane label="生活精品" >
-              <div v-for="goods in life" v-bind:key="goods.item" class="products-item">
-                <div class="product-item-text">
-                  <p>{{goods.title}}</p>
-                  <span>{{goods.points}}积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt />
-                </div>
-              </div>
-            </el-tab-pane>
-            <el-tab-pane label="奢华品">
-              <div v-for="goods in luxury" v-bind:key="goods.item" class="products-item">
-                <div class="product-item-text">
-                  <p>{{goods.title}}</p>
-                  <span>{{goods.points}}积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.img_url.url" alt />
-                </div>
-              </div>
-            </el-tab-pane>
-          </el-tabs>
-        </el-row> -->
+      <div class="recommend-wrap1">
         <div>
           <div class="items-list">
             <div class="products-T">
@@ -97,6 +38,7 @@
               <p>奖金</p>
               <p>生活精品</p>
               <p>奢华品</p>
+              <p>&bull;&bull;&bull;</p>
             </div>
             <div class="items-pro">
               <div class="item-img-wrap">

@@ -22,12 +22,12 @@
           <div class="member-integral">
             <div class="member-total">
               <p>总积分：</p>
-              <span>{{integral.total_common_points + integral.total_sign_points}}</span>
+              <span>{{integral.total_common_points}}</span>
             </div>
             <div class="member-integral-slice">|</div>
             <div class="member-useful">
               <p>可用积分：</p>
-              <span>{{integral.balance_common_points + integral.balance_sign_points}}</span>
+              <span>{{integral.balance_common_points}}</span>
             </div>
           </div>
         </div>
@@ -137,13 +137,13 @@ export default {
     })
       .then(Response => {
         this.integral = Response.data
-        this.integral.img_url = Response.data.shop_level === 0 ? '/static/images/pt@3x.png' :
-                Response.data.shop_level === 1 ? '/static/images/hj@3x.png' :
-                Response.data.shop_level === 2 ? '/static/images/bj@3x.png' :
-                Response.data.shop_level === 3 ? '/static/images/zs@3x.png' :
-                Response.data.shop_level === 4 ? '/static/images/zz@3x.png' :
-                Response.data.shop_level === 5 ? '/static/images/wz@3x.png' :
-                Response.data.shop_level === 6 ? '/static/images/ty@3x.png' : '/static/images/pt@3x.png'
+        this.integral.img_url = Response.data.shop_level === 0 ? '/static/imalevelSignges/pt@3x.png' :
+                Response.data.shop_level === 1 ? '/static/levelSign/hj@3x.png' :
+                Response.data.shop_level === 2 ? '/static/levelSign/bj@3x.png' :
+                Response.data.shop_level === 3 ? '/static/levelSign/zs@3x.png' :
+                Response.data.shop_level === 4 ? '/static/levelSign/zz@3x.png' :
+                Response.data.shop_level === 5 ? '/static/levelSign/wz@3x.png' :
+                Response.data.shop_level === 6 ? '/static/levelSign/ty@3x.png' : '/static/levelSign/pt@3x.png'
         console.log(Response.data)
       })
       .catch(error => {
@@ -178,7 +178,7 @@ export default {
     change () {
       // console.log(22213425)
       document.getElementById('top-nav-logo').innerHTML = '<p>个人中心</p>'
-      document.getElementById('top-nav-right').innerHTML = '<img src="../../static/topnav/kf.png" alt="客服">'
+      document.getElementById('top-nav-right').innerHTML = '<img src="/static/topnav/kf@3x.png" alt="客服">'
     },
     setclass (demo, arr = []) {
     //   return demo

@@ -53,7 +53,7 @@
 
 
 
-.recommend-wrap{
+.recommend-wrap1{
   padding: 20px 16px 0 16px;
 }
 .products-T{
@@ -187,6 +187,12 @@ form{
   background: #2A2C35;
   border-top: 1px solid #151515;
 }
+.order-bz-wrap{
+  height: 80px !important;
+}
+.order-bz-wrap textarea{
+  height: 100%;
+}
 .order-form div span:first-child{
   color: #B31E23;
   margin-right: 3px;
@@ -196,12 +202,18 @@ form{
 }
 .order-name-T{
   width: 20%;
-  color: #ffffff;
+  color: #ffffff !important;
   display: inline-block;
   font-size: 13px;
   text-align-last: justify;
 }
+.order-bz{
+  color: transparent !important;
+}
 .order-form input{
+  width: 70%;
+  height: 100%;
+  color: #ffffff;
   font-size: 12px;
   background: transparent;
   border: none;
@@ -256,10 +268,11 @@ form{
   border-radius: 17px;
   margin-bottom: 9px;
   display: inline-block;
-  vertical-align: middle;
 }
 .vip-level-wrap ul img{
-  margin-top: 7px;
+  max-width: 50%;
+  position: relative;
+  transform: translate(5%,50%);
 }
 .vip-level-wrap ul li>p{
   color: #CCCCCC;

@@ -33,7 +33,7 @@
         <el-row>
           <el-tabs type="border-card">
             <el-tab-pane label="推荐">
-              <div v-for="goods in recommend" v-bind:key="goods.item" class="products-item">
+              <div v-for="goods in recommend" v-bind:key="goods.item" class="products-item" @click="jumpOrder(goods.pk)">
                 <div class="product-item-text">
                   <p>{{goods.title}}</p>
                   <span>{{goods.points}}积分</span>
@@ -55,7 +55,7 @@
               </div>
             </el-tab-pane>
             <el-tab-pane label="奖金">
-              <div v-for="goods in bonus" v-bind:key="goods.item" class="products-item">
+              <div v-for="goods in bonus" v-bind:key="goods.item" class="products-item" @click="jumpOrder(goods.pk)">
                 <div class="product-item-text">
                   <p>{{goods.title}}</p>
                   <span>{{goods.points}}积分</span>
@@ -66,7 +66,7 @@
               </div>
             </el-tab-pane>
             <el-tab-pane label="生活精品" >
-              <div v-for="goods in life" v-bind:key="goods.item" class="products-item">
+              <div v-for="goods in life" v-bind:key="goods.item" class="products-item" @click="jumpOrder(goods.pk)">
                 <div class="product-item-text">
                   <p>{{goods.title}}</p>
                   <span>{{goods.points}}积分</span>
@@ -77,7 +77,7 @@
               </div>
             </el-tab-pane>
             <el-tab-pane label="奢华品">
-              <div v-for="goods in luxury" v-bind:key="goods.item" class="products-item">
+              <div v-for="goods in luxury" v-bind:key="goods.item" class="products-item" @click="jumpOrder(goods.pk)">
                 <div class="product-item-text">
                   <p>{{goods.title}}</p>
                   <span>{{goods.points}}积分</span>
