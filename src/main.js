@@ -45,7 +45,6 @@ router.beforeEach((to, from, next) => {
     if (token) { // 判断当前的token是否存在
       next()
     } else {
-      console.log('需要登录')
       next({
         path: '/login',
         query: {redirect: router.fullPath} // 将跳转的路由path作为参数，登录成功后跳转到该路由

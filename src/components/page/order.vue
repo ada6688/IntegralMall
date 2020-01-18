@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopNavC></TopNavC>
+    <TopNavC for-child-msg='商品详情'></TopNavC>
     <div class="main-second-wrap">
       <!-- 商品详情 -->
       <div class="order-product-wrap">
@@ -93,7 +93,7 @@ import Axios from 'axios'
 
 export default {
   components: {
-    TopNavC
+    TopNavC,
   },
   data () {
     return {
@@ -113,18 +113,17 @@ export default {
     }
   },
   created () {
-    // console.log(id)
     Axios({
       method: 'get',
-      url: 'http://45.64.53.115:8000/api/mulu/' + orderid +'/?format=json',
+      url: 'http://45.64.53.115:8000/api/mulu/' + window.orderid +'/?format=json',
       withCredentials: true
     })
       .then(Response => {
         this.commodity = Response.data
-        console.log(Response.data)
+        console.log(this.commodity.pc_img.url)
       })
       .catch(error => {
-        console.log(error)
+        console.log('商品加载错误')
         alert('商品加载错误，请联系在线客服！')
         this.$router.push('/shouye')
       })
@@ -132,35 +131,27 @@ export default {
       method: 'get',
       url: 'http://45.64.53.115:8000/api/auth/points/?format=json',
       headers: {
-        Authorization: 'Token ' + token
+        Authorization: 'Token ' + window.token
       }
     })
       .then(Response => {
-        console.log(Response.data)
         this.D_price = Math.round(this.commodity.points * Response.data.discount)
         this.J_status = Response.data.balance_common_points > this.D_price ? 1 : 0
-        console.log(this.J_status)
+        console.log('加载用户信息完毕')
       })
       .catch(error => {
-        console.log(error)
-        alert('加载错误，请联系在线客服！')
-        // this.$router.push('/shouye')
+        console.log('加载用户信息错误')
+        alert('加载用户信息错误，请联系在线客服！')
       })
   },
-  mounted: function () {
-    this.change()
-  },
   methods: {
-    change () {
-      document.getElementById('top-logo-change').innerHTML = '<p>兑换信息填写</P>'
-    },
     submit () {
       Axios({
       method: 'post',
       url: 'http://45.64.53.115:8000/api/auth/orders/',
       data: this.order,
       headers: {
-        Authorization: 'Token ' + token
+        Authorization: 'Token ' + window.token
       }
     })
       .then(Response => {

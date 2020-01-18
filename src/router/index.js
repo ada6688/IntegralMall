@@ -14,7 +14,6 @@ import Yiwen from '@/components/member/yiwen/yiwen'
 import Guize from '@/components/member/guize/guize'
 import Order from '@/components/page/order'
 import ChouJiang from '@/components/page/chouJiang'
-import shouyecopy from '@/components/page/shouyecopy'
 
 Vue.use(Router)
 
@@ -28,8 +27,15 @@ export default new Router({
     {path: '/Youhui', component: Youhui},
     {path: '/Vip', component: Vip},
     {path: '/login', component: login},
-    {path: '/order', component: Order},
-    {path: '/shouyecopy', name: 'shouyecopy', component: shouyecopy},
+    {
+      path: '/order',
+      component: Order,
+      meta: {
+        index: 2,
+        title: '<p>商品详情</p>',
+        requireAuth: true
+      }
+    },
     {
       path: '/Member',
       component: Member,

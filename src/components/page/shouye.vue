@@ -5,22 +5,12 @@
       <!-- banner -->
       <swiper :options="swiperOption" ref="mySwiper">
         <!-- slides -->
-        <swiper-slide>
+        <swiper-slide v-for="(banner, index) in bannerData" :key="index">
+          <router-link :to=banner.link>
           <div class="banner-item">
-            <img src="../../assets/images/banner/sy_NBA_banner@3x.png" alt />
+            <img :src=banner.img alt />
           </div>
-        </swiper-slide>
-        <swiper-slide>
-          <router-link to="/chouJiang">
-            <div class="banner-item">
-              <img src="../../assets/images/banner/sy_cgcj_banner@3x.png" alt />
-            </div>
           </router-link>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="banner-item">
-            <img src="../../assets/images/banner/banner2.png" alt />
-          </div>
         </swiper-slide>
         <!-- Optional controls -->
         <!-- <div class="swiper-pagination" slot="pagination"></div> -->
@@ -29,66 +19,26 @@
       <!-- 滚动公告 -->
       <Notice></Notice>
       <!-- 推荐分类栏 -->
-      <div class="recommend-wrap">
-        <el-row>
-          <el-tabs type="border-card">
-            <el-tab-pane label="推荐">
-              <div v-for="goods in recommend" v-bind:key="goods.item" class="products-item" @click="jumpOrder(goods.pk)">
-                <div class="product-item-text">
-                  <p>{{goods.title}}</p>
-                  <span>{{goods.points}}积分</span>
+      <div class="recommend-wrap1">
+        <el-tabs type="border-card" v-model="activateName">
+          <template v-for="menu in menuData">
+            <el-tab-pane :name="menu.index" :label="menu.name" :key="menu.index">
+              <div class="items-pro" v-for="goods in menu.data" :key="goods.pk" @click="jumpOrder(goods.pk)">
+                <div class="item-img-wrap"  v-if="goods.app_img">
+                    <img :src="'http://45.64.53.115:8000' + goods.app_img.url" alt="">
                 </div>
-                <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.pc_img.url" alt />
+                <div class="item-img-wrap"  v-else>
+                    <img :src="'http://45.64.53.115:8000' + goods.pc_img.url" alt="">
                 </div>
-              </div>
-            </el-tab-pane>
-            <el-tab-pane label="数码">
-              <div v-for="goods in digital" v-bind:key="goods.item" class="products-item" @click="jumpOrder(goods.pk)">
-                <div class="product-item-text">
-                  <p>{{goods.title}}</p>
-                  <span>{{goods.points}}积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.pc_img.url" alt />
+                <div class="item-pro-text">
+                  <b>{{goods.title}}</b>
+                  <p>{{goods.description}}</p>
+                  <span>{{goods.points}} 积分</span>
                 </div>
               </div>
             </el-tab-pane>
-            <el-tab-pane label="奖金">
-              <div v-for="goods in bonus" v-bind:key="goods.item" class="products-item" @click="jumpOrder(goods.pk)">
-                <div class="product-item-text">
-                  <p>{{goods.title}}</p>
-                  <span>{{goods.points}}积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.pc_img.url" alt />
-                </div>
-              </div>
-            </el-tab-pane>
-            <el-tab-pane label="生活精品" >
-              <div v-for="goods in life" v-bind:key="goods.item" class="products-item" @click="jumpOrder(goods.pk)">
-                <div class="product-item-text">
-                  <p>{{goods.title}}</p>
-                  <span>{{goods.points}}积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.pc_img.url" alt />
-                </div>
-              </div>
-            </el-tab-pane>
-            <el-tab-pane label="奢华品">
-              <div v-for="goods in luxury" v-bind:key="goods.item" class="products-item" @click="jumpOrder(goods.pk)">
-                <div class="product-item-text">
-                  <p>{{goods.title}}</p>
-                  <span>{{goods.points}}积分</span>
-                </div>
-                <div class="product-item-img">
-                  <img :src="'http://45.64.53.115:8000'+goods.pc_img.url" alt />
-                </div>
-              </div>
-            </el-tab-pane>
-          </el-tabs>
-        </el-row>
+          </template>
+        </el-tabs>
       </div>
     </div>
     <BottomNav></BottomNav>
@@ -102,6 +52,7 @@ import Notice from '@/components/page/Notice'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import axios from 'axios'
 import vuescroll from 'vuescroll'
+
 
 export default {
   name: 'App',
@@ -123,67 +74,26 @@ export default {
           disableOnInteraction: false
         }
       },
-      noData: false, // 判断是否数据全部加载完成 true为全部加载完
-      recommend: [], // 推荐
-      digital: [], // 数码
-      bonus: [], // 奖金
-      life: [], // 生活精品
-      lifeshow: [],
-      luxury: [] // 奢华品
+      bannerData: [
+        {link: '/nba', img: require('../../assets/images/banner/sy_NBA_banner@3x.png')},
+        {link: '/choujiang', img: require('../../assets/images/banner/sy_cgcj_banner@3x.png')},
+        {link: '/choujiang', img: require('../../assets/images/banner/banner2.png')},
+      ],
+      activateName: '0',
+      menuData: [
+        {name: '推荐', data: [], index: '0', url: '/tuijian'},
+        {name: '数码', data: [], index: '1', url: '/shuma'},
+        {name: '奖金', data: [], index: '2', url: '/jiangjin'},
+        {name: '生活', data: [], index: '3', url: '/shenghuo'},
+        {name: '奢华', data: [], index: '4', url: '/shehua'},
+      ]
     }
   },
   created () {
-    // axios
-    //   .get('http://45.64.53.115:8000/api/mulu/tuijian/?format=json')
-    //   .then(Response => {
-    //     this.recommend = Response.data.results
-    //     console.log(Response.data.results)
-    //   })
-    //   .catch(error => {
-    //     console.log(error)
-    //     alert('商品加载错误，请联系在线客服！')
-    //   })
     axios
       .get('http://45.64.53.115:8000/api/mulu/tuijian/?format=json')
       .then(Response => {
-        this.recommend = Response.data
-      })
-      .catch(error => {
-        console.log(error)
-        alert('商品加载错误，请联系在线客服！')
-      })
-    axios
-      .get('http://45.64.53.115:8000/api/mulu/shuma/?format=json')
-      .then(Response => {
-        this.digital = Response.data.results
-        // console.log(this.digital)
-      })
-      .catch(error => {
-        console.log(error)
-        alert('商品加载错误，请联系在线客服！')
-      })
-    axios
-      .get('http://45.64.53.115:8000/api/mulu/jiangjin/?format=json')
-      .then(Response => {
-        this.bonus = Response.data.results
-      })
-      .catch(error => {
-        console.log(error)
-        alert('商品加载错误，请联系在线客服！')
-      })
-    axios
-      .get('http://45.64.53.115:8000/api/mulu/shenghuo/?format=json')
-      .then(Response => {
-        this.life = Response.data.results
-      })
-      .catch(error => {
-        console.log(error)
-        alert('商品加载错误，请联系在线客服！')
-      })
-    axios
-      .get('http://45.64.53.115:8000/api/mulu/shehua/?format=json')
-      .then(Response => {
-        this.luxury = Response.data.results
+        this.menuData[0].data = Response.data.results
       })
       .catch(error => {
         console.log(error)
@@ -202,12 +112,22 @@ export default {
         done()
       }, 1500)
     },
-    switchTo (path) {
-      this.$router.replace(path)
-    },
     jumpOrder (id) {
-      orderid = id
+      window.orderid = id
       this.$router.push('/order')
+    }
+  },
+  watch: {
+    'activateName': function(val){
+      axios
+      .get('http://45.64.53.115:8000/api/mulu'+ this.menuData[val].url +'/?format=json')
+      .then(Response => {
+        this.menuData[val].data = Response.data.results
+      })
+      .catch(error => {
+        console.log(error)
+        alert('商品加载错误，请联系在线客服！')
+      })
     }
   }
 }
@@ -220,7 +140,9 @@ export default {
 /* .el-tabs__nav-wrap{
   width: 100%
 } */
-.el-tabs--border-card > .el-tabs__header .el-tabs__item:not(.is-disabled):hover {
+.el-tabs--border-card
+  > .el-tabs__header
+  .el-tabs__item:not(.is-disabled):hover {
   color: #ffffff;
 }
 .el-tabs--border-card > .el-tabs__header .el-tabs__item.is-active {
@@ -231,7 +153,7 @@ export default {
   box-sizing: border-box;
 }
 .shouye-contain .el-tabs--border-card > .el-tabs__content {
-  padding: 15px 15px 0 15px;
+  padding: 15px 0 0 0;
 }
 .el-tabs__nav-prev,.el-tabs__nav-next {
   width: 20px;
