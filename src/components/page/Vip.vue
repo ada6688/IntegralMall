@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopNav></TopNav>
+    <TopNav for-child-msg='VIP专区'></TopNav>>
     <div class="main-wrap VIP-contain">
       <!-- VIP专区描述 -->
       <div class="VIP-T">
@@ -234,15 +234,6 @@ export default {
           csyh: '存款送20%,最高2888,需18倍流水'
         },
       ]
-    }
-  },
-  mounted: function () {
-    this.change()
-  },
-  methods: {
-    change () {
-      // console.log(22213425)
-      document.getElementById('top-nav-logo').innerHTML = '<p>VIP专区</p>'
     }
   }
 }

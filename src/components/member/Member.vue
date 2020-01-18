@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopNav></TopNav>
+    <TopNav for-child-msg='个人中心'></TopNav>>
     <div class="main-wrap">
       <div class="member-half-circle"></div>
       <div class="member-wrap">
@@ -172,14 +172,9 @@ export default {
       })
   },
   mounted: function () {
-    this.change()
+    // 
   },
   methods: {
-    change () {
-      // console.log(22213425)
-      document.getElementById('top-nav-logo').innerHTML = '<p>个人中心</p>'
-      document.getElementById('top-nav-right').innerHTML = '<img src="/static/topnav/kf@3x.png" alt="客服">'
-    },
     setclass (demo, arr = []) {
     //   return demo
       demo.forEach(function (item, index) {
@@ -216,12 +211,10 @@ export default {
           this.Sing_day = Response.data.continuity_days
           this.last_sign = Response.data.tomorrow
           this.sign_status = Response.data.status
-          // console.log(Response.data)
         })
         .catch(error => {
           console.log(error)
           alert('签到获取错误')
-          // this.$router.push('/shouye')
         })
       }
     }

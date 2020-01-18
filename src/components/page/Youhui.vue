@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopNav></TopNav>>
+    <TopNav for-child-msg='优惠专区'></TopNav>>
     <div class="yh-wrap main-wrap">
       <div v-for="(temp, index) in youHui" :key="index">
         <router-link :to=temp.path>
@@ -26,17 +26,7 @@ export default {
       youHui: [
         {path: 'chouJiang', src: require('../../assets/images/yh/CGCJ@3x.png')},
         {path: 'everydayNBA', src: require('../../assets/images/yh/NBA@3x.png')},
-        {path: 'chouJiang', src: require('../../assets/images/yh/CGCJ@3x.png')},
-        {path: 'chouJiang', src: require('../../assets/images/yh/CGCJ@3x.png')}
-      ]
-    }
-  },
-  mounted: function () {
-    this.change()
-  },
-  methods: {
-    change () {
-      document.getElementById('top-nav-logo').innerHTML = '<p>优惠专区</p>'
+      ],
     }
   }
 }
