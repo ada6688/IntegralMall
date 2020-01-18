@@ -2,10 +2,11 @@
   <div>
     <TopNav></TopNav>>
     <div class="yh-wrap main-wrap">
-      <div><img src="../../assets/images/yh/yh-banner.png" alt=""></div>
-      <div><img src="../../assets/images/yh/yh2-banner.png" alt=""></div>
-      <div><img src="../../assets/images/yh/yh3-banner.png" alt=""></div>
-      <div><img src="../../assets/images/yh/yh-banner.png" alt=""></div>
+      <div v-for="(temp, index) in youHui" :key="index">
+        <router-link :to=temp.path>
+          <img :src=temp.src alt="轮播广告">
+        </router-link>
+      </div>
     </div>
     <BottomNav></BottomNav>
   </div>
@@ -20,12 +21,21 @@ export default {
     BottomNav,
     TopNav
   },
+  data () {
+    return {
+      youHui: [
+        {path: 'chouJiang', src: require('../../assets/images/yh/CGCJ@3x.png')},
+        {path: 'everydayNBA', src: require('../../assets/images/yh/NBA@3x.png')},
+        {path: 'chouJiang', src: require('../../assets/images/yh/CGCJ@3x.png')},
+        {path: 'chouJiang', src: require('../../assets/images/yh/CGCJ@3x.png')}
+      ]
+    }
+  },
   mounted: function () {
     this.change()
   },
   methods: {
     change () {
-      // console.log(22213425)
       document.getElementById('top-nav-logo').innerHTML = '<p>优惠专区</p>'
     }
   }

@@ -5,18 +5,17 @@ import TopNav from '@/components/common/Topnav'
 import shouye from '@/components/page/shouye'
 import Youhui from '@/components/page/Youhui'
 import Vip from '@/components/page/Vip'
+import login from '@/components/page/login'
 import Member from '@/components/member/Member'
 import Mingxi from '@/components/member/mingxi/mingxi'
 import Duihuan from '@/components/member/duihuan/duihuan'
 import Guanyu from '@/components/member/guanyu/guanyu'
 import Yiwen from '@/components/member/yiwen/yiwen'
 import Guize from '@/components/member/guize/guize'
+import Order from '@/components/page/order'
 import ChouJiang from '@/components/page/chouJiang'
-import { Step, Steps, Icon } from 'vant'
 
 Vue.use(Router)
-Vue.use(Step).use(Steps)
-Vue.use(Icon)
 
 export default new Router({
   mode: 'history',
@@ -27,10 +26,24 @@ export default new Router({
     {path: '/shouye', component: shouye},
     {path: '/Youhui', component: Youhui},
     {path: '/Vip', component: Vip},
+    {path: '/login', component: login},
+    {
+      path: '/order',
+      component: Order,
+      meta: {
+        index: 2,
+        title: '<p>商品详情</p>',
+        requireAuth: true
+      }
+    },
     {
       path: '/Member',
       component: Member,
-      meta: {index: 2, title: '<p>个人中心</p>'}
+      meta: {
+        index: 2,
+        title: '<p>个人中心</p>',
+        requireAuth: true
+      }
     },
     {
       path: '/mingxi',
@@ -58,8 +71,8 @@ export default new Router({
       meta: {index: 2, title: '<p>规则与条款</p>'}
     },
     {
-      path: '/Youhui/chouJiang',
-      component: ChouJiang,
+      path: '/chouJiang',
+      component: ChouJiang
     }
   ]
 })
