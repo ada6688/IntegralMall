@@ -172,7 +172,7 @@ li{
   border: 0;
 }
 .el-tabs--border-card>.el-tabs__header{
-  padding: 1.81vh 15px 0;
+  /* padding: 1.81vh 15px 0; */
   background: #151515;
   border: 0;
 }
@@ -185,7 +185,7 @@ li{
   border: 0;
 }
 .el-tabs--border-card>.el-tabs__content{
-  background: #292C35;
+  background: #151515;
 }
 /* 底部暂无更多分割线 */
 .bottom-cut{

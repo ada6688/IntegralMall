@@ -156,7 +156,7 @@ export default {
       .get('http://45.64.53.115:8000/api/mulu/shuma/?format=json')
       .then(Response => {
         this.digital = Response.data.results
-        console.log(this.digital)
+        // console.log(this.digital)
       })
       .catch(error => {
         console.log(error)
