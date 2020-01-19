@@ -23,11 +23,10 @@
                 </div>
             </div>            
           </div>
-          <div v-else-if="isGet=='no'">
+          <div v-else-if="isGet=='yes'">
               <p style="color:#FFFFFF">关于&nbsp;<span style="color:red">"{{ searchWord }}"</span>&nbsp;的搜索结果不存在</p>              
           </div>
-          <div v-else>              
-          </div>
+          <div v-else></div>
         </div>
       </div>
     </div>
@@ -49,7 +48,7 @@ export default {
   },
   data() {
       return {
-        searchWord: this.$route.params.word,
+        searchWord: window.search,
         SearchData: [],  
         inWord: '',
         notice: '',
@@ -84,6 +83,7 @@ export default {
       .then(Response => {         
         this.SearchData = Response.data.results;
         window.search = this.inWord
+        this.searchWord = window.search
         this.isGet = this.SearchData.length == 0 ? 'yes' : 'no'      
       })
       .catch(error => {                  
