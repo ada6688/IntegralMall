@@ -13,15 +13,15 @@
         </div>
 
         <div class="num_box">
-          <div class="tiger tiger_start_1" :class="{tiger_1:start, tiger_start_1:stop}" :style="{'--pfirst':backgroundCss['p1000']}">
+          <div class="tiger tiger_start_1" :class="{tiger_1:start, tiger_start_1:stop}" :style="{'--pfirst':pfirst}">
           </div>
-          <div class="tiger tiger_start_1" :class="{tiger_2:start, tiger_start_1:stop}" :style="{'--psecond':backgroundCss['p600']}">
+          <div class="tiger tiger_start_1" :class="{tiger_2:start, tiger_start_1:stop}" :style="{'--psecond':psecond}">
           </div>
-          <div class="tiger tiger_start_2" :class="{tiger_3:start, tiger_start_2:stop}" :style="{'--pthird':backgroundCss['p300']}">
+          <div class="tiger tiger_start_2" :class="{tiger_3:start, tiger_start_2:stop}" :style="{'--pthird':pthird}"  ref="lotteryInfo">
           </div>
         </div>
 
-        <div class="lottery-button" @click="start=true, stop=false">
+        <div class="lottery-button" @click="post_lettery()">
           <img :src="lottery_button" alt />
         </div>
       </div>
@@ -89,6 +89,9 @@ export default {
       money: null,
       stop: true,
       start: false,
+      pfirst: '',
+      psecond: '',
+      pthird: '',
       mainbg: require('../../assets/images/yh/background.png'),
       zhuanlun: require('../../assets/images/yh/cj-bg.png'),
       lottery: require('../../assets/images/yh/6.original.png'),
@@ -114,6 +117,14 @@ export default {
         p600: '-231.9%',
         p300: '-240.5%',
         p200: '-222.7%',
+        p100: '-258.7%',
+        p60: '-267.5%',
+        p50: '-276.4%',
+        p30: '-285.3%',
+        p20: '-294.2%',
+        p10: '-303.2%',
+        p6: '-312.1%',
+        p0: '-321.1%'
       }
     }
   },
@@ -129,6 +140,7 @@ export default {
         this.chance = Response.data.chance
       })
       .catch(error => {
+        this.chance = 0
         console.log(error)
       })
     Axios({
@@ -143,7 +155,31 @@ export default {
       })
   },
   methods: {
+    post_lettery() {
+      const backgroundCss = {
+        p1000: '-222.7%',
+        p600: '-231.9%',
+        p300: '-240.5%',
+        p200: '-222.7%',
+        p100: '-258.7%',
+        p60: '-267.5%',
+        p50: '-276.4%',
+        p30: '-285.3%',
+        p20: '-294.2%',
+        p10: '-303.2%',
+        p6: '-312.1%',
+        p0: '-321.1%'
+      }
+      const data = [60, 0, 6]
+      this.start = true
+      this.stop = false
+      this.pfirst = backgroundCss['p' + data[0]]
+      this.psecond = backgroundCss['p' + data[1]]
+      this.pthird = backgroundCss['p' + data[2]]
+      setTimeout(() => {
 
+      }, 7000)
+    }
   },
 }
 </script>

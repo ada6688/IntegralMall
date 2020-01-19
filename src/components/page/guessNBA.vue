@@ -1,6 +1,6 @@
 <template>
   <div id='nbaBox'>
-    <TopnavC></TopnavC>
+    <TopnavC for-child-msg='每日抽奖'></TopnavC>
 
       <div id='nbaGuessPage'>
           <div id="nbaTopMessages">
@@ -112,11 +112,12 @@
                       <div class="nbaGussBigBox-team">
                           <ul>
                               <li class="nbaGussBigBox-team-1">
-                                  <p class="nbaGussBigBox-teamLeftpic" ><img :src="'http://45.64.53.115:8000' + nbanews.competition.team_one.team_img_url.url" alt="nbanews.competition.team_one.team_name" ></p>
-                                  <p class="nbaGussBigBox-teamLeftname">{{nbanews.competition.team_one.team_name}}</p>
-                                  <p class="nbaGussBigBox-teamLeftResult">
-                                      <div class="NbaWiner" @click="selectTeamOne(index)" id="NbaWinerOne">赢</div>
+                                  <p class="nbaGussBigBox-teamLeftpic" >
+                                    <img :src="'http://45.64.53.115:8000' + nbanews.competition.team_one.team_img_url.url" alt="nbanews.competition.team_one.team_name" >
                                   </p>
+                                  <p class="nbaGussBigBox-teamLeftname">{{nbanews.competition.team_one.team_name}}</p>
+                                  <div class="NbaWiner" @click="selectTeamOne(index)" id="NbaWinerOne" >赢</div>
+                              
                               </li>
                               <li class="nbaGussBigBox-team-2">
                                   <p class="nbaGussBigBox-team-2-timedata">{{nbanews.competition.competition_date}}</p>
@@ -130,9 +131,7 @@
                                       <img :src="'http://45.64.53.115:8000' + nbanews.competition.team_two.team_img_url.url" alt="nbanews.competition.team_two.team_name" >
                                   </p>
                                   <p class="nbaGussBigBox-teamRightpic">{{nbanews.competition.team_two.team_name}}</p>
-                                  <p class="nbaGussBigBox-teamRightpic">
-                                      <div class="NbaWiner" @click="selectTeamTwo(index)" id="NbaWinerTwo">赢</div>
-                                  </p>
+                                  <div class="NbaWiner" @click="selectTeamTwo(index)" id="NbaWinerTwo">赢</div>
                               </li>
                               <div class="nbaEnd">
                                   <img src="../../assets/images/yh/nbanow.png">
@@ -226,7 +225,8 @@
               scoreResule: [
                   {win: require('../../assets/images/yh/win.png')},
                   {lose: require('../../assets/images/yh/lose.png')},
-              ],             
+              ],
+              success: false             
           }
       },
       mounted: function(){
