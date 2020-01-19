@@ -29,6 +29,9 @@ Vue.use(VueScroller)
 Vue.config.productionTip = false
 window.token = ''
 window.orderid = 0
+window.oldPath = '/'
+window.requirePath = '/'
+window.search = ''
 
 /* eslint-disable no-new */
 new Vue({
@@ -45,9 +48,9 @@ router.beforeEach((to, from, next) => {
     if (token) { // 判断当前的token是否存在
       next()
     } else {
+      window.requirePath = to.fullPath
       next({
         path: '/login',
-        query: {redirect: router.fullPath} // 将跳转的路由path作为参数，登录成功后跳转到该路由
       })
     }
   } else {

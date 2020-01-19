@@ -25,7 +25,7 @@ export default {
         val: this.textArr[this.number]
       }
     }
-  }
+  },
 }
 </script>
 

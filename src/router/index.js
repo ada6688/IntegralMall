@@ -34,7 +34,6 @@ export default new Router({
       component: Order,
       meta: {
         index: 2,
-        title: '<p>商品详情</p>',
         requireAuth: true
       }
     },
@@ -43,34 +42,36 @@ export default new Router({
       component: Member,
       meta: {
         index: 2,
-        title: '<p>个人中心</p>',
         requireAuth: true
       }
     },
     {
       path: '/mingxi',
       component: Mingxi,
-      meta: {index: 2, title: '<p>积分明细</p>'}
+      meta: {
+        index: 2,
+        requireAuth: true
+      }
     },
     {
       path: '/duihuan',
       component: Duihuan,
-      meta: {index: 2, title: '<p>兑换记录</p>'}
+      meta: {
+        index: 2,
+        requireAuth: true
+      }
     },
     {
       path: '/guanyu',
       component: Guanyu,
-      meta: {index: 2, title: '<p>关于积分</p>'}
     },
     {
       path: '/yiwen',
       component: Yiwen,
-      meta: {index: 2, title: '<p>常见疑问</p>'}
     },
     {
       path: '/guize',
       component: Guize,
-      meta: {index: 2, title: '<p>规则与条款</p>'}
     },
     {
       path: '/chouJiang',

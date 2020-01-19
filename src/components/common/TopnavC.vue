@@ -20,7 +20,12 @@ export default {
   },
   methods: {
     goBack () {
-      this.$router.go(-1)
+      if (this.$route.path == '/order'){
+        console.log('返回首页')
+        this.$router.push('/shouye')
+      } else {
+        this.$router.go(-1)
+      }
     }
   }
 }

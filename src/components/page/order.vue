@@ -6,13 +6,14 @@
       <div class="order-product-wrap">
         <!-- 左侧图片 -->
         <div class="order-img">
-          <img :src="'http://45.64.53.115:8000' + commodity.pc_img.url" alt="">
+          <img :src="commodity.pc_img.url" alt="">
         </div>
         <!-- 右侧文字介绍 -->
         <div class="order-text">
           <p>您要兑换的商品是</p>
           <!-- 商品介绍文字 -->
-          <span class="order-pro-detail">{{commodity.title}}</span>
+          <h2 class="order-pro-detail">{{commodity.title}}</h2>
+          <span class="order-pro-detail">{{commodity.description}}</span>
           <!-- 积分 -->
           <div class="order-pro-cost">
             <p>
@@ -97,7 +98,15 @@ export default {
   },
   data () {
     return {
-      commodity: [],
+      commodity: {
+        pk: '',
+        title: '',
+        date: '',
+        description: '',
+        points: '',
+        app_img: {url: ''},
+        pc_img: {url: ''}
+      },
       order: {
         take_name: '',
         user_name: '',
@@ -113,14 +122,17 @@ export default {
     }
   },
   created () {
-    Axios({
+    if (window.token == ''){
+      window.requirePath = '/order'
+      this.$router.push('/login')
+    } else {
+      Axios({
       method: 'get',
       url: 'http://45.64.53.115:8000/api/mulu/' + window.orderid +'/?format=json',
-      withCredentials: true
     })
       .then(Response => {
         this.commodity = Response.data
-        console.log(this.commodity.pc_img.url)
+        this.commodity.pc_img.url = 'http://45.64.53.115:8000' + this.commodity.app_img.url
       })
       .catch(error => {
         console.log('商品加载错误')
@@ -143,6 +155,8 @@ export default {
         console.log('加载用户信息错误')
         alert('加载用户信息错误，请联系在线客服！')
       })
+    }
+    
   },
   methods: {
     submit () {
@@ -162,9 +176,6 @@ export default {
         alert('提交错误')
         this.$router.push('/shouye')
       })
-    },
-    goback () {
-      this.$router.push('/shouye')
     }
   }
 }

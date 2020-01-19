@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopNavC></TopNavC>
+    <TopNavC for-child-msg='搜索页面'></TopNavC>
     <div class="main-second-wrap">
         <div class="search-main">
             <input type="text" class="search-box" v-model="inWord" placeholder="请输入商品名称">
@@ -27,9 +27,6 @@ export default {
           lastWords: ['华为畅享', '华为', 'apple','mackbook pro', '手表', 'air max guile 运动鞋','运动鞋' ]
       }
   },
-  mounted: function () {
-    this.change()
-  },
   methods: {
     goBack () {
       if (window.history.length <= 1) {
@@ -38,9 +35,6 @@ export default {
       } else {
         this.$router.go(-1)
       }
-    },
-    change () {
-      document.getElementById('top-logo-change').innerHTML = '<p>搜索</P>'
     },
     goSearchData(){        
       window.search = this.inWord
