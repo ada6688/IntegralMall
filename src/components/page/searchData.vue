@@ -34,7 +34,7 @@
   </div>
 </template>
 <script>
-import TopNavC from '@/components/common/TopNavC'
+import TopNavC from '@/components/common/TopnavC'
 import axios from 'axios'
 import vuescroll from 'vuescroll'
 // import Result from '@/components/page/result'

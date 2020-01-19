@@ -74,7 +74,7 @@
 </template>
 <script>
 // 引用组件
-import TopNavC from '@/components/common/TopNavC'
+import TopNavC from '@/components/common/TopnavC'
 import { Overlay } from 'vant'
 import Axios from 'axios'
 export default {
