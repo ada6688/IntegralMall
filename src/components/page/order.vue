@@ -12,7 +12,7 @@
         <div class="order-text">
           <p>您要兑换的商品是</p>
           <!-- 商品介绍文字 -->
-          <h2 class="order-pro-detail">{{commodity.title}}</h2>
+          <!-- <h2 class="order-pro-detail">{{commodity.title}}</h2> -->
           <span class="order-pro-detail">{{commodity.description}}</span>
           <!-- 积分 -->
           <div class="order-pro-cost">
@@ -112,7 +112,7 @@ export default {
         user_name: '',
         goods_id: orderid,
         email: '',
-        phone: 0,
+        phone: '',
         wechart: '',
         address: '',
         tips: ''
