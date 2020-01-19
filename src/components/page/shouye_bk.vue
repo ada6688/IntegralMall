@@ -29,59 +29,66 @@
       <!-- 滚动公告 -->
       <Notice></Notice>
       <!-- 推荐分类栏 -->
-      <div class="recommend-wrap1">
-        <div>
-          <div class="items-list">
-            <div class="products-T">
-              <p class="products-T-active">推荐</p>
-              <p>数码</p>
-              <p>奖金</p>
-              <p>生活精品</p>
-              <p>奢华品</p>
-              <p>&bull;&bull;&bull;</p>
-            </div>
-            <div class="items-pro">
-              <div class="item-img-wrap">
-                <img src="../../assets/images/products/hw_p30@3x.png" alt="">
+      <div class="recommend-wrap">
+        <el-row>
+          <el-tabs type="border-card">
+            <el-tab-pane label="推荐">
+              <div v-for="goods in recommend" v-bind:key="goods.item" class="products-item" @click="jumpOrder(goods.pk)">
+                <div class="product-item-text">
+                  <p>{{goods.title}}</p>
+                  <span>{{goods.points}}积分</span>
+                </div>
+                <div class="product-item-img">
+                  <img :src="'http://45.64.53.115:8000'+goods.pc_img.url" alt />
+                </div>
               </div>
-              <div class="item-pro-text">
-                <b>华为手表</b>
-                <p>华为_mate P30手机64G双卡双待全面屏手机P30手机全面屏手机P30手机</p>
-                <span>72000积分</span>
+            </el-tab-pane>
+            <el-tab-pane label="数码">
+              <div v-for="goods in digital" v-bind:key="goods.item" class="products-item" @click="jumpOrder(goods.pk)">
+                <div class="product-item-text">
+                  <p>{{goods.title}}</p>
+                  <span>{{goods.points}}积分</span>
+                </div>
+                <div class="product-item-img">
+                  <img :src="'http://45.64.53.115:8000'+goods.pc_img.url" alt />
+                </div>
               </div>
-            </div>
-            <div class="items-pro">
-              <div class="item-img-wrap">
-                <img src="../../assets/images/products/dior_xs@3x.png" alt="">
+            </el-tab-pane>
+            <el-tab-pane label="奖金">
+              <div v-for="goods in bonus" v-bind:key="goods.item" class="products-item" @click="jumpOrder(goods.pk)">
+                <div class="product-item-text">
+                  <p>{{goods.title}}</p>
+                  <span>{{goods.points}}积分</span>
+                </div>
+                <div class="product-item-img">
+                  <img :src="'http://45.64.53.115:8000'+goods.pc_img.url" alt />
+                </div>
               </div>
-              <div class="item-pro-text">
-                <b>Dior香水</b>
-                <p>Dior香水Dior香水Dior香水</p>
-                <span>72000积分</span>
+            </el-tab-pane>
+            <el-tab-pane label="生活精品" >
+              <div v-for="goods in life" v-bind:key="goods.item" class="products-item" @click="jumpOrder(goods.pk)">
+                <div class="product-item-text">
+                  <p>{{goods.title}}</p>
+                  <span>{{goods.points}}积分</span>
+                </div>
+                <div class="product-item-img">
+                  <img :src="'http://45.64.53.115:8000'+goods.pc_img.url" alt />
+                </div>
               </div>
-            </div>
-            <div class="items-pro">
-              <div class="item-img-wrap">
-                <img src="../../assets/images/products/sn_ds@3x.png" alt="">
+            </el-tab-pane>
+            <el-tab-pane label="奢华品">
+              <div v-for="goods in luxury" v-bind:key="goods.item" class="products-item" @click="jumpOrder(goods.pk)">
+                <div class="product-item-text">
+                  <p>{{goods.title}}</p>
+                  <span>{{goods.points}}积分</span>
+                </div>
+                <div class="product-item-img">
+                  <img :src="'http://45.64.53.115:8000'+goods.pc_img.url" alt />
+                </div>
               </div>
-              <div class="item-pro-text">
-                <b>Sony电视</b>
-                <p>Sony电视Sony电视Sony电视Sony电视Sony电视</p>
-                <span>72000积分</span>
-              </div>
-            </div>
-            <div class="items-pro">
-              <div class="item-img-wrap">
-                <img src="../../assets/images/products/bgl_ls_bb@3x.png" alt="">
-              </div>
-              <div class="item-pro-text">
-                <b>Sony电视</b>
-                <p>Sony电视Sony电视Sony电视Sony电视Sony电视</p>
-                <span>72000积分</span>
-              </div>
-            </div>
-          </div>
-        </div>
+            </el-tab-pane>
+          </el-tabs>
+        </el-row>
       </div>
     </div>
     <BottomNav></BottomNav>
@@ -149,6 +156,7 @@ export default {
       .get('http://45.64.53.115:8000/api/mulu/shuma/?format=json')
       .then(Response => {
         this.digital = Response.data.results
+        // console.log(this.digital)
       })
       .catch(error => {
         console.log(error)
@@ -212,9 +220,7 @@ export default {
 /* .el-tabs__nav-wrap{
   width: 100%
 } */
-.el-tabs--border-card
-  > .el-tabs__header
-  .el-tabs__item:not(.is-disabled):hover {
+.el-tabs--border-card > .el-tabs__header .el-tabs__item:not(.is-disabled):hover {
   color: #ffffff;
 }
 .el-tabs--border-card > .el-tabs__header .el-tabs__item.is-active {

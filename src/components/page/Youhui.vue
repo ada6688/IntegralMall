@@ -36,7 +36,6 @@ export default {
   },
   methods: {
     change () {
-      // console.log(22213425)
       document.getElementById('top-nav-logo').innerHTML = '<p>优惠专区</p>'
     }
   }

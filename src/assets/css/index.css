@@ -47,14 +47,8 @@
   max-width: 100%;
 }
 
-
-
-
-
-
-
 .recommend-wrap1{
-  padding: 20px 16px 0 16px;
+  padding: 15px 10px 0 10px;
 }
 .products-T{
   color: #666666;
@@ -71,16 +65,17 @@
 .items-pro{
   width: 48%;
   display: inline-block;
+  float: left;
 }
 .items-pro:nth-of-type(even){
-  margin: 7px 2.4% 5px 0;
+  margin: 7px 0 5px 0;
 }
 .items-pro:nth-of-type(odd){
-  margin: 7px 0 5px;
+  margin: 7px 3.4% 5px 0;
 }
 .item-img-wrap{
   width: 100%;
-  height: 14.5vh;
+  height: 13.4vh;
   background-color: #EEECEC;
 }
 .item-img-wrap img{

@@ -29,8 +29,8 @@ export default {
   data () {
     return {
       loginForm: {
-        username: 'Thor',
-        password: '4rfv5tgb...'
+        username: '',
+        password: ''
       },
       token: ''
     }
@@ -55,16 +55,11 @@ export default {
         })
           .then(res => {
             console.log(res.data.key)
-            // _this.userToken = 'Bearer ' + res.data.key
-            // 将用户token保存到vuex中
-            // _this.changeLogin({ Authorization: _this.userToken })
-            token = res.data.key
-            _this.$router.push('/Member')
-            alert('登陆成功')
+            window.token = res.data.key
+            this.$router.go(-1)
           }).catch(error => {
             error1.textContent = '用户名或密码错误，请重新输入！'
             error1.style.cssText = 'display:block'
-            console.log(error)
           })
       }
     }

@@ -6,7 +6,7 @@
     <div id="top-nav-logo" class="top-nav-logo">
       <img src="../../assets/images/topnav/logo@3x.png" alt="logo">
     </div>
-    <div id="top-nav-right" class="top-nav-right">
+    <div id="top-nav-right" class="top-nav-right" @click="goSearch">
       <img src="../../assets/images/topnav/ss@3x.png" alt="搜索">
     </div>
   </div>
@@ -15,6 +15,11 @@
 export default {
   data () {
     return {
+    }
+  },
+  methods: {
+    goSearch () {
+      this.$router.push({path: '/search'})      
     }
   }
 }

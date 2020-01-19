@@ -14,7 +14,7 @@ import 'mint-ui/lib/style.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import { Step, Steps, Icon } from 'vant'
 import VueScroller from 'vue-scroller'
-import VueTouch from 'vue-touch'
+// import VueTouch from 'vue-touch'
 // import 'vue-touch/dist/vue-touch.js'
 
 Vue.prototype.HOST = '/api'
@@ -23,7 +23,7 @@ Vue.use(ElementUI)
 Vue.use(MintUI)
 Vue.use(Step).use(Steps)
 Vue.use(Icon)
-Vue.use(VueTouch, {name: 'v-touch'})
+// Vue.use(VueTouch, {name: 'v-touch'})
 Vue.use(VueScroller)
 
 Vue.config.productionTip = false
@@ -45,7 +45,6 @@ router.beforeEach((to, from, next) => {
     if (token) { // 判断当前的token是否存在
       next()
     } else {
-      console.log('需要登录')
       next({
         path: '/login',
         query: {redirect: router.fullPath} // 将跳转的路由path作为参数，登录成功后跳转到该路由
