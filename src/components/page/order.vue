@@ -5,7 +5,10 @@
       <!-- 商品详情 -->
       <div class="order-product-wrap">
         <!-- 左侧图片 -->
-        <div class="order-img">
+        <div class="order-img" v-if="commodity.app_img">
+          <img :src="commodity.app_img.url" alt="">
+        </div>
+        <div class="order-img" v-else>
           <img :src="commodity.pc_img.url" alt="">
         </div>
         <!-- 右侧文字介绍 -->
@@ -128,11 +131,14 @@ export default {
     } else {
       Axios({
       method: 'get',
-      url: 'http://45.64.53.115:8000/api/mulu/' + window.orderid +'/?format=json',
+      url: 'http://127.0.0.1:8000/api/mulu/' + window.orderid +'/?format=json',
     })
       .then(Response => {
         this.commodity = Response.data
-        this.commodity.pc_img.url = 'http://45.64.53.115:8000' + this.commodity.app_img.url
+        this.commodity.pc_img.url = 'http://127.0.0.1:8000' + this.commodity.pc_img.url
+        if (this.commodity.app_img) {
+          this.commodity.app_img.url = 'http://127.0.0.1:8000' + this.commodity.app_img.url
+        }
       })
       .catch(error => {
         console.log('商品加载错误')
@@ -141,7 +147,7 @@ export default {
       })
     Axios({
       method: 'get',
-      url: 'http://45.64.53.115:8000/api/auth/points/?format=json',
+      url: 'http://127.0.0.1:8000/api/auth/points/?format=json',
       headers: {
         Authorization: 'Token ' + window.token
       }
@@ -159,10 +165,10 @@ export default {
     
   },
   methods: {
-    submit () {
+    submit (e) {
       Axios({
-      method: 'post',
-      url: 'http://45.64.53.115:8000/api/auth/orders/',
+      method: 'POST',
+      url: 'http://127.0.0.1:8000/api/auth/orders/',
       data: this.order,
       headers: {
         Authorization: 'Token ' + window.token

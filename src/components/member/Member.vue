@@ -8,7 +8,7 @@
         <div class="member-person-info">
           <!-- 会员头像 -->
           <div class="member-img">
-            <img :src="auth.avatar === '' ? 'http://www.gravatar.com/avatar/4ee3113dc16bc05c2bba9393c8e1f7ef?s=50&d=mm' : 'http://45.64.53.115:8000' + auth.avatar" alt="">
+            <img :src="auth.avatar === '' ? 'http://www.gravatar.com/avatar/4ee3113dc16bc05c2bba9393c8e1f7ef?s=50&d=mm' : 'http://127.0.0.1:8000' + auth.avatar" alt="">
           </div>
           <!-- 会员名称与设置图标 -->
           <p class="member-name">
@@ -126,7 +126,7 @@ export default {
     } else {
       Axios({
         method: 'get',
-        url: 'http://45.64.53.115:8000/api/auth/user/?format=json',
+        url: 'http://127.0.0.1:8000/api/auth/user/?format=json',
         headers: {
           Authorization: 'Token ' + token
         }
@@ -142,7 +142,7 @@ export default {
         })
       Axios({
         method: 'get',
-        url: 'http://45.64.53.115:8000/api/auth/points/?format=json',
+        url: 'http://127.0.0.1:8000/api/auth/points/?format=json',
         headers: {
           Authorization: 'Token ' + token
         }
@@ -158,7 +158,7 @@ export default {
         })
         Axios({
         method: 'get',
-        url: 'http://45.64.53.115:8000/api/auth/sign/query/?format=json',
+        url: 'http://127.0.0.1:8000/api/auth/sign/query/?format=json',
         headers: {
           Authorization: 'Token ' + token
         }
@@ -207,7 +207,7 @@ export default {
       if (this.sign_status === 200) {
         Axios({
         method: 'get',
-        url: 'http://45.64.53.115:8000/api/auth/sign/in/',
+        url: 'http://127.0.0.1:8000/api/auth/sign/in/',
         headers: {
           Authorization: 'Token ' + token
         }

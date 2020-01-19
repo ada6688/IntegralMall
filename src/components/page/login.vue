@@ -47,7 +47,7 @@ export default {
       } else {
         axios({
           method: 'post',
-          url: 'http://45.64.53.115:8000/rest-auth/login/',
+          url: 'http://127.0.0.1:8000/rest-auth/login/',
           data: {
             username: _this.loginForm.username,
             password: _this.loginForm.password
