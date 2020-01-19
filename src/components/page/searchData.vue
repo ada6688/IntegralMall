@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopNavC></TopNavC>
+    <TopNavC for-child-msg='搜索结果'></TopNavC>
     <div class="main-second-wrap">
         <div class="search-main">
         <input type="text" class="search-box" v-model="inWord" placeholder="请输入商品名称">
@@ -43,9 +43,6 @@ export default {
     TopNavC,      
     vuescroll    
   },  
-  mounted: function () {
-    this.change()
-  },
   data() {
       return {
         searchWord: window.search,
@@ -63,9 +60,6 @@ export default {
       } else {
         this.$router.go(-1)
       }
-    },
-    change () {
-      document.getElementById('top-logo-change').innerHTML = '<p>搜索结果</P>'
     },
     refreshStart (done) {
       setTimeout(() => {

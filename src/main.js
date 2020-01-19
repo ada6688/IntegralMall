@@ -31,6 +31,7 @@ window.token = ''
 window.orderid = 0
 window.oldPath = '/'
 window.requirePath = '/'
+window.search = ''
 
 /* eslint-disable no-new */
 new Vue({
