@@ -122,7 +122,11 @@ export default {
     }
   },
   created () {
-    Axios({
+    if (window.token == ''){
+      window.requirePath = '/order'
+      this.$router.push('/login')
+    } else {
+      Axios({
       method: 'get',
       url: 'http://45.64.53.115:8000/api/mulu/' + window.orderid +'/?format=json',
     })
@@ -151,6 +155,8 @@ export default {
         console.log('加载用户信息错误')
         alert('加载用户信息错误，请联系在线客服！')
       })
+    }
+    
   },
   methods: {
     submit () {
@@ -170,9 +176,6 @@ export default {
         alert('提交错误')
         this.$router.push('/shouye')
       })
-    },
-    goback () {
-      this.$router.push('/shouye')
     }
   }
 }

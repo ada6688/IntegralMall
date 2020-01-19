@@ -46,11 +46,18 @@ export default new Router({
     {
       path: '/mingxi',
       component: Mingxi,
-
+      meta: {
+        index: 2,
+        requireAuth: true
+      }
     },
     {
       path: '/duihuan',
       component: Duihuan,
+      meta: {
+        index: 2,
+        requireAuth: true
+      }
     },
     {
       path: '/guanyu',
@@ -66,7 +73,11 @@ export default new Router({
     },
     {
       path: '/chouJiang',
-      component: ChouJiang
+      component: ChouJiang,
+      meta: {
+        index: 2,
+        requireAuth: true
+      }
     }
   ]
 })

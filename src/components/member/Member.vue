@@ -107,69 +107,75 @@ export default {
       Sign: [],
       Sing_day: 0,
       last_sign: 0,
-      sign_status: 200
+      sign_status: 200,
+      level_img: [
+        require('@/assets/images/levelSign/pt@3x.png'),
+        require('@/assets/images/levelSign/hj@3x.png'),
+        require('@/assets/images/levelSign/bj@3x.png'),
+        require('@/assets/images/levelSign/zs@3x.png'),
+        require('@/assets/images/levelSign/zz@3x.png'),
+        require('@/assets/images/levelSign/wz@3x.png'),
+        require('@/assets/images/levelSign/ty@2x.png'),
+      ]
     }
   },
   created () {
-    // auth = 'Token ' + token
-    Axios({
-      method: 'get',
-      url: 'http://45.64.53.115:8000/api/auth/user/?format=json',
-      headers: {
-        Authorization: 'Token ' + token
-      }
-    })
-      .then(Response => {
-        this.auth = Response.data
-        console.log(Response.data)
-      })
-      .catch(error => {
-        console.log(error)
-        alert('y用户信息加载错误，请联系在线客服！')
-        // this.$router.push('/shouye')
-      })
-    Axios({
-      method: 'get',
-      url: 'http://45.64.53.115:8000/api/auth/points/?format=json',
-      headers: {
-        Authorization: 'Token ' + token
-      }
-    })
-      .then(Response => {
-        this.integral = Response.data
-        this.integral.img_url = Response.data.shop_level === 0 ? '/static/imalevelSignges/pt@3x.png' :
-                Response.data.shop_level === 1 ? '/static/levelSign/hj@3x.png' :
-                Response.data.shop_level === 2 ? '/static/levelSign/bj@3x.png' :
-                Response.data.shop_level === 3 ? '/static/levelSign/zs@3x.png' :
-                Response.data.shop_level === 4 ? '/static/levelSign/zz@3x.png' :
-                Response.data.shop_level === 5 ? '/static/levelSign/wz@3x.png' :
-                Response.data.shop_level === 6 ? '/static/levelSign/ty@3x.png' : '/static/levelSign/pt@3x.png'
-        console.log(Response.data)
-      })
-      .catch(error => {
-        console.log(error)
-        alert('等级加载错误，请联系在线客服！')
-        // this.$router.push('/shouye')
-      })
+    if (window.token == '') {
+      window.requirePath = '/Member'
+      this.$router.push('/login')
+    } else {
       Axios({
-      method: 'get',
-      url: 'http://45.64.53.115:8000/api/auth/sign/query/?format=json',
-      headers: {
-        Authorization: 'Token ' + token
-      }
-    })
-      .then(Response => {
-        this.Sign = Response.data.data
-        this.Sing_day = Response.data.continuity_days
-        this.last_sign = Response.data.tomorrow
-        this.sign_status = Response.data.status
-        console.log(Response.data)
+        method: 'get',
+        url: 'http://45.64.53.115:8000/api/auth/user/?format=json',
+        headers: {
+          Authorization: 'Token ' + token
+        }
       })
-      .catch(error => {
-        console.log(error)
-        alert('签到获取错误')
-        // this.$router.push('/shouye')
+        .then(Response => {
+          this.auth = Response.data
+          console.log(Response.data)
+        })
+        .catch(error => {
+          console.log(error)
+          alert('y用户信息加载错误，请联系在线客服！')
+          // this.$router.push('/shouye')
+        })
+      Axios({
+        method: 'get',
+        url: 'http://45.64.53.115:8000/api/auth/points/?format=json',
+        headers: {
+          Authorization: 'Token ' + token
+        }
       })
+        .then(Response => {
+          this.integral = Response.data
+          this.integral.img_url = this.level_img[Response.data.shop_level]
+        })
+        .catch(error => {
+          console.log(error)
+          alert('等级加载错误，请联系在线客服！')
+          // this.$router.push('/shouye')
+        })
+        Axios({
+        method: 'get',
+        url: 'http://45.64.53.115:8000/api/auth/sign/query/?format=json',
+        headers: {
+          Authorization: 'Token ' + token
+        }
+      })
+        .then(Response => {
+          this.Sign = Response.data.data
+          this.Sing_day = Response.data.continuity_days
+          this.last_sign = Response.data.tomorrow
+          this.sign_status = Response.data.status
+          // console.log(Response.data)
+        })
+        .catch(error => {
+          console.log(error)
+          alert('签到获取错误')
+          // this.$router.push('/shouye')
+        })
+    }
   },
   mounted: function () {
     // 

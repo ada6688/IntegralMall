@@ -29,6 +29,7 @@ Vue.use(VueScroller)
 Vue.config.productionTip = false
 window.token = ''
 window.orderid = 0
+window.oldPath = '/'
 window.requirePath = '/'
 
 /* eslint-disable no-new */
