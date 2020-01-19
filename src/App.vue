@@ -1,14 +1,12 @@
 <template>
-  <div id="app">
+  <div id="app" style="background: #151515 !important">
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
-  components: {
-  }
+  name: 'App'
 }
 </script>
 
@@ -19,7 +17,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background: #151515;
   height: 100vh;
 }
 </style>

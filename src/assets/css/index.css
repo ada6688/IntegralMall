@@ -46,6 +46,189 @@
 .product-item-img img{
   max-width: 100%;
 }
+
+.recommend-wrap1{
+  padding: 15px 10px 0 10px;
+}
+.products-T{
+  color: #666666;
+  font-size: 16px;
+  text-align-last: justify;
+}
+.products-T-active{
+  color: #B58024;
+  font-size: 18px;
+}
+.products-T p{
+  display: inline-block;
+}
+.items-pro{
+  width: 48%;
+  display: inline-block;
+  float: left;
+}
+.items-pro:nth-of-type(even){
+  margin: 7px 0 5px 0;
+}
+.items-pro:nth-of-type(odd){
+  margin: 7px 3.4% 5px 0;
+}
+.item-img-wrap{
+  width: 100%;
+  height: 13.4vh;
+  background-color: #EEECEC;
+}
+.item-img-wrap img{
+  max-height: 100%;
+  max-width: 100%;
+}
+.item-pro-text{
+  text-align: left;
+  padding: 5px 6px 10px;
+  background: #2A2C35;
+}
+.item-pro-text b{
+  color: #FFFFFF;
+  font-size: 15px;
+}
+.item-pro-text p{
+  color: #CCCCCC;
+  font-size: 13px;
+  height: 44px;
+  line-height: 22px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  text-overflow:ellipsis;
+  -webkit-box-orient: vertical;
+}
+.item-pro-text span{
+  color: #B58024;
+  font-size: 12px;
+}
+/********************* 订单 兑换信息填写 *******************/
+.order-product-wrap{
+  padding: 25px 16px;
+}
+.order-img{
+  width: 35%;
+  height: 110px;
+  vertical-align: middle;
+  text-align: center;
+  float: left;
+  position: relative;
+}
+.order-img img{
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.order-text{
+  width: 65%;
+  text-align: left;
+  display: inline-block;
+}
+.order-text > p{
+  color: #BB8322;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.order-pro-detail{
+  color: #E5E5E5;
+  font-size: 13px;
+}
+.order-pro-cost{
+  font-size: 12px;
+}
+.order-pro-cost p{
+  display: inline-block;
+}
+.order-pro-cost p:last-child{
+  float: right;
+}
+.order-pro-cost p span:first-child{
+  color: #666666;
+}
+.order-pro-cost p:first-child span:last-child{
+  color: #999999;
+  text-decoration: line-through;
+}
+.order-pro-cost p:last-child span:last-child{
+  color: #BA1C22;
+}
+.order-pro-detail-button{
+  width: 100%;
+  font-size: 15px;
+  color: #E5E5E5;
+  margin-top: 10px;
+  text-align: center;
+}
+.order-pro-detail-button p{
+  width: 80%;
+  border: 1px solid #B58024;
+  margin: 0 auto;
+  padding: 5px 0;
+}
+form{
+  width: 100%;
+}
+.order-form div{
+  height: 40px;
+  line-height: 40px;
+  text-align: left;
+  padding-left: 20px;
+  background: #2A2C35;
+  border-top: 1px solid #151515;
+}
+.order-bz-wrap{
+  height: 80px !important;
+}
+.order-bz-wrap textarea{
+  height: 100%;
+}
+.order-form div span:first-child{
+  color: #B31E23;
+  margin-right: 3px;
+}
+.order-form div span:nth-child(3){
+  color: #ffffff;
+}
+.order-name-T{
+  width: 20%;
+  color: #ffffff !important;
+  display: inline-block;
+  font-size: 13px;
+  text-align-last: justify;
+}
+.order-bz{
+  color: transparent !important;
+}
+.order-form input{
+  width: 70%;
+  height: 100%;
+  color: #ffffff;
+  font-size: 12px;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+}
+.order-form button{
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  color: #ffffff;
+  letter-spacing: 2px;
+  background:linear-gradient(#B58024,#E4B562);
+  border: none;
+  outline: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
 /******************* 优惠 *******************/
 .yh-wrap div{
   padding: 1rem 1rem 0 1rem;
@@ -54,11 +237,15 @@
   width: 100%;
 }
 /******************* VIP *******************/
+.VIP-T > img{
+  width: 90%;
+}
 .level-welfare-wrap, .level-require-wrap{
   padding-bottom: 20px;
 }
 .VipTop-level-sign{
   display: inline-block;
+  width: 22px;
 }
 .VipTop-level-text{
   position: absolute;
@@ -67,7 +254,7 @@
 .vip-level-wrap ul li{
   float: left;
   width: 33.33%;
-  height: 79px;
+  margin-bottom: 20px;
 }
 .vip-level-wrap ul div{
   width: 34px;
@@ -76,10 +263,11 @@
   border-radius: 17px;
   margin-bottom: 9px;
   display: inline-block;
-  vertical-align: middle;
 }
 .vip-level-wrap ul img{
-  margin-top: 7px;
+  max-width: 50%;
+  position: relative;
+  transform: translate(5%,50%);
 }
 .vip-level-wrap ul li>p{
   color: #CCCCCC;
@@ -106,7 +294,6 @@
   background: #2A2C35;
   text-align: left;
   padding: 15px 17px 16px 17px;
-  margin-bottom: 50px;
 }
 .level-rules-wrap span{
   font-size: 16px;
@@ -156,7 +343,11 @@
   bottom: 8px;
 }
 .member-level-sign{
+  height: 20px;
   margin: 8px 0 10px 0;
+}
+.member-level-sign img{
+  height: 100%;
 }
 .member-integral{
   text-align: center;
@@ -191,7 +382,7 @@
   margin: 16px 0;
 }
 .member-signIn-status-1{
-  width: 12%;
+  width: 14%;
   text-align: left;
   display: inline-block;
 }
@@ -214,7 +405,7 @@
   color: #34363D;
 }
 .member-signIn-line{
-  width: 84%;
+  width: 76%;
   height: 3px;
   display: inline-block;
   background: #34363D;
@@ -270,10 +461,219 @@
   float: left;
   margin-right: 66%;
 }
-.el-icon-arrow-right{
+.el-icon-arrow-left {
+  color: #ffffff;
+}
+.member-wrap .el-icon-arrow-right{
   width: 7px;
   height: 7px;
   position: absolute;
   right: 20px;
   margin-top: 12px;
+}
+/* 积分明细 */
+.integral-details{
+  width: 100%;
+  padding: 15px 0;
+  display: inline-block;
+  border-bottom: 1px solid #373B45;
+}
+.integral-details li:first-child{
+  text-align: left;
+  float: left;
+}
+.integral-details li:last-child{
+  height: 44px;
+  line-height: 44px;
+  color: #B58024;
+  font-size: 13px;
+  float: right;
+}
+.integral-details li p{
+  color: #CCCCCC;
+  font-size: 13px;
+  margin-bottom: 9px;
+}
+.integral-details li span{
+  color: #666666;
+  font-size: 12px;
+}
+.exchange-integral li:last-child{
+  color: #AC2524;
+}
+/* 兑换详情 */
+.exchange-item-wrap{
+  background: #2A2C35;
+  padding: 23px 17px 17px 17px;
+  margin-bottom: 16px;
+}
+.exchange-item-top{
+  font-size: 12px;
+  margin-bottom: 25px;
+}
+.exchange-item-date{
+  color: #999899;
+  float: left;
+}
+.exchange-item-status{
+  color: #F5BF1B;
+  float: right;
+}
+.exchange-item-main{
+  width: 100%;
+  display: table;
+  vertical-align: middle;
+  border-bottom: 1px solid #373B45;
+}
+.exchange-item-img{
+  width: 32%;
+  text-align: center;
+  display: inline-block;
+}
+.exchange-item-img img{
+  max-width: 100% !important;
+}
+.exchange-item-des{
+  width: 66.6%;
+  color: #CCCCCC;
+  font-size: 13px;
+  float: right;
+}
+.exchange-item-des p:first-child{
+  letter-spacing:1px;
+  text-align: left;
+}
+.exchange-item-des p:last-child{
+  color: #CCCCCC;
+  font-size: 12px;
+  text-align: right;
+  margin: 10px 0;
+}
+.exchange-item-des p:last-child span{
+  color: #F5BF1B;
+}
+.exchange-item-info{
+  font-size: 12px;
+  text-align: left;
+  margin-top: 10px;
+}
+.exchange-item-info p span:first-child{
+  color: #999899;
+}
+.exchange-item-info p span:last-child{
+  color: #CCCCCC;
+}
+/* 关于积分 */
+.about-integral{
+  padding: 17px;
+  margin-bottom: 20px;
+  text-align: left;
+  background: #2A2C35;
+  letter-spacing:1px;
+  line-height:20px
+}
+.about-integral-detail{
+  font-size: 13px;
+  color: #CCCCCC;
+}
+.about-integral-detail>p{
+  letter-spacing:2px;
+}
+.about-integral-T span:first-child{
+  width: 2px;
+  height: 15px;
+  background: #F5BF1B;
+  display: inline-block;
+}
+.about-integral-T span:last-child{
+  font-size: 16px;
+  color: #FFFFFF;
+  margin-left: 5px;
+}
+.about-integral-detail p:first-child{
+  margin-top: 5px;
+}
+.about-integral-detail span{
+  color: #F5BF1B;
+}
+.about-integral-tips{
+  font-size: 12px;
+  color: #666666;
+}
+.about-integral-table{
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.about-integral-table table{
+  width: 100%;
+  border-collapse: collapse;
+}
+.about-integral-table>table,.about-integral-table tr td,.about-integral-table tr th{
+  border: 1px solid #373A45;
+}
+
+.about-integral-table tr{
+  height: 30px;
+}
+/* 常见疑问 */
+.integral-question{
+  margin-bottom: 16px;
+  background: #2A2C35;
+}
+.integral-question-item-T,.integral-question-text{
+  text-align: left;
+  padding: 16px 16px;
+  border-top: 1px solid #373B45;
+}
+.integral-question-item{
+  text-align: left;
+  position: relative;
+}
+.integral-question-item-T span:first-child{
+  width: 2px;
+  height: 15px;
+  background: #F5BF1B;
+  display: inline-block;
+}
+.integral-question-item-T span:last-child{
+  font-size: 15px;
+  color: #ffffff;
+  margin-left: 5px;
+}
+.integral-question-item li{
+  width: 100%;
+  display: inline-block;
+}
+.integral-question-text span{
+  color: #CCCCCC;
+  font-size: 13px;
+  text-align: left;
+}
+.integral-question-text i{
+  color: #ffffff;
+  position: absolute;
+  right: 16px;
+}
+.integral-answer p{
+  color: #999999;
+  font-size: 12px;
+  padding: 10px 16px;
+  background: #151515;
+}
+/* 规则与条款 */
+.rules-request-wrap{
+  color: #CCCCCC;
+  font-size: 13px;
+  text-align: left;
+  line-height: 20px;
+  letter-spacing: 1px;
+  background: #2A2D36;
+  padding: 17px;
+}
+.rules-request-tips{
+  color: #B58024;
+  font-size: 12px;
+  text-align: left;
+  padding: 15px 0 15px 15px;
 }
