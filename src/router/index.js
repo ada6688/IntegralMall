@@ -14,6 +14,8 @@ import Yiwen from '@/components/member/yiwen/yiwen'
 import Guize from '@/components/member/guize/guize'
 import Order from '@/components/page/order'
 import ChouJiang from '@/components/page/chouJiang'
+import Search from '@/components/page/search'
+import SearchData from '@/components/page/searchData'
 
 Vue.use(Router)
 
@@ -73,11 +75,18 @@ export default new Router({
     },
     {
       path: '/chouJiang',
-      component: ChouJiang,
-      meta: {
-        index: 2,
-        requireAuth: true
-      }
+      component: ChouJiang
+    },
+    {
+      path: '/search',      
+      component: Search,
+      meta: {index: 2, title: '<p>搜索</p>'}
+    },
+    {
+      path: '/search/result',
+      name: 'search',
+      component: SearchData,
+      meta: {index: 3, title: '<p>搜索结果</p>'}
     }
   ]
 })
