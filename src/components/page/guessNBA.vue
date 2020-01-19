@@ -116,9 +116,7 @@
                               <li class="nbaGussBigBox-team-1">
                                   <p class="nbaGussBigBox-teamLeftpic" ><img :src="'http://45.64.53.115:8000' + nbanews.competition.team_one.team_img_url.url" alt="nbanews.competition.team_one.team_name" ></p>
                                   <p class="nbaGussBigBox-teamLeftname">{{nbanews.competition.team_one.team_name}}</p>
-                                  <p class="nbaGussBigBox-teamLeftResult">
-                                      <div class="NbaWiner" @click="selectTeamOne(index)" id="NbaWinerOne">赢</div>
-                                  </p>
+                                  <div class="NbaWiner" @click="selectTeamOne(index)" id="NbaWinerOne" :style="[WinerBtnBCone,WinerBtndis]">赢</div>
                               </li>
                               <li class="nbaGussBigBox-team-2">
                                   <p class="nbaGussBigBox-team-2-timedata">{{nbanews.competition.competition_date}}</p>
@@ -132,9 +130,7 @@
                                       <img :src="'http://45.64.53.115:8000' + nbanews.competition.team_two.team_img_url.url" alt="nbanews.competition.team_two.team_name" >
                                   </p>
                                   <p class="nbaGussBigBox-teamRightpic">{{nbanews.competition.team_two.team_name}}</p>
-                                  <p class="nbaGussBigBox-teamRightpic">
-                                      <div class="NbaWiner" @click="selectTeamTwo(index)" id="NbaWinerTwo">赢</div>
-                                  </p>
+                                  <div class="NbaWiner" @click="selectTeamTwo(index)" id="NbaWinerTwo" :style="[WinerBtnBCtwo,WinerBtndis]">赢</div>
                               </li>
                               <div class="nbaEnd">
                                   <img src="../../assets/images/yh/nbanow.png">
@@ -228,14 +224,28 @@
               scoreResule: [
                   {win: require('../../assets/images/yh/win.png')},
                   {lose: require('../../assets/images/yh/lose.png')},
-              ],             
+              ],
+              WinerBtnBCone: {
+                backgroundColor: '#999999'
+              },
+              WinerBtnBCtwo: {
+                backgroundColor: '#999999'
+              },
+               WinerBtndis: {
+                pointerEvents: 'auto' 
+               }    
           }
       },
       mounted: function(){
           this.getNbaMessage ()
+          this.change()
+
       },
 
       methods: {
+          change () {
+            document.getElementById('top-logo-change').innerHTML = '<p>NBA竞猜</P>'
+          },
           getNbaMessage () {
               axios({
                   method: 'get',
@@ -295,10 +305,9 @@
 
           //点击第一个队伍时
           selectTeamOne (index) {
+            this.WinerBtndis.pointerEvents = "none"
             let nbaNum = this.Nbadata[index].competition.pk
             let nbaTeam = this.Nbadata[index].competition.team_one.team_name
-            let NbaWinerTwo = document.getElementById('NbaWinerTwo')
-            let NbaWinerOne = document.getElementById('NbaWinerOne')
             axios({
               method: 'post',
               url:'http://45.64.53.115:8000/api/nba/lottery/?format=json',
@@ -313,13 +322,10 @@
             }).then(Response => {
               let RequsMessages = Response.data.message 
               if(RequsMessages == "提交成功"){
-                NbaWinerOne.style.backgroundColor = "#b51e1a"
-                NbaWinerTwo.style.pointer-events == "none"
-                NbaWinerOne.style.pointer-events == "none"
+                this.WinerBtnBCone.backgroundColor = "#b51e1a"
+                console.log(1)
               } else {
                 alert(RequsMessages)
-                NbaWinerTwo.style.pointer-events == "none"
-                NbaWinerOne.style.pointer-events == "none"
               }
             }).catch(error => {
               console.log(error)
@@ -329,11 +335,9 @@
 
           //点击第二个队伍时
           selectTeamTwo (index) {
+            this.WinerBtndis.pointerEvents = "none"
             let nbaNum = this.Nbadata[index].competition.pk
             let nbaTeam = this.Nbadata[index].competition.team_two.team_name
-            let NbaWinerTwo = document.getElementById('NbaWinerTwo')
-            let NbaWinerOne = document.getElementById('NbaWinerOne')
-
 
             axios({
               method: 'post',
@@ -348,15 +352,10 @@
               }
             }).then(Response => {
               let RequsMessages = Response.data.message 
-              if(RequsMessages == "提交成功"){
-                NbaWinerTwo.style.backgroundColor = "#b51e1a"
-                NbaWinerTwo.style.pointer-events == "none"
-                NbaWinerOne.style.pointer-events == "none"
-                
+              if(RequsMessages == "提交成功"){  
+                this.WinerBtnBCtwo.backgroundColor = "#b51e1a"              
               } else {
-                alert(RequsMessages)
-                NbaWinerTwo.style.pointer-events == "none"
-                NbaWinerOne.style.pointer-events == "none"              
+                alert(RequsMessages)              
               }
             }).catch(error => {
               console.log(error)
@@ -580,7 +579,6 @@
   font-size: 1rem;
   /* width: 20px;
   height: 10px; */
-  background-color:  #999999;
   border-radius: 5px;
   padding:2px 0;
 }   
