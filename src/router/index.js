@@ -16,6 +16,7 @@ import Order from '@/components/page/order'
 import ChouJiang from '@/components/page/chouJiang'
 import Search from '@/components/page/search'
 import SearchData from '@/components/page/searchData'
+import guessNBA from '@/components/page/guessNBA'
 
 Vue.use(Router)
 
@@ -76,6 +77,10 @@ export default new Router({
     {
       path: '/chouJiang',
       component: ChouJiang
+    },
+    {
+      path: '/guessNBA',
+      component: guessNBA
     },
     {
       path: '/search',      

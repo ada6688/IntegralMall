@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-import TopNavC from '@/components/common/TopNavC'
+import TopNavC from '@/components/common/TopnavC'
 
 export default {
   components: {
