@@ -25,7 +25,7 @@ export default {
     return {
       youHui: [
         {path: 'chouJiang', src: require('../../assets/images/yh/CGCJ@3x.png')},
-        {path: 'everydayNBA', src: require('../../assets/images/yh/NBA@3x.png')},
+        {path: 'guessNBA', src: require('../../assets/images/yh/NBA@3x.png')},
       ],
     }
   }

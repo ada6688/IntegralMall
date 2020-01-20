@@ -34,7 +34,7 @@
   </div>
 </template>
 <script>
-import TopNavC from '@/components/common/TopNavC'
+import TopNavC from '@/components/common/TopnavC'
 import axios from 'axios'
 import vuescroll from 'vuescroll'
 // import Result from '@/components/page/result'
@@ -103,7 +103,7 @@ created () {
   },  
 }
 </script>
-<style scoped>
+<style>
 .search-main{
     margin:16.67pt 17pt 0 16.67pt;
     height: 36.67px;

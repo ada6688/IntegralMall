@@ -26,9 +26,9 @@
   </div>
 </template>
 <script>
-import TopNavC from '@/components/common/TopNavC'
-
+  import TopNavC from '@/components/common/TopnavC'
 export default {
+  
   components: {
     TopNavC
   },
@@ -81,5 +81,43 @@ export default {
 
 </script>
 <style>
+  #rule {
+      margin-top: 3rem;
+      height: 650px;
+  }
+  #ruleBottomLine{
+      bottom: 0;
+      text-align: center;
+  
+  }
+  #ruleBox{
+      text-align: justify;
+  }
 
+  #ruleBox i{
+      margin: 0 1rem;
+  }
+  #rule .el-icon-arrow-right{
+      margin-top: -4px;
+  }
+  #rule .el-collapse-item__header{
+      background-color: #151515;
+      border-bottom: 2px solid #2b2a2f;
+      color: #fefeff;
+  }
+  #rule .el-collapse-item__content{
+      background-color:#1b1b1b ;
+      color: #fefeff;
+  }
+  #rule .el-tabs--border-card>.el-tabs__content{
+      background-color:#1b1b1b ;
+  }
+  #rule .el-collapse{
+      background-color: #1b1b1b;
+      border-top:1px solid #151515
+  }
+
+  #ruleBox p{
+      padding: 1rem;
+  }
 </style>

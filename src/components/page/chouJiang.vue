@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopNavC></TopNavC>
+    <TopNavC for-child-msg='每日抽奖'></TopNavC>
     <div class="choujiang-page main-second-wrap" :style="{backgroundImage: 'url(' + mainbg + ')'}">
       <div class="game-detail">
         <h4>活动详情：</h4>
@@ -13,12 +13,15 @@
         </div>
 
         <div class="num_box">
-          <div class="tiger"></div>
-          <div class="tiger"></div>
-          <div class="tiger"></div>
+          <div class="tiger tiger_start_1" :class="{tiger_1:start, tiger_start_1:stop}" :style="{'--pfirst':pfirst}">
+          </div>
+          <div class="tiger tiger_start_1" :class="{tiger_2:start, tiger_start_1:stop}" :style="{'--psecond':psecond}">
+          </div>
+          <div class="tiger tiger_start_2" :class="{tiger_3:start, tiger_start_2:stop}" :style="{'--pthird':pthird}"  ref="lotteryInfo">
+          </div>
         </div>
 
-        <div class="lottery-button" @click="postChance">
+        <div class="lottery-button" @click="post_lettery()">
           <img :src="lottery_button" alt />
         </div>
       </div>
@@ -27,13 +30,13 @@
           <span>中奖公告</span>
         </div>
         <swiper :options="swiperOption">
-          <swiper-slide v-for="(msg, index) in letter" :key="index">
+          <swiper-slide v-for="(msg, index) in rolling_letter" :key="index">
             <div class="letter-div">
               <div>
                 <img :src="head" alt />
               </div>
               <div>
-                <span>{{msg}}</span>
+                <span>{{msg.letter}}</span>
               </div>
             </div>
           </swiper-slide>
@@ -62,7 +65,7 @@
           <p class="moneyMessage" id="moneyMessage1"><span id="moneySize"></span>元</p>
           <p class="moneyMessage" id="moneyMessage2"></p>
           <p class="moneyMessage" id="moneyMessage3">请在我的账户里查看</p>
-          <div id='messagesImgBotton' @click='overlayClick'></div> 
+          <div id='messagesImgBotton' ></div> 
         </div>    
       </div>
     </div>    
@@ -71,9 +74,9 @@
 </template>
 <script>
 // 引用组件
-import TopNavC from '@/components/common/TopNavC'
+import TopNavC from '@/components/common/TopnavC'
 import { Overlay } from 'vant'
-import axios from 'axios'
+import Axios from 'axios'
 export default {
   name: 'App',
   components: {
@@ -81,33 +84,25 @@ export default {
   },
   data () {
     return {
-      u:5,    //转动圈数  为了减少误差尽量不要超过6
       res: [],
       chance: null,
       money: null,
+      stop: true,
+      start: false,
+      pfirst: '',
+      psecond: '',
+      pthird: '',
       mainbg: require('../../assets/images/yh/background.png'),
       zhuanlun: require('../../assets/images/yh/cj-bg.png'),
       lottery: require('../../assets/images/yh/6.original.png'),
       lottery_button: require('../../assets/images/yh/cjan_dj@3x.png'),
       head: require('../../assets/images/yh/tx.png'),
       zhuanlunDiv: {
-        backgroundImage:
-          'url(' + require('../../assets/images/yh/cj-bg.png') + ')',
+        backgroundImage: 'url(' + require('../../assets/images/yh/cj-bg.png') + ')',
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100% 100%'
       },
-      letter: [
-        '宝马会xxx 已抽中红包1000元',
-        '宝马会xxx 已抽中红包100元',
-        '宝马会xxx 已抽中红包10元',
-        '宝马会xxx 已抽中红包880元',
-        '宝马会xxx 已抽中红包600元',
-        '宝马会xxx 已抽中红包2000元',
-        '宝马会xxx 已抽中红包3000元',
-        '宝马会xxx 已抽中红包500元',
-        '宝马会xxx 已抽中红包660元',
-        '宝马会xxx 已抽中红包9900元'
-      ],
+      rolling_letter: [],
       swiperOption: {
         slidesPerView: 2,
         spaceBetween: 1,
@@ -116,163 +111,79 @@ export default {
         autoplay: {
           delay: 2000
         }
+      },
+      backgroundCss: {
+        p1000: '-222.7%',
+        p600: '-231.9%',
+        p300: '-240.5%',
+        p200: '-222.7%',
+        p100: '-258.7%',
+        p60: '-267.5%',
+        p50: '-276.4%',
+        p30: '-285.3%',
+        p20: '-294.2%',
+        p10: '-303.2%',
+        p6: '-312.1%',
+        p0: '-321.1%'
       }
     }
   },
-  mounted: function () {
-    this.change()
-    this.getChance()
-    const oScript = document.createElement('script');
-    oScript.type = 'text/javascript';
-    oScript.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
-    document.body.appendChild(oScript);
+  created () {
+    Axios({
+      method: 'get',
+      url:'http://45.64.53.115:8000/api/lucky_everyday/lottery/?format=json',
+      headers: {
+        Authorization: 'Token ' + window.token
+      }
+    }) 
+      .then(Response => {
+        this.chance = Response.data.chance
+      })
+      .catch(error => {
+        this.chance = 0
+        console.log(error)
+      })
+    Axios({
+      method: 'get',
+      url:'http://45.64.53.115:8000/api/lucky_everyday/rolling_letter/?format=json&page_size=100',
+    }) 
+      .then(Response => {
+        this.rolling_letter = Response.data.results
+      })
+      .catch(error => {
+        console.log(error)
+      })
   },
   methods: {
-    change () {
-      document.getElementById('top-logo-change').innerHTML = '<p>每日抽奖</P>'
-    },
-
-
-    getChance () {                  //请求查询抽奖机会  
-      axios({
-          method: 'get',
-          url:'http://45.64.53.115:8000/api/lucky_everyday/lottery/?format=json',
-          headers: {
-            Authorization: 'Token 556f140a28d12eef26475833e735b52eec750154'
-            // Authorization: 'Token ' + windows.token
-          }
-        }) 
-        .then(Response => {
-          this.chance = Response.data.chance
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
-
-    postChance () {   //请求抽奖
-      var ThisChance = this.chance 
-      if(ThisChance == 0){
-        alert('您的抽奖次数已用完或者未登录！')
-        return false
+    post_lettery() {
+      const backgroundCss = {
+        p1000: '-222.7%',
+        p600: '-231.9%',
+        p300: '-240.5%',
+        p200: '-222.7%',
+        p100: '-258.7%',
+        p60: '-267.5%',
+        p50: '-276.4%',
+        p30: '-285.3%',
+        p20: '-294.2%',
+        p10: '-303.2%',
+        p6: '-312.1%',
+        p0: '-321.1%'
       }
-        axios({       //如果有抽奖机会就发送抽奖请求请求规则
-          method: 'post',
-          url:'http://45.64.53.115:8000/api/lucky_everyday/lottery/?format=json',
-          data: {
-            username: 'Thor',
-            password: '4rfv5tgb...',    
-          },
-          headers: {
-            Authorization: 'Token 556f140a28d12eef26475833e735b52eec750154'
-          }
-        })
-        .then(Response => {
-          this.res = Response.data.result   
-          this.chance = this.chance - 1
-          this.Lottery()    
-        })
-        .catch(error => {
-          console.log(error)
-        })
-      }, 
+      const data = [60, 0, 6]
+      this.start = true
+      this.stop = false
+      this.pfirst = backgroundCss['p' + data[0]]
+      this.psecond = backgroundCss['p' + data[1]]
+      this.pthird = backgroundCss['p' + data[2]]
+      setTimeout(() => {
 
-    Lottery () {
-      var thisU = this.u
-      var num_arr = this.res
-      var Overlay = this.overlayTF
-
-      //每次抽奖前先重置backgroundPositionY为初始状态
-      $(".tiger").css('backgroundPositionY', 0)
-
-      // 抽奖时，禁用按钮  
-      $(".lottery-button").addClass("disable")
-
-      //为每个.tiger执行一次定时器  达到转动效果    
-      $(".tiger").each(function(index){
-            var _num = $(this)
-            setTimeout(function(){    //根据index来执行,来达到时差效果
-              _num.animate(               //animate实现动画效果
-                {backgroundPositionY:    thisU*106.04 + 8.8*num_arr[index] + "%"   },    //控制转动的转速以及具体位置
-                {
-                  duration: 6000 ,  //转动的时间
-                }
-              )
-          },index*300)  //时差  
-        })
-
-        //匹配中奖结果
-      var num = [];
-      function modi(str, index){
-        switch(str[index]){
-        case 0:
-            num[index] = 0;
-            break;  
-          case 1:
-            num[index] = 6;
-            break;
-          case 2:
-            num[index] = 10;
-            break;
-          case 3:
-            num[index] = 20;
-            break;
-          case 4:
-            num[index] = 30;
-            break;
-          case 5:
-            num[index] = 50;
-            break;
-          case 6:
-            num[index] = 60;
-            break;
-          case 7:
-            num[index] = 100;
-            break;
-          case 8:
-            num[index] = 200;
-            break;
-          case 9:
-            num[index] = 300;
-            break;
-          case 10:
-            num[index] = 600;
-            break;
-          case 11:
-            num[index] = 1000;
-            break;
-        }
-        return num
-      }
-
-      modi(num_arr, 0);
-      modi(num_arr, 1);
-      modi(num_arr, 2);
-      var money = num[0] + num[1] + num[2]     //中奖结果
-      $("#moneySize").text(money)
-      $("#moneyMessage2").text("恭喜您获得" + money + "元红包")  
-           
-
-      //同样设置一个定时器，在一次抽奖结束后解禁抽奖按钮,并弹出抽奖信息
-      setTimeout(function(){      
-        $(".lottery-button").removeClass("disable") 
-        $("#moneyMessagesBox").removeClass('moneyTF')  
-              },6666)  
-    },
-
-    //点击按钮隐藏
-    overlayClick () {
-     $("#moneyMessagesBox").addClass('moneyTF')
+      }, 7000)
     }
-
-
-      
   },
- 
-
 }
 </script>
-<style>
+<style scoped>
 .choujiang-page {
   background-size: 100% 100%;
   padding-bottom: 60px
@@ -308,7 +219,7 @@ export default {
   text-align: left;
 }
 .game-zhuanlun {
-  padding: 0 17px 0 17px;
+  padding: 0 3% 0 3%;
   background-image: no-repeat;
   position: relative;
 }
@@ -400,31 +311,84 @@ export default {
 .lottery-notice .swiper-container {
   height: 48px;
 }
-
+/* 抽奖动画 start */
 .num_box {
     height: 25%;
-    width: 61%;
+    width: 60%;
     text-align: center;
     position: absolute;
-    top: 30%;
+    top: 33%;
     left: 20%; 
     overflow: hidden;
 }
 .num_box .tiger {
-    width: 32%;
-    height: 100%;
-    float: left;
-  background: url('../../assets/images/yh/hB_LOGO@2x.png');
+  height: 100%;
+  background-image: url('../../assets/images/yh/hB_LOGO@2x.png');
   background-repeat: repeat-y;
   background-size: cover;
-
+  float: left;
 }
+.tiger_start_1 {
+  width: 30%;
+  margin-right: 4%;
+}
+.tiger_start_2 {
+  width: 30%;
+  margin-right: 0;
+}
+
+.tiger_1 {
+  width: 30%;
+  margin-right: 4%;
+  animation: play-1 5s steps(400) 1;
+  background-position-y: var(--pfirst);
+}
+@keyframes play-1 {
+  from {
+    background-position-y: 0px;
+  }
+  to {
+    background-position-y: var(--pfirst);
+  }
+}
+
+.tiger_2 {
+  width: 30%;
+  margin-right: 4%;
+  animation: play-2 6s steps(400) 1;
+  background-position-y: var(--psecond);
+}
+@keyframes play-2 {
+  from {
+    background-position-y: 0px;
+  }
+  to {
+    background-position-y: var(--psecond);
+  }
+}
+
+.tiger_3 {
+  width: 30%;
+  margin-right: 0%;
+  animation: play-3 7s steps(400) 1;
+  background-position-y: var(--pthird);
+}
+@keyframes play-3 {
+  from {
+    background-position-y: 0px;
+  }
+  to {
+    background-position-y: var(--pthird);
+  }
+}
+
+
+/* 抽奖动画 end */
 
 /*禁用按钮*/
 .disable {
 	pointer-events: none;
 }
-
 /*弹出结果框样式*/
 #moneyMessagesBox{
   position: absolute;
@@ -433,9 +397,6 @@ export default {
   top: 0;
   left: 0;
 }
-
-
-
 #moneyMessages{
   width: 100%;
   height: 100%;
