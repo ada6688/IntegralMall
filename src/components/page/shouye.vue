@@ -54,9 +54,7 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import axios from 'axios'
 import vuescroll from 'vuescroll'
 import InfiniteLoading from 'vue-infinite-loading'
-
 const api = 'https://bmw1984.com/api/mulu'
-
 export default {
   name: 'App',
   components: {
@@ -79,8 +77,8 @@ export default {
         }
       },
       bannerData: [
-        {link: '/guessNBA', img: require('../../assets/images/banner/sy_NBA_banner@3x.png')},
-        {link: '/chouJiang', img: require('../../assets/images/banner/sy_cgcj_banner@3x.png')},
+        {link: '/nba', img: require('../../assets/images/banner/sy_NBA_banner@3x.png')},
+        {link: '/choujiang', img: require('../../assets/images/banner/sy_cgcj_banner@3x.png')},
       ],
       activateName: '0',
       menuData: [
