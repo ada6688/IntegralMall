@@ -28,7 +28,7 @@ Vue.use(VueScroller)
 
 Vue.config.productionTip = false
 window.token = ''
-window.orderid = 0
+window.orderid = 10
 window.oldPath = '/'
 window.requirePath = '/'
 window.search = ''
