@@ -22,8 +22,8 @@
       <div class="recommend-wrap1">
         <el-tabs type="border-card" v-model="activateName">
           <template v-for="menu in menuData">
-            <el-tab-pane :name="menu.index" :label="menu.name" :key="menu.index">
-              <div class="items-pro" v-for="goods in menu.data" :key="goods.pk" @click="jumpOrder(goods.pk)">
+            <el-tab-pane :name="menu.index" :label="menu.name" :key="menu.index" class="infinite-list" v-infinite-scroll="load" style="overflow:auto">
+              <div class="items-pro infinite-list-item" v-for="goods in menu.data" :key="goods.pk" @click="jumpOrder(goods.pk)">
                 <div class="item-img-wrap"  v-if="goods.app_img">
                     <img :src="'http://45.64.53.115:8000' + goods.app_img.url" alt="">
                 </div>
@@ -52,7 +52,7 @@ import Notice from '@/components/page/Notice'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import axios from 'axios'
 import vuescroll from 'vuescroll'
-
+import infiniteScroll from 'element-ui'
 
 export default {
   name: 'App',
@@ -62,7 +62,8 @@ export default {
     swiper,
     swiperSlide,
     Notice,
-    vuescroll
+    vuescroll,
+    infiniteScroll
   },
   data () {
     return {
@@ -74,6 +75,7 @@ export default {
           disableOnInteraction: false
         }
       },
+      count:0,
       bannerData: [
         {link: '/nba', img: require('../../assets/images/banner/sy_NBA_banner@3x.png')},
         {link: '/choujiang', img: require('../../assets/images/banner/sy_cgcj_banner@3x.png')},
@@ -101,6 +103,9 @@ export default {
       })
   },
   methods: {
+    load () {
+      this.count += 2
+    },
     refreshStart (done) {
       setTimeout(() => {
         done()
