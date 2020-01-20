@@ -79,8 +79,8 @@ export default {
         }
       },
       bannerData: [
-        {link: '/nba', img: require('../../assets/images/banner/sy_NBA_banner@3x.png')},
-        {link: '/choujiang', img: require('../../assets/images/banner/sy_cgcj_banner@3x.png')},
+        {link: '/guessNBA', img: require('../../assets/images/banner/sy_NBA_banner@3x.png')},
+        {link: '/chouJiang', img: require('../../assets/images/banner/sy_cgcj_banner@3x.png')},
       ],
       activateName: '0',
       menuData: [
