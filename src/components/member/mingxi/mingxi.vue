@@ -69,7 +69,7 @@ export default {
     } else {
       Axios({
       method: 'get',
-      url: 'http://45.64.53.115:8000/api/auth/sign/records/?format=json',
+      url: 'https://bmw1984.com/api/auth/sign/records/?format=json',
       headers: {
         Authorization: 'Token ' + token
       }
@@ -83,7 +83,7 @@ export default {
       })
     Axios({
       method: 'get',
-      url: 'http://45.64.53.115:8000/api/auth/common/points/?format=json',
+      url: 'https://bmw1984.com/api/auth/common/points/?format=json',
       headers: {
         Authorization: 'Token ' + token
       }
@@ -97,7 +97,7 @@ export default {
       })
     Axios({
       method: 'get',
-      url: 'http://45.64.53.115:8000/api/auth/points/records/?format=json',
+      url: 'https://bmw1984.com/api/auth/points/records/?format=json',
       headers: {
         Authorization: 'Token ' + token
       }

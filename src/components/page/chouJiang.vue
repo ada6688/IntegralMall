@@ -131,7 +131,7 @@ export default {
   created () {
     Axios({
       method: 'get',
-      url:'http://45.64.53.115:8000/api/lucky_everyday/lottery/?format=json',
+      url:'https://bmw1984.com/api/lucky_everyday/lottery/?format=json',
       headers: {
         Authorization: 'Token ' + window.token
       }
@@ -145,7 +145,7 @@ export default {
       })
     Axios({
       method: 'get',
-      url:'http://45.64.53.115:8000/api/lucky_everyday/rolling_letter/?format=json&page_size=100',
+      url:'https://bmw1984.com/api/lucky_everyday/rolling_letter/?format=json&page_size=100',
     }) 
       .then(Response => {
         this.rolling_letter = Response.data.results

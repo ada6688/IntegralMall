@@ -58,7 +58,7 @@ export default {
   created () {
     Axios({
       method: 'get',
-      url: 'http://45.64.53.115:8000/api/auth/orders/?format=json',
+      url: 'https://bmw1984.com/api/auth/orders/?format=json',
       headers: {
         Authorization: 'Token ' + token
       }
