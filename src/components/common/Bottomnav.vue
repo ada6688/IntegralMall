@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     switchTo (path) {
-      this.$router.replace(path)
+      this.$router.push(path)
     },
     game () {
       window.location.href = 'https://www.bmw583.net:9988'

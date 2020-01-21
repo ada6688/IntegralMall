@@ -8,7 +8,8 @@
         <div class="member-person-info">
           <!-- 会员头像 -->
           <div class="member-img">
-            <img :src="auth.avatar === '' ? 'http://www.gravatar.com/avatar/4ee3113dc16bc05c2bba9393c8e1f7ef?s=50&d=mm' : 'http://127.0.0.1:8000' + auth.avatar" alt="">
+            <img :src="'https://bmw1984.com' + auth.avatar" v-if="auth.avatar">
+            <img src="https://www.gravatar.com/avatar/4ee3113dc16bc05c2bba9393c8e1f7ef?s=50&d=mm" alt="" v-else>
           </div>
           <!-- 会员名称与设置图标 -->
           <p class="member-name">

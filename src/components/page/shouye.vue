@@ -25,10 +25,10 @@
             <el-tab-pane :name="menu.index" :label="menu.name" :key="menu.index">
               <div class="items-pro" v-for="goods in menu.data" :key="goods.pk" @click="jumpOrder(goods.pk)">
                 <div class="item-img-wrap"  v-if="goods.app_img">
-                    <img :src="'http://45.64.53.115:8000' + goods.app_img.url" alt="">
+                    <img :src="'https://bmw1984.com' + goods.app_img.url" alt="">
                 </div>
                 <div class="item-img-wrap"  v-else>
-                    <img :src="'http://45.64.53.115:8000' + goods.pc_img.url" alt="">
+                    <img :src="'https://bmw1984.com' + goods.pc_img.url" alt="">
                 </div>
                 <div class="item-pro-text">
                   <b>{{goods.title}}</b>
@@ -54,7 +54,9 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import axios from 'axios'
 import vuescroll from 'vuescroll'
 import InfiniteLoading from 'vue-infinite-loading'
+
 const api = 'https://bmw1984.com/api/mulu'
+
 export default {
   name: 'App',
   components: {
@@ -77,8 +79,8 @@ export default {
         }
       },
       bannerData: [
-        {link: '/nba', img: require('../../assets/images/banner/sy_NBA_banner@3x.png')},
-        {link: '/choujiang', img: require('../../assets/images/banner/sy_cgcj_banner@3x.png')},
+        {link: '/guessNBA', img: require('../../assets/images/banner/sy_NBA_banner@3x.png')},
+        {link: '/chouJiang', img: require('../../assets/images/banner/sy_cgcj_banner@3x.png')},
       ],
       activateName: '0',
       menuData: [

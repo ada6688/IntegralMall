@@ -339,7 +339,7 @@ export default {
 }
 .letter-div span {
   display: block;
-  font-size: 0.1em;
+  font-size: 10px;
   color: #a50717;
   margin-left: 3px;
   position: absolute;
