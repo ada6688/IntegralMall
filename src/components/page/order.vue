@@ -135,9 +135,9 @@ export default {
     })
       .then(Response => {
         this.commodity = Response.data
-        this.commodity.pc_img.url = 'http://127.0.0.1:8000' + this.commodity.pc_img.url
+        this.commodity.pc_img.url = 'https://bmw1984.com' + this.commodity.pc_img.url
         if (this.commodity.app_img) {
-          this.commodity.app_img.url = 'http://127.0.0.1:8000' + this.commodity.app_img.url
+          this.commodity.app_img.url = 'https://bmw1984.com' + this.commodity.app_img.url
         }
       })
       .catch(error => {

@@ -8,7 +8,8 @@
         <div class="member-person-info">
           <!-- 会员头像 -->
           <div class="member-img">
-            <img :src="auth.avatar === '' ? 'http://www.gravatar.com/avatar/4ee3113dc16bc05c2bba9393c8e1f7ef?s=50&d=mm' : 'http://127.0.0.1:8000' + auth.avatar" alt="">
+            <img :src="'https://bmw1984.com' + auth.avatar" v-if="auth.avatar">
+            <img src="https://www.gravatar.com/avatar/4ee3113dc16bc05c2bba9393c8e1f7ef?s=50&d=mm" alt="" v-else>
           </div>
           <!-- 会员名称与设置图标 -->
           <p class="member-name">
@@ -82,6 +83,10 @@
               <i class="el-icon-arrow-right"></i>
             </div>
           </router-link>
+          <div class="member-guize" @click="getDevices">
+            <div  class="member-jifen-T">设备信息</div>
+            <i class="el-icon-arrow-right"></i>
+          </div>
         </div>
       </div>
     </div>
@@ -92,6 +97,7 @@
 import BottomNav from '@/components/common/Bottomnav'
 import TopNav from '@/components/common/Topnav'
 import Axios from 'axios'
+
 
 export default {
   name: 'App',
@@ -223,6 +229,25 @@ export default {
           alert('签到获取错误')
         })
       }
+    },
+    getDevices() {
+      let phoneInfo = api.require('phoneInfo')
+      phoneInfo.getBaseInfo(function(ret, err) {
+          if (ret.status) {
+              api.alert({
+                  msg: '品牌：' + ret.brand + '\r\n' +
+                      '型号：' + ret.model + '\r\n' +
+                      '制造商：' + ret.manufacturer + '\r\n' +
+                      'Android版本：' + ret.version + '\r\n' +
+                      'AndroidSDK版本：' + ret.sdkVersion + '\r\n' +
+                      '设备串号：' + ret.id + '\r\n' +
+                      'Mac地址：' + ret.macAddress + '\r\n' +
+                      '开机时间：' + ret.bootTime + '分钟'
+              });
+          } else {
+              api.alert({ msg: err.msg });
+          }
+      });
     }
   }
 }

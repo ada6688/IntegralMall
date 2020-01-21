@@ -54,7 +54,8 @@ export default {
           }
         })
           .then(res => {
-            localStorage.setItem('token',res.data.key)     //将获取到的token存储到localStorage中
+            localStorage.setItem('token', res.data.key)
+            window.token = res.data.key
             this.$router.push({path: window.requirePath})
           }).catch(error => {
             error1.textContent = '用户名或密码错误，请重新输入！'
