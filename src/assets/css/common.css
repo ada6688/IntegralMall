@@ -62,6 +62,41 @@ li{
     transform: translate(-50%,1.7vh);
   }
 }
+@media screen and (max-height: 600px) {
+  .top-nav{
+    height: 6.48vh;
+  }
+}
+@media screen and (max-height: 555px) {
+  .top-nav{
+    height: 6.98vh;
+  }
+}
+@media screen and (max-height: 510px) {
+  .top-nav{
+    height: 7.48vh;
+  }
+}
+@media screen and (max-height: 465px) {
+  .top-nav{
+    height: 7.98vh;
+  }
+}
+@media screen and (max-height: 420px) {
+  .top-nav{
+    height: 8.48vh;
+  }
+}
+@media screen and (max-height: 375px) {
+  .top-nav{
+    height: 8.98vh;
+  }
+}
+@media screen and (max-height: 335px) {
+  .top-nav{
+    height: 9.98vh;
+  }
+}
 @media screen and (min-width: 700px) {
   .top-nav-left > img,.top-nav-right > img{
     width: 25px;

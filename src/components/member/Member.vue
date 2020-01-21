@@ -126,7 +126,7 @@ export default {
     } else {
       Axios({
         method: 'get',
-        url: 'http://127.0.0.1:8000/api/auth/user/?format=json',
+        url: 'https://bmw1984.com/api/auth/user/?format=json',
         headers: {
           Authorization: 'Token ' + token
         }
@@ -142,7 +142,7 @@ export default {
         })
       Axios({
         method: 'get',
-        url: 'http://127.0.0.1:8000/api/auth/points/?format=json',
+        url: 'https://bmw1984.com/api/auth/points/?format=json',
         headers: {
           Authorization: 'Token ' + token
         }
@@ -158,7 +158,7 @@ export default {
         })
         Axios({
         method: 'get',
-        url: 'http://127.0.0.1:8000/api/auth/sign/query/?format=json',
+        url: 'https://bmw1984.com/api/auth/sign/query/?format=json',
         headers: {
           Authorization: 'Token ' + token
         }
@@ -207,7 +207,7 @@ export default {
       if (this.sign_status === 200) {
         Axios({
         method: 'get',
-        url: 'http://127.0.0.1:8000/api/auth/sign/in/',
+        url: 'https://bmw1984.com/api/auth/sign/in/',
         headers: {
           Authorization: 'Token ' + token
         }

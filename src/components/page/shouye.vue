@@ -22,8 +22,8 @@
       <div class="recommend-wrap1">
         <el-tabs type="border-card" v-model="activateName">
           <template v-for="menu in menuData">
-            <el-tab-pane :name="menu.index" :label="menu.name" :key="menu.index" class="infinite-list" v-infinite-scroll="load" style="overflow:auto">
-              <div class="items-pro infinite-list-item" v-for="goods in menu.data" :key="goods.pk" @click="jumpOrder(goods.pk)">
+            <el-tab-pane :name="menu.index" :label="menu.name" :key="menu.index">
+              <div class="items-pro" v-for="goods in menu.data" :key="goods.pk" @click="jumpOrder(goods.pk)">
                 <div class="item-img-wrap"  v-if="goods.app_img">
                     <img :src="'http://45.64.53.115:8000' + goods.app_img.url" alt="">
                 </div>
@@ -38,6 +38,7 @@
               </div>
             </el-tab-pane>
           </template>
+          <infinite-loading :identifier="infiniteId" @infinite="infiniteHandler"></infinite-loading>
         </el-tabs>
       </div>
     </div>
@@ -52,8 +53,8 @@ import Notice from '@/components/page/Notice'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import axios from 'axios'
 import vuescroll from 'vuescroll'
-import infiniteScroll from 'element-ui'
-
+import InfiniteLoading from 'vue-infinite-loading'
+const api = 'https://bmw1984.com/api/mulu'
 export default {
   name: 'App',
   components: {
@@ -63,7 +64,7 @@ export default {
     swiperSlide,
     Notice,
     vuescroll,
-    infiniteScroll
+    InfiniteLoading
   },
   data () {
     return {
@@ -75,64 +76,66 @@ export default {
           disableOnInteraction: false
         }
       },
-      count:0,
       bannerData: [
         {link: '/nba', img: require('../../assets/images/banner/sy_NBA_banner@3x.png')},
         {link: '/choujiang', img: require('../../assets/images/banner/sy_cgcj_banner@3x.png')},
-        {link: '/choujiang', img: require('../../assets/images/banner/banner2.png')},
       ],
       activateName: '0',
       menuData: [
-        {name: '推荐', data: [], index: '0', url: '/tuijian'},
-        {name: '数码', data: [], index: '1', url: '/shuma'},
-        {name: '奖金', data: [], index: '2', url: '/jiangjin'},
-        {name: '生活', data: [], index: '3', url: '/shenghuo'},
-        {name: '奢华', data: [], index: '4', url: '/shehua'},
-      ]
+        {name: '推荐', data: [], index: '0', url: '/tuijian/'},
+        {name: '数码', data: [], index: '1', url: '/shuma/'},
+        {name: '奖金', data: [], index: '2', url: '/jiangjin/'},
+        {name: '生活', data: [], index: '3', url: '/shenghuo/'},
+        {name: '奢华', data: [], index: '4', url: '/shehua/'},
+      ],
+      page: 1,
+      newsType: 'https://bmw1984.com/api/mulu/tuijian/',
+      infiniteId: +new Date(),
     }
   },
   created () {
-    axios
-      .get('http://45.64.53.115:8000/api/mulu/tuijian/?format=json')
-      .then(Response => {
-        this.menuData[0].data = Response.data.results
-      })
-      .catch(error => {
-        console.log(error)
-        alert('商品加载错误，请联系在线客服！')
-      })
+    // axios
+    //   .get('http://45.64.53.115:8000/api/mulu/tuijian/?format=json')
+    //   .then(Response => {
+    //     this.menuData[0].data = Response.data.results
+    //   })
+    //   .catch(error => {
+    //     console.log(error)
+    //     alert('商品加载错误，请联系在线客服！')
+    //   })
   },
   methods: {
-    load () {
-      this.count += 2
-    },
-    refreshStart (done) {
-      setTimeout(() => {
-        done()
-      }, 1500)
-    },
-    // 加载开始
-    loadStart (done) {
-      setTimeout(() => {
-        done()
-      }, 1500)
-    },
     jumpOrder (id) {
       window.orderid = id
       this.$router.push('/order')
+    },
+    infiniteHandler($state) {
+      axios.get(this.newsType, {
+        params: {
+          page: this.page,
+          format: 'json',
+        },
+      })
+      .then(({ data }) => {
+        if (data.count) {
+          this.page += 1;
+          this.menuData[this.activateName].data.push(...data.results);
+          $state.loaded();
+        } else {
+          $state.complete();
+        }
+      })
+      .catch(error => {
+        $state.complete();
+      })
     }
   },
   watch: {
     'activateName': function(val){
-      axios
-      .get('http://45.64.53.115:8000/api/mulu'+ this.menuData[val].url +'/?format=json')
-      .then(Response => {
-        this.menuData[val].data = Response.data.results
-      })
-      .catch(error => {
-        console.log(error)
-        alert('商品加载错误，请联系在线客服！')
-      })
+      this.newsType = api + this.menuData[val].url
+      this.page = 1
+      this.infiniteId += 1,
+      this.menuData[val].data = []
     }
   }
 }

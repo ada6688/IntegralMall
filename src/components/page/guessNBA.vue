@@ -249,7 +249,7 @@
           getNbaMessage () {
               axios({
                   method: 'get',
-                  url:'http://45.64.53.115:8000/api/nba/competition/?format=json',
+                  url:'https://bmw1984.com/api/nba/competition/?format=json',
                   headers: {
                       Authorization: 'Token ' + window.token
                   }
@@ -309,7 +309,7 @@
               let nbaTeam = this.Nbadata[index].competition.team_one.team_name
               axios({
                 method: 'post',
-                url:'http://45.64.53.115:8000/api/nba/lottery/?format=json',
+                url:'https://bmw1984.com/api/nba/lottery/?format=json',
                 headers: {
                   Authorization: 'Token ' + window.token
                 },
@@ -339,7 +339,7 @@
               let nbaTeam = this.Nbadata[index].competition.team_two.team_name
               axios({
                 method: 'post',
-                url:'http://45.64.53.115:8000/api/nba/lottery/?format=json',
+                url:'https://bmw1984.com/api/nba/lottery/?format=json',
                 headers: {
                   Authorization: 'Token ' + window.token
                 },
