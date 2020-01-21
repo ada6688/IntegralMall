@@ -54,6 +54,7 @@ export default {
           }
         })
           .then(res => {
+            localStorage.setItem('token', res.data.key)
             window.token = res.data.key
             this.$router.push({path: window.requirePath})
           }).catch(error => {
