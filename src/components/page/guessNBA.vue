@@ -325,12 +325,19 @@
                     alert(RequsMessages)  
                   }
                 }).catch(error => {
-                console.log(error)
+                  if(status = 401){
+                    alert("您还未登录")
+                  }else{
+                    alert("提交错误，请联系客服")
+                  }
+                  
               })
             }
           },
           //点击第二个队伍时
           selectTeamTwo (index) {
+            //点击后就禁用按钮，防止重复提交
+            this.winnerBtnShow.pointerEvents = 'none'
             if (window.token == '') {
               window.requirePath = '/order'
               this.$router.push('/login')
@@ -355,7 +362,11 @@
                   alert(RequsMessages)             
                 }
               }).catch(error => {
-                console.log(error)
+                if(status = 401){
+                    alert("您还未登录")
+                  }else{
+                    alert("提交错误，请联系客服")
+                  }
               })
             }
           }

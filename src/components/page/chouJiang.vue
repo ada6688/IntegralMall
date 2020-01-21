@@ -128,29 +128,29 @@ export default {
     getRes () {
 
       // 请求前再次判断是否有抽奖机会，避免用户不停点击造成不断请求
-      if(this.chance == 0){
+      if(this.chance == 0) {
             this.divDisable.pointerEvents = 'none'  //点击按钮后禁用按钮
-            alert("很抱歉，您未登录或者抽奖次数已用完")
             return false
-      }
-      this.chance -= 1;
-    // 请求规则    
-      Axios({
-        method: 'post',
-          url:'https://bmw1984.com/api/lucky_everyday/lottery/?format=json',
-          headers: {
-            Authorization: 'Token ' + token
-          }
-      }).then(Response => {
-          this.res = Response.data.result    
-          //请求完成后再执行转动事件
-          this.post_lettery()  
+      } else {
+        this.chance -= 1;
+      // 请求规则    
+        Axios({
+          method: 'post',
+            url:'https://bmw1984.com/api/lucky_everyday/lottery/?format=json',
+            headers: {
+              Authorization: 'Token ' + token
+            }
+        }).then(Response => {
+            this.res = Response.data.result    
+            //请求完成后再执行转动事件
+            this.post_lettery()  
 
-          //中奖信息的弹出
-          this.moneyBoxShow()  
-      }).catch(error => {
-          console.log(error)
-      }) 
+            //中奖信息的弹出
+            this.moneyBoxShow()  
+        }).catch(error => {
+            console.log(error)
+        }) 
+      }
      
     },
 
@@ -219,7 +219,11 @@ export default {
             return false
           }    
       }).catch(error => {
-          console.log(error)
+        if( status = 401 ) {
+          alert("您还未登录")
+        } else {
+          alert("提交错误，请联系客服")
+        }          
       })
     },
   },
