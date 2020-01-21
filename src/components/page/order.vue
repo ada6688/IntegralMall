@@ -131,7 +131,7 @@ export default {
     } else {
       Axios({
       method: 'get',
-      url: 'http://127.0.0.1:8000/api/mulu/' + window.orderid +'/?format=json',
+      url: 'https://bmw1984.com/api/mulu/' + window.orderid +'/?format=json',
     })
       .then(Response => {
         this.commodity = Response.data
@@ -147,7 +147,7 @@ export default {
       })
     Axios({
       method: 'get',
-      url: 'http://127.0.0.1:8000/api/auth/points/?format=json',
+      url: 'https://bmw1984.com/api/auth/points/?format=json',
       headers: {
         Authorization: 'Token ' + window.token
       }
@@ -168,7 +168,7 @@ export default {
     submit (e) {
       Axios({
       method: 'POST',
-      url: 'http://127.0.0.1:8000/api/auth/orders/',
+      url: 'https://bmw1984.com/api/auth/orders/',
       data: this.order,
       headers: {
         Authorization: 'Token ' + window.token

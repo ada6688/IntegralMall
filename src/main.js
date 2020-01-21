@@ -27,7 +27,7 @@ Vue.use(Icon)
 Vue.use(VueScroller)
 
 Vue.config.productionTip = false
-window.token = ''
+window.token = localStorage.getItem('token')
 window.orderid = 10
 window.oldPath = '/'
 window.requirePath = '/'
@@ -45,12 +45,12 @@ new Vue({
 })
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requireAuth)) { // 判断该路由是否需要登录权限
-    if (token) { // 判断当前的token是否存在
+    if (window.token) { // 判断当前的token是否存在
       next()
     } else {
       window.requirePath = to.fullPath
       next({
-        path: '/login',
+        path: '/login'
       })
     }
   } else {

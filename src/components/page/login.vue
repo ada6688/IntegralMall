@@ -47,14 +47,14 @@ export default {
       } else {
         axios({
           method: 'post',
-          url: 'http://127.0.0.1:8000/rest-auth/login/',
+          url: 'https://bmw1984.com/rest-auth/login/',
           data: {
             username: _this.loginForm.username,
             password: _this.loginForm.password
           }
         })
           .then(res => {
-            window.token = res.data.key
+            localStorage.setItem('token',res.data.key)     //将获取到的token存储到localStorage中
             this.$router.push({path: window.requirePath})
           }).catch(error => {
             error1.textContent = '用户名或密码错误，请重新输入！'
