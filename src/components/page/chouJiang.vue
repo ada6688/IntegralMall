@@ -75,7 +75,6 @@
 <script>
 // 引用组件
 import TopNavC from '@/components/common/TopnavC'
-import { Overlay } from 'vant'
 import Axios from 'axios'
 export default {
   name: 'App',
@@ -134,8 +133,8 @@ export default {
             alert("很抱歉，您未登录或者抽奖次数已用完")
             return false
       }
-
-    //请求规则    
+      this.chance -= 1;
+    // 请求规则    
       Axios({
         method: 'post',
           url:'http://127.0.0.1:8000/api/lucky_everyday/lottery/?format=json',
@@ -178,7 +177,7 @@ export default {
       this.psecond = backgroundCss['p' + data[1]]
       this.pthird = backgroundCss['p' + data[2]]
       setTimeout(() => {
-
+        this.moneyBoxShow()  
       }, 7000)
     },
 
@@ -186,7 +185,7 @@ export default {
     getRrlling() {
       Axios({
         method: 'get',
-        url:'http://127.0.0.1:8000/api/lucky_everyday/rolling_letter/?format=json&page_size=100',
+        url:'http://45.64.53.115:8000/api/lucky_everyday/rolling_letter/?format=json&page_size=100',
       }) 
       .then(Response => {
         this.rolling_letter = Response.data.results
@@ -197,10 +196,8 @@ export default {
     },
 
     //中 奖信息显示
-    moneyBoxShow() {
-      setTimeout (() =>{
+    moneyBoxShow() {  
         this.moneyShow.display = 'block'
-      },7500)
     },
 
     //点击隐藏中奖信息
