@@ -34,7 +34,7 @@
                                   <img :src="nbanews.competition.points_one > nbanews.competition.points_two ? scoreResule[0].win : scoreResule[1].lose">
                               </div>
                               <div class="nbaGussSmallBox-team-left">
-                                  <p><img :src="'http://45.64.53.115:8000' + nbanews.competition.team_one.team_img_url.url" alt="nbanews.competition.team_one.team_name" width="40" height="40"></p>
+                                  <p><img :src="'https://bmw1984.com/' + nbanews.competition.team_one.team_img_url.url" alt="nbanews.competition.team_one.team_name" width="40" height="40"></p>
                               <p>{{nbanews.competition.team_one.team_name}}</p>
                               </div>
                               
@@ -47,7 +47,7 @@
                           <li class="nbaGussSmallBox-team">
                               
                               <div class="nbaGussSmallBox-team-right">
-                                  <p><img :src="'http://45.64.53.115:8000' + nbanews.competition.team_two.team_img_url.url" alt="nbanews.competition.team_two.team_name" width="40" height="40"></p>
+                                  <p><img :src="'https://bmw1984.com/' + nbanews.competition.team_two.team_img_url.url" alt="nbanews.competition.team_two.team_name" width="40" height="40"></p>
                                   <p>{{nbanews.competition.team_two.team_name}}</p>
                               </div>
                               <div  class="nbaGussSmallBox-team-rightpic" v-if="nbanews.competition.points_one == 0 || nbanews.competition.points_two == 0 ||nbanews.competition.points_one== nbanews.competition.points_two? false : true">
@@ -73,7 +73,7 @@
                       <div class="nbaGussBigBox-team">
                           <ul>
                               <li class="nbaGussBigBox-team-1">
-                                  <p class="nbaGussBigBox-teamLeftpic" ><img :src="'http://45.64.53.115:8000' + nbanews.competition.team_one.team_img_url.url" alt="nbanews.competition.team_one.team_name" ></p>
+                                  <p class="nbaGussBigBox-teamLeftpic" ><img :src="'https://bmw1984.com/' + nbanews.competition.team_one.team_img_url.url" alt="nbanews.competition.team_one.team_name" ></p>
                                   <p class="nbaGussBigBox-teamLeftname">{{nbanews.competition.team_one.team_name}}</p>
                                   <p class="nbaGussBigBox-teamLeftResult" v-if="nbanews.competition.points_one == 0 || nbanews.competition.points_two == 0 ||nbanews.competition.points_one== nbanews.competition.points_two? false : true">
                                       <img :src="nbanews.competition.points_one > nbanews.competition.points_two ? scoreResule[0].win : scoreResule[1].lose">
@@ -88,7 +88,7 @@
                               </li>
                               <li class="nbaGussBigBox-team-3">
                                   <p class="nbaGussBigBox-teamRightpic">
-                                      <img :src="'http://45.64.53.115:8000' + nbanews.competition.team_two.team_img_url.url" alt="nbanews.competition.team_two.team_name" >
+                                      <img :src="'https://bmw1984.com/' + nbanews.competition.team_two.team_img_url.url" alt="nbanews.competition.team_two.team_name" >
                                   </p>
                                   <p class="nbaGussBigBox-teamRightpic">{{nbanews.competition.team_two.team_name}}</p>
                                   <p class="nbaGussBigBox-teamRightpic" v-if="nbanews.competition.points_one == 0 || nbanews.competition.points_two == 0 ||nbanews.competition.points_one== nbanews.competition.points_two? false : true">
@@ -112,7 +112,7 @@
                           <ul>
                               <li class="nbaGussBigBox-team-1">
                                   <p class="nbaGussBigBox-teamLeftpic" >
-                                    <img :src="'http://45.64.53.115:8000' + nbanews.competition.team_one.team_img_url.url" alt="nbanews.competition.team_one.team_name" >
+                                    <img :src="'https://bmw1984.com/' + nbanews.competition.team_one.team_img_url.url" alt="nbanews.competition.team_one.team_name" >
                                   </p>
                                   <p class="nbaGussBigBox-teamLeftname">{{nbanews.competition.team_one.team_name}}</p>
                                   <div class="NbaWiner" @click="selectTeamOne(index)" id="NbaWinerOne" :style="[winerOneBg,winnerBtnShow]">赢</div>
@@ -127,7 +127,7 @@
                               </li>
                               <li class="nbaGussBigBox-team-3">
                                   <p class="nbaGussBigBox-teamRightpic">
-                                      <img :src="'http://45.64.53.115:8000' + nbanews.competition.team_two.team_img_url.url" alt="nbanews.competition.team_two.team_name" >
+                                      <img :src="'https://bmw1984.com/' + nbanews.competition.team_two.team_img_url.url" alt="nbanews.competition.team_two.team_name" >
                                   </p>
                                   <p class="nbaGussBigBox-teamRightpic">{{nbanews.competition.team_two.team_name}}</p>
                                   <div class="NbaWiner" @click="selectTeamTwo(index)" id="NbaWinerTwo" :style="[winerTwoBg,winnerBtnShow]">赢</div>
@@ -155,7 +155,7 @@
                                   <img :src="nbanews.competition.points_one > nbanews.competition.points_two ? scoreResule[0].win : scoreResule[1].lose">
                               </div>
                               <div class="nbaGussSmallBox-team-left">
-                                  <p><img :src="'http://45.64.53.115:8000' + nbanews.competition.team_one.team_img_url.url" alt="nbanews.competition.team_one.team_name" width="40" height="40"></p>
+                                  <p><img :src="'https://bmw1984.com/' + nbanews.competition.team_one.team_img_url.url" alt="nbanews.competition.team_one.team_name" width="40" height="40"></p>
                               <p>{{nbanews.competition.team_one.team_name}}</p>
                               </div>
                               
@@ -168,7 +168,7 @@
                           <li class="nbaGussSmallBox-team">
                               
                               <div class="nbaGussSmallBox-team-right">
-                                  <p><img :src="'http://45.64.53.115:8000' + nbanews.competition.team_two.team_img_url.url" alt="nbanews.competition.team_two.team_name" width="40" height="40"></p>
+                                  <p><img :src="'https://bmw1984.com/' + nbanews.competition.team_two.team_img_url.url" alt="nbanews.competition.team_two.team_name" width="40" height="40"></p>
                                   <p>{{nbanews.competition.team_two.team_name}}</p>
                               </div>
                               <div  class="nbaGussSmallBox-team-rightpic" v-if="nbanews.competition.points_one == 0 || nbanews.competition.points_two == 0 ||nbanews.competition.points_one== nbanews.competition.points_two? false : true">

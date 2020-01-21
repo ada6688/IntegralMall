@@ -177,9 +177,7 @@ export default {
       this.pfirst = backgroundCss['p' + data[0]]
       this.psecond = backgroundCss['p' + data[1]]
       this.pthird = backgroundCss['p' + data[2]]
-      setTimeout(() => {
 
-      }, 7000)
     },
 
     //请求中奖公告
@@ -207,7 +205,9 @@ export default {
     moneyBoxHide() {
       this.moneyShow.display = 'none'
     },
-    
+    //Mozilla/5.0 (Linux; U; Android 8.1.0; zh-CN; EML-AL00 Build/HUAWEIEML-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 baidu.sogo.uc.UCBrowser/11.9.4.974 UWS/2.13.1.48 Mobile Safari/537.36 AliApp(DingTalk/4.5.11) com.alibaba.android.rimet/10487439 Channel/227200 language/zh-CN
+    //Mozilla/5.0 (Linux; Android 10; VOG-AL00 Build/HUAWEIVOG-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.3945.116 Mobile Safari/537.36
+    //Mozilla/5.0 (Linux; Android 9; EML-L29 Build/HUAWEIEML-L29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.3945.116 Mobile Safari/537.36
     //请求chance的机会，并写入html。
     getChance() { 
       Axios({
@@ -339,7 +339,7 @@ export default {
 }
 .letter-div span {
   display: block;
-  font-size: 0.1em;
+  font-size: 10px;
   color: #a50717;
   margin-left: 3px;
   position: absolute;
