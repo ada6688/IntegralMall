@@ -9,7 +9,7 @@
       <p :class="{on: '/Youhui' === $route.path}">优惠</p>
     </div>
     <div class="tab-item" @click="game()">
-      <img class="NavSigh" :src="'/' === $route.path ? tabBarImgArr[2].selected : tabBarImgArr[2].normal" alt="搜索">
+      <img class="NavSigh" :src="tabBarImgArr[2].normal" alt="搜索">
       <p :class="{on: '/' === $route.path}">官网</p>
     </div>
     <div class="tab-item" @click="switchTo('/Vip')">
