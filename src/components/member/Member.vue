@@ -14,7 +14,7 @@
           <!-- 会员名称与设置图标 -->
           <p class="member-name">
             <span>{{auth.first_name + auth.last_name}}</span>
-            <span style="font-size: 10px; color: rgb(181, 128, 36);">/登出</span>
+            <span style="font-size: 10px; color: rgb(181, 128, 36);" @click="logOut">/登出</span>
             <!-- <img src="../../assets/images/member/sz.png" alt=""> -->
           </p>
           <!-- 会员等级图标 -->
@@ -165,7 +165,7 @@ export default {
           alert('等级加载错误，请联系在线客服！')
           // this.$router.push('/shouye')
         })
-        Axios({
+      Axios({
         method: 'get',
         url: 'https://bmw1984.com/api/auth/sign/query/?format=json',
         headers: {
@@ -183,6 +183,19 @@ export default {
           console.log(error)
           alert('签到获取错误')
           // this.$router.push('/shouye')
+        })
+      Axios({
+        method: 'get',
+        url: 'https://bmw1984.com/api/auth/app/downland/',
+        headers: {
+          Authorization: 'Token ' + token
+        }
+      })
+        .then(Response => {
+          this.r_b_dis_allow = Response.data.r_b_dis_allow
+        })
+        .catch(error => {
+          console.log(error)
         })
     }
   },
@@ -235,19 +248,23 @@ export default {
     },
     AppDownlandRedBag () {
       Axios({
-        method: 'get',
-        url: 'https://bmw1984.com/api/auth/app/downland/?format=json',
+        method: 'POST',
+        url: 'https://bmw1984.com/api/auth/app/downland/',
         headers: {
           Authorization: 'Token ' + token
         }
       })
         .then(Response => {
-          this.r_b_dis_allow = Response.data.r_b_dis_allow
+          alert(Response.data.message)
         })
         .catch(error => {
           console.log(error)
-          alert('APP下载')
         })
+    },
+    logOut () {
+      localStorage.setItem('token', '')
+      window.token = ''
+      this.$router.push({path: 'login'})
     }
   }
 }
