@@ -52,6 +52,7 @@
           <p>3、会员前一天的投注额越高，则次日参与抽奖时，中得大奖的几率也会越高；</p>
           <p>4、该活动每天只能抽奖一次，每次换取抽奖机会的6000元投注额可在任意游戏内产生（彩票游戏除外）；</p>
           <p>5、奖金只需完成1倍流水即可提款，可投注任意游戏（彩票游戏除外）。</p>
+          <p><van-icon name="chat-o" color="#1989fa" /></p>
         </div>
       </div>
 
@@ -126,9 +127,9 @@ export default {
 
     //请求规则，执行请求和抽奖
     getRes () {
-
       // 请求前再次判断是否有抽奖机会，避免用户不停点击造成不断请求
       if(this.chance == 0) {
+            this.chanceMessages();
             this.divDisable.pointerEvents = 'none'  //点击按钮后禁用按钮
             return false
       } else {
@@ -212,20 +213,56 @@ export default {
           headers: {
             Authorization: 'Token ' + token
           }
-      }).then(Response => {
+      }).then(Response => {     //已登录时查询到抽奖次数为零时，禁用按钮并且返回false
           this.chance = Response.data.chance
-          if(this.chance == 0){
-            alert("很抱歉，您未登录或者抽奖机会已用完")
-            return false
-          }    
-      }).catch(error => {
+          // if(this.chance == 0){
+          //   this.divDisable.pointerEvents = 'none' 
+          //   return false
+          // }    
+      }).catch(error => {       //未登录时，从后台接收到401时弹出未登录，禁用按钮
+        this.divDisable.pointerEvents = 'none'
         if( status = 401 ) {
-          alert("您还未登录")
+          this.loginMessages()
         } else {
-          alert("提交错误，请联系客服")
+          this.errorMessages()
         }          
       })
     },
+
+
+    //错误消息弹出
+    chanceMessages() {
+      this.$message({
+        message: '您的抽奖次数为完。若有疑问，请联系在线客服',
+        duration: 8000,
+        offset:50 ,
+        center:true,
+        showClose:true
+      });
+    },
+
+    loginMessages() {
+      this.$message({
+        message: '您还未登录,请点击“我的”登录后进行',
+        type: 'warning',
+        duration: 15000,
+        offset:50 ,
+        center:true,
+        showClose:true
+      });
+    },
+
+    errorMessages() {
+      this.$message({
+        message: '提交错误，请在线联系客服',
+        type: 'error',
+        duration: 300000,
+        offset:50 ,
+        center:true,
+        showClose:true 
+      })
+    }    
+
   },
 
   computed: {

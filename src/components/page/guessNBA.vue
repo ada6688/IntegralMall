@@ -326,7 +326,7 @@
                   }
                 }).catch(error => {
                   if(status = 401){
-                    alert("您还未登录")
+                    this.loginMessages()
                   }else{
                     alert("提交错误，请联系客服")
                   }
@@ -359,16 +359,51 @@
                 if(RequsMessages == "提交成功"){
                   this.winerTwoBg.backgroundColor = '#b51e1a'
                 } else {
-                  alert(RequsMessages)             
+                  this.requestMessages()            
                 }
               }).catch(error => {
                 if(status = 401){
-                    alert("您还未登录")
+                   this.loginMessages()
                   }else{
-                    alert("提交错误，请联系客服")
+                    this.errorMessages()
                   }
               })
             }
+          },
+
+
+          //错误消息弹出
+          loginMessages() {
+            this.$message({
+              message: '您还未登录,请点击“我的”登录后进行。',
+              type: 'warning',
+              duration: 15000,
+              offset:50 ,
+              center:true,
+              showClose:true
+            });
+          },
+
+          requestMessages() {
+            this.$message({
+              message: '对不起，您今日存款金额不足388元，不能参与竞猜。若有疑问，请联系在线客服',
+              type: 'warning',
+              duration: 8000,
+              offset:50 ,
+              center:true,
+              showClose:true
+            });
+          },
+
+          errorMessages() {
+            this.$message({
+              message: '提交错误，请联系在线客服',
+              type: 'error',
+              duration: 3000,
+              offset:50 ,
+              center:true,
+              showClose:true 
+            })
           }
       },
 

@@ -12,10 +12,9 @@ import '../src/assets/css/index.css'
 import 'swiper/dist/css/swiper.css'
 import 'mint-ui/lib/style.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-import { Step, Steps, Icon, Dialog } from 'vant'
+import { Step, Steps, Icon } from 'vant'
 import VueScroller from 'vue-scroller'
 import Axios from 'axios'
-
 
 Vue.prototype.HOST = '/api'
 Vue.use(VueAwesomeSwiper)
@@ -23,7 +22,6 @@ Vue.use(ElementUI)
 Vue.use(MintUI)
 Vue.use(Step).use(Steps)
 Vue.use(Icon)
-Vue.use(Dialog)
 
 // Vue.use(VueTouch, {name: 'v-touch'})
 Vue.use(VueScroller)
