@@ -83,10 +83,6 @@
               <i class="el-icon-arrow-right"></i>
             </div>
           </router-link>
-          <div class="member-guize" @click="getDevices">
-            <div  class="member-jifen-T">设备信息</div>
-            <i class="el-icon-arrow-right"></i>
-          </div>
         </div>
       </div>
     </div>
