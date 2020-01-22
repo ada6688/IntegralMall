@@ -84,9 +84,15 @@
               <i class="el-icon-arrow-right"></i>
             </div>
           </router-link>
+<<<<<<< HEAD
           <!-- APP下载活动申请 -->
           <div class="member-guize" :class="{red_bag_button:r_b_dis_allow}">
             <button class="downland" @click="AppDownlandRedBag">APP下载活动申请</button>
+=======
+          <div class="member-guize" @click="getDevices">
+            <div  class="member-jifen-T">设备信息</div>
+            <i class="el-icon-arrow-right"></i>
+>>>>>>> parent of a8c30fe... 账户中心
           </div>
         </div>
       </div>
