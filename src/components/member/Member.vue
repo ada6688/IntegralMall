@@ -124,7 +124,8 @@ export default {
         require('@/assets/images/levelSign/zz@3x.png'),
         require('@/assets/images/levelSign/wz@3x.png'),
         require('@/assets/images/levelSign/ty@2x.png'),
-      ]
+      ],
+      r_b_dis_allow: true
     }
   },
   created () {
@@ -213,9 +214,9 @@ export default {
     },
     qiandao () {
       if (this.sign_status === 200) {
-        Axios({
+      Axios({
         method: 'get',
-        url: 'https://bmw1984.com/api/auth/sign/in/',
+        url: 'https://bmw1984.com/api/auth/sign/in/?format=json',
         headers: {
           Authorization: 'Token ' + token
         }
@@ -232,28 +233,36 @@ export default {
         })
       }
     },
-    getDevices() {
-      let phoneInfo = api.require('phoneInfo')
-      phoneInfo.getBaseInfo(function(ret, err) {
-          if (ret.status) {
-              api.alert({
-                  msg: '品牌：' + ret.brand + '\r\n' +
-                      '型号：' + ret.model + '\r\n' +
-                      '制造商：' + ret.manufacturer + '\r\n' +
-                      'Android版本：' + ret.version + '\r\n' +
-                      'AndroidSDK版本：' + ret.sdkVersion + '\r\n' +
-                      '设备串号：' + ret.id + '\r\n' +
-                      'Mac地址：' + ret.macAddress + '\r\n' +
-                      '开机时间：' + ret.bootTime + '分钟'
-              });
-          } else {
-              api.alert({ msg: err.msg });
-          }
-      });
+    AppDownlandRedBag () {
+      Axios({
+        method: 'get',
+        url: 'https://bmw1984.com/api/auth/app/downland/?format=json',
+        headers: {
+          Authorization: 'Token ' + token
+        }
+      })
+        .then(Response => {
+          this.r_b_dis_allow = Response.data.r_b_dis_allow
+        })
+        .catch(error => {
+          console.log(error)
+          alert('APP下载')
+        })
     }
   }
 }
 </script>
 <style>
-
+.red_bag_button {
+  display: none;
+}
+.downland {
+    width: 40%;
+    line-height: 26px;
+    background: -webkit-gradient(linear,left bottom,left top,color-stop(26%,#b58024),to(#e7ae4b));
+    margin: 0 auto;
+    border: 0;
+    font-size: 15px;
+    color: #fff;
+}
 </style>
