@@ -32,14 +32,13 @@ window.orderid = 115
 window.oldPath = '/'
 window.requirePath = '/'
 window.search = ''
-window.site = 'http://127.0.0.1:8000'
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requireAuth)) { // 判断该路由是否需要登录权限
     if (token) { // 判断当前的token是否存在
       Axios({
         method: 'get',
-        url: site + '/api/auth/test/?format=json',
+        url: 'https://bmw1984.com/api/auth/test/?format=json',
         headers: {
           Authorization: 'Token ' + window.token
         }

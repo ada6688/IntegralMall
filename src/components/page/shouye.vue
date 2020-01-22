@@ -25,10 +25,10 @@
             <el-tab-pane :name="menu.index" :label="menu.name" :key="menu.index">
               <div class="items-pro" v-for="goods in menu.data" :key="goods.pk" @click="jumpOrder(goods.pk)">
                 <div class="item-img-wrap"  v-if="goods.app_img">
-                    <img :src="site + goods.app_img.url" alt="">
+                    <img :src="'https://bmw1984.com' + goods.app_img.url" alt="">
                 </div>
                 <div class="item-img-wrap"  v-else>
-                    <img :src="site + goods.pc_img.url" alt="">
+                    <img :src="'https://bmw1984.com' + goods.pc_img.url" alt="">
                 </div>
                 <div class="item-pro-text">
                   <b>{{goods.title}}</b>
@@ -55,7 +55,7 @@ import axios from 'axios'
 import vuescroll from 'vuescroll'
 import InfiniteLoading from 'vue-infinite-loading'
 
-const api = site + '/api/mulu'
+const api = 'https://bmw1984.com/api/mulu'
 
 export default {
   name: 'App',
@@ -91,12 +91,20 @@ export default {
         {name: '奢华', data: [], index: '4', url: '/shehua/'},
       ],
       page: 1,
-      newsType: site + '/api/mulu/tuijian/',
+      newsType: 'https://bmw1984.com/api/mulu/tuijian/',
       infiniteId: +new Date(),
     }
   },
   created () {
-    //
+    // axios
+    //   .get('http://45.64.53.115:8000/api/mulu/tuijian/?format=json')
+    //   .then(Response => {
+    //     this.menuData[0].data = Response.data.results
+    //   })
+    //   .catch(error => {
+    //     console.log(error)
+    //     alert('商品加载错误，请联系在线客服！')
+    //   })
   },
   methods: {
     jumpOrder (id) {
@@ -104,7 +112,6 @@ export default {
       this.$router.push('/order')
     },
     infiniteHandler($state) {
-      console.log(this.newsType)
       axios.get(this.newsType, {
         params: {
           page: this.page,

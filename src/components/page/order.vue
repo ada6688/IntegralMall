@@ -131,13 +131,13 @@ export default {
     } else {
       Axios({
       method: 'get',
-      url: origin + '/api/mulu/' + window.orderid +'/?format=json',
+      url: 'https://bmw1984.com/api/mulu/' + window.orderid +'/?format=json',
     })
       .then(Response => {
         this.commodity = Response.data
-        this.commodity.pc_img.url = origin + '' + this.commodity.pc_img.url
+        this.commodity.pc_img.url = 'https://bmw1984.com' + this.commodity.pc_img.url
         if (this.commodity.app_img) {
-          this.commodity.app_img.url = origin + '' + this.commodity.app_img.url
+          this.commodity.app_img.url = 'https://bmw1984.com' + this.commodity.app_img.url
         }
       })
       .catch(error => {
@@ -147,7 +147,7 @@ export default {
       })
     Axios({
       method: 'get',
-      url: origin + '/api/auth/points/?format=json',
+      url: 'https://bmw1984.com/api/auth/points/?format=json',
       headers: {
         Authorization: 'Token ' + window.token
       }
@@ -168,7 +168,7 @@ export default {
     submit (e) {
       Axios({
       method: 'POST',
-      url: origin + '/api/auth/orders/',
+      url: 'https://bmw1984.com/api/auth/orders/',
       data: this.order,
       headers: {
         Authorization: 'Token ' + window.token

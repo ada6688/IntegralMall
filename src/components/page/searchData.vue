@@ -11,10 +11,10 @@
           <div class="items-list" v-if="isGet=='no'">
             <div class="items-pro" v-for="goods in SearchData" v-bind:key="goods.pk" @click="jumpOrder(goods.pk)">
                 <div class="item-img-wrap"  v-if="goods.app_img">
-                    <img :src="site + goods.app_img.url" alt="">
+                    <img :src="'https://bmw1984.com' + goods.app_img.url" alt="">
                 </div>
                 <div class="item-img-wrap"  v-else>
-                    <img :src="site + goods.pc_img.url" alt="">
+                    <img :src="'https://bmw1984.com' + goods.pc_img.url" alt="">
                 </div>
                 <div class="item-pro-text">
                   <b>{{ goods.title }}</b>
@@ -38,9 +38,6 @@ import TopNavC from '@/components/common/TopnavC'
 import axios from 'axios'
 import vuescroll from 'vuescroll'
 // import Result from '@/components/page/result'
-
-const site = window.site
-
 export default {
   components: {
     TopNavC,
@@ -76,7 +73,7 @@ export default {
       }, 1500)
     },
     SearchAgain () {
-        axios.get(site + '/api/mulu/?format=json&search=' + this.inWord)
+        axios.get('https://bmw1984.com/api/mulu/?format=json&search=' + this.inWord)
       .then(Response => {
         this.SearchData = Response.data.results;
         window.search = this.inWord
@@ -94,7 +91,7 @@ export default {
       }
     },
 created () {
-    axios.get(site + '/api/mulu/?format=json&search=' + window.search)
+    axios.get('https://bmw1984.com/api/mulu/?format=json&search=' + window.search)
       .then(Response => {
         this.SearchData = Response.data.results;
         this.isGet = this.SearchData.length == 0 ? 'yes' : 'no'

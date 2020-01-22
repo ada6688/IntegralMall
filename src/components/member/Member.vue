@@ -8,13 +8,13 @@
         <div class="member-person-info">
           <!-- 会员头像 -->
           <div class="member-img">
-            <img :src="origin + auth.avatar" v-if="auth.avatar">
+            <img :src="'https://bmw1984.com' + auth.avatar" v-if="auth.avatar">
             <img src="https://www.gravatar.com/avatar/4ee3113dc16bc05c2bba9393c8e1f7ef?s=50&d=mm" alt="" v-else>
           </div>
           <!-- 会员名称与设置图标 -->
           <p class="member-name">
             <span>{{auth.first_name + auth.last_name}}</span>
-            <span style="font-size:10px; color: #b58024" @click="logOut">/登出</span>
+            <span style="font-size: 10px; color: rgb(181, 128, 36);">/登出</span>
             <!-- <img src="../../assets/images/member/sz.png" alt=""> -->
           </p>
           <!-- 会员等级图标 -->
@@ -84,16 +84,11 @@
               <i class="el-icon-arrow-right"></i>
             </div>
           </router-link>
-<<<<<<< HEAD
           <!-- APP下载活动申请 -->
           <div class="member-guize" :class="{red_bag_button:r_b_dis_allow}">
             <button class="downland" @click="AppDownlandRedBag">APP下载活动申请</button>
-=======
-          <div class="member-guize" @click="getDevices">
-            <div  class="member-jifen-T">设备信息</div>
-            <i class="el-icon-arrow-right"></i>
->>>>>>> parent of a8c30fe... 账户中心
           </div>
+
         </div>
       </div>
     </div>
@@ -121,7 +116,6 @@ export default {
       Sing_day: 0,
       last_sign: 0,
       sign_status: 200,
-      r_b_dis_allow: true,
       level_img: [
         require('@/assets/images/levelSign/pt@3x.png'),
         require('@/assets/images/levelSign/hj@3x.png'),
@@ -140,7 +134,7 @@ export default {
     } else {
       Axios({
         method: 'get',
-        url: origin + 'api/auth/user/?format=json',
+        url: 'https://bmw1984.com/api/auth/user/?format=json',
         headers: {
           Authorization: 'Token ' + token
         }
@@ -156,7 +150,7 @@ export default {
         })
       Axios({
         method: 'get',
-        url: origin + 'api/auth/points/?format=json',
+        url: 'https://bmw1984.com/api/auth/points/?format=json',
         headers: {
           Authorization: 'Token ' + token
         }
@@ -170,9 +164,9 @@ export default {
           alert('等级加载错误，请联系在线客服！')
           // this.$router.push('/shouye')
         })
-      Axios({
+        Axios({
         method: 'get',
-        url: origin + 'api/auth/sign/query/?format=json',
+        url: 'https://bmw1984.com/api/auth/sign/query/?format=json',
         headers: {
           Authorization: 'Token ' + token
         }
@@ -188,19 +182,6 @@ export default {
           console.log(error)
           alert('签到获取错误')
           // this.$router.push('/shouye')
-        })
-      Axios({
-        method: 'get',
-        url: origin + 'api/auth/app/downland/?format=json',
-        headers: {
-          Authorization: 'Token ' + token
-        }
-      })
-        .then(Response => {
-          this.r_b_dis_allow = Response.data.r_b_dis_allow
-        })
-        .catch(error => {
-          console.log(error)
         })
     }
   },
@@ -234,7 +215,7 @@ export default {
       if (this.sign_status === 200) {
         Axios({
         method: 'get',
-        url: origin + '/api/auth/sign/in/',
+        url: 'https://bmw1984.com/api/auth/sign/in/',
         headers: {
           Authorization: 'Token ' + token
         }
@@ -251,40 +232,28 @@ export default {
         })
       }
     },
-    AppDownlandRedBag () {
-      Axios({
-        method: 'post',
-        url: origin + '/api/auth/app/downland/?format=json',
-        headers: {
-          Authorization: 'Token ' + token
-        }
-      })
-        .then(Response => {
-          alert(Response.data.message)
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
-    logOut () {
-      localStorage.setItem('token','')
-      window.token = ''
-      this.$router.push({path: 'login'})
+    getDevices() {
+      let phoneInfo = api.require('phoneInfo')
+      phoneInfo.getBaseInfo(function(ret, err) {
+          if (ret.status) {
+              api.alert({
+                  msg: '品牌：' + ret.brand + '\r\n' +
+                      '型号：' + ret.model + '\r\n' +
+                      '制造商：' + ret.manufacturer + '\r\n' +
+                      'Android版本：' + ret.version + '\r\n' +
+                      'AndroidSDK版本：' + ret.sdkVersion + '\r\n' +
+                      '设备串号：' + ret.id + '\r\n' +
+                      'Mac地址：' + ret.macAddress + '\r\n' +
+                      '开机时间：' + ret.bootTime + '分钟'
+              });
+          } else {
+              api.alert({ msg: err.msg });
+          }
+      });
     }
   }
 }
 </script>
 <style>
-.red_bag_button{
-  display: none;
-}
-.downland {
-  width: 40%;
-  line-height: 26px;
-  background: -webkit-gradient(linear,left bottom, left top,color-stop(26%, rgba(181,128,36,1)),to(rgba(231,174,75,1)));
-  margin: 0 auto;
-  border: 0;
-  font-size: 15px;
-  color: #ffff;
-}
+
 </style>

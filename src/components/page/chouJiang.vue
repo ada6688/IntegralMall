@@ -138,7 +138,7 @@ export default {
     //请求规则    
       Axios({
         method: 'post',
-          url: origin + '/api/lucky_everyday/lottery/?format=json',
+          url:'https://bmw1984.com/api/lucky_everyday/lottery/?format=json',
           headers: {
             Authorization: 'Token ' + token
           }
@@ -184,7 +184,7 @@ export default {
     getRrlling() {
       Axios({
         method: 'get',
-        url: origin + '/api/lucky_everyday/rolling_letter/?format=json&page_size=100',
+        url:'https://bmw1984.com/api/lucky_everyday/rolling_letter/?format=json&page_size=100',
       }) 
       .then(Response => {
         this.rolling_letter = Response.data.results
@@ -212,7 +212,7 @@ export default {
     getChance() { 
       Axios({
         method: 'get',
-          url: origin + '/api/lucky_everyday/lottery/?format=json',
+          url:'https://bmw1984.com/api/lucky_everyday/lottery/?format=json',
           headers: {
             Authorization: 'Token ' + token
           }
