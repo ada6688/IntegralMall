@@ -47,7 +47,7 @@ export default {
       } else {
         axios({
           method: 'post',
-          url: 'https://bmw1984.com/rest-auth/login/',
+          url: origin + '/rest-auth/login/',
           data: {
             username: _this.loginForm.username,
             password: _this.loginForm.password

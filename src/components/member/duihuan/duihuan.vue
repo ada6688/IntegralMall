@@ -9,7 +9,7 @@
         </div>
         <div class="exchange-item-main">
           <div class="exchange-item-img">
-            <img :src="'http://45.64.53.115:8000' + goods.image.url" alt="" style="width: 100%">
+            <img :src="origin + goods.image.url" alt="" style="width: 100%">
           </div>
           <div class="exchange-item-des">
             <p>{{goods.goods}}</p>
@@ -58,7 +58,7 @@ export default {
   created () {
     Axios({
       method: 'get',
-      url: 'https://bmw1984.com/api/auth/orders/?format=json',
+      url: origin + '/api/auth/orders/?format=json',
       headers: {
         Authorization: 'Token ' + token
       }
