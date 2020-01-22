@@ -56,7 +56,6 @@ import vuescroll from 'vuescroll'
 import InfiniteLoading from 'vue-infinite-loading'
 
 const api = site + '/api/mulu'
-const site = window.site
 
 export default {
   name: 'App',
