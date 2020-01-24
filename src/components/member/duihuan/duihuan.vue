@@ -9,7 +9,7 @@
         </div>
         <div class="exchange-item-main">
           <div class="exchange-item-img">
-            <img :src="'http://45.64.53.115:8000' + goods.image.url" alt="" style="width: 100%">
+            <img :src="'https://bmw1984.com' + goods.image.url" alt="" style="width: 100%">
           </div>
           <div class="exchange-item-des">
             <p>{{goods.goods}}</p>

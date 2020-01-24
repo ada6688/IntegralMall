@@ -97,14 +97,6 @@ export default {
   },
   created () {
     // axios
-    //   .get('http://45.64.53.115:8000/api/mulu/tuijian/?format=json')
-    //   .then(Response => {
-    //     this.menuData[0].data = Response.data.results
-    //   })
-    //   .catch(error => {
-    //     console.log(error)
-    //     alert('商品加载错误，请联系在线客服！')
-    //   })
   },
   methods: {
     jumpOrder (id) {

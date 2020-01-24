@@ -11,10 +11,10 @@
           <div class="items-list" v-if="isGet=='no'">
             <div class="items-pro" v-for="goods in SearchData" v-bind:key="goods.pk" @click="jumpOrder(goods.pk)">
                 <div class="item-img-wrap"  v-if="goods.app_img">
-                    <img :src="'http://45.64.53.115:8000' + goods.app_img.url" alt="">
+                    <img :src="'https://bmw1984.com' + goods.app_img.url" alt="">
                 </div>
                 <div class="item-img-wrap"  v-else>
-                    <img :src="'http://45.64.53.115:8000' + goods.pc_img.url" alt="">
+                    <img :src="'https://bmw1984.com' + goods.pc_img.url" alt="">
                 </div>
                 <div class="item-pro-text">
                   <b>{{ goods.title }}</b>

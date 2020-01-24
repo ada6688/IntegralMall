@@ -38,7 +38,8 @@
                   <span v-else>时间数据丢失</span>
                 </div>
               </li>
-              <li>-{{data.points_record}}</li>
+              <li v-if="data.points_record >= 0"> -{{data.points_record}}</li>
+              <li v-else> +{{data.points_record * -1}}</li>
             </ul>
           </el-tab-pane>
         </el-tabs>
