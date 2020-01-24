@@ -166,23 +166,42 @@ export default {
   },
   methods: {
     submit (e) {
-      Axios({
-      method: 'POST',
-      url: 'https://bmw1984.com/api/auth/orders/',
-      data: this.order,
-      headers: {
-        Authorization: 'Token ' + window.token
+      if (orderid == 300){
+        Axios({
+          method: 'POST',
+          url: 'https://bmw1984.com/api/auth/sign/orders/',
+          data: this.order,
+          headers: {
+            Authorization: 'Token ' + window.token
+          }
+        })
+          .then(Response => {
+            alert(Response.data.message)
+            this.$router.push('/shouye')
+          })
+          .catch(error => {
+            alert('提交错误')
+            this.$router.push('/shouye')
+          })
+      } else {
+        Axios({
+          method: 'POST',
+          url: 'https://bmw1984.com/api/auth/orders/',
+          data: this.order,
+          headers: {
+            Authorization: 'Token ' + window.token
+          }
+        })
+          .then(Response => {
+            alert(Response.data.message)
+            this.$router.push('/shouye')
+          })
+          .catch(error => {
+            alert('提交错误')
+            this.$router.push('/shouye')
+          })
+        }
       }
-    })
-      .then(Response => {
-        alert(Response.data.message)
-        this.$router.push('/shouye')
-      })
-      .catch(error => {
-        alert('提交错误')
-        this.$router.push('/shouye')
-      })
-    }
   }
 }
 </script>
