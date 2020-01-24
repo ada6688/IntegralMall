@@ -8,7 +8,7 @@
       <img class="NavSigh" :src="'/Youhui' === $route.path ? tabBarImgArr[1].selected : tabBarImgArr[1].normal" alt="推荐">
       <p :class="{on: '/Youhui' === $route.path}">优惠</p>
     </div>
-    <div class="tab-item" @click="game()">
+    <div class="tab-item" @click="switchTo('/toOfficial')">
       <img class="NavSigh" :src="tabBarImgArr[2].normal" alt="搜索">
       <p :class="{on: '/' === $route.path}">官网</p>
     </div>
@@ -38,9 +38,6 @@ export default {
   methods: {
     switchTo (path) {
       this.$router.push(path)
-    },
-    game () {
-      window.location.href = 'https://www.bmw583.net:9988'
     }
   }
 }
