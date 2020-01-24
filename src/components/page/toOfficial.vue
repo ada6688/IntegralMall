@@ -46,7 +46,17 @@ export default {
               'https://bmw563.net',
               'https://bmw581.net',
               'https://bmw583.net',
-              'https://bmw586.net'
+              'https://bmw586.net',
+              'https://bmw589.net',
+              'https://bmw59.org',
+              'https://bmw686.net',
+              'https://bmw713.net',
+              'https://bmw718.net',
+              'https://bmw723.net',
+              'https://bmw78.com',
+              'https://bmw783.net',
+              'https://bmw786.net',
+              'https://bmw800.net'
             ]
       }
   }
