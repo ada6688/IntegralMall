@@ -12,7 +12,7 @@
 
           <!-- 竞猜主界面开始 -->
           <ul id="nbaGuessMain">
-              <li 
+              <li
                   class="nbaGuessMain-li"
                   v-for="(nbanews,index) in Nbadata" 
                   :key = "index" 
