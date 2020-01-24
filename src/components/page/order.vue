@@ -142,7 +142,7 @@ export default {
       })
       .catch(error => {
         console.log('商品加载错误')
-        alert('商品加载错误，请联系在线客服！')
+        this.errorMessages()
         this.$router.push('/shouye')
       })
     Axios({
@@ -159,7 +159,7 @@ export default {
       })
       .catch(error => {
         console.log('加载用户信息错误')
-        alert('加载用户信息错误，请联系在线客服！')
+        this.errorMessages2()
       })
     }
     
@@ -179,10 +179,43 @@ export default {
         this.$router.push('/shouye')
       })
       .catch(error => {
-        alert('提交错误')
+        this.errorMessages3()
         this.$router.push('/shouye')
       })
-    }
+    },
+
+    errorMessages() {
+      this.$message({
+        message: '商品加在错误，请联系在线客服！',
+        type: 'error',
+        duration: 300000,
+        offset:50 ,
+        center:true,
+        showClose:true 
+      })
+    },
+
+    errorMessages2() {
+      this.$message({
+        message: '加载用户信息错误，请联系在线客服！',
+        type: 'error',
+        duration: 300000,
+        offset:50 ,
+        center:true,
+        showClose:true 
+      })
+    },
+
+    errorMessages3() {
+      this.$message({
+        message: '提交错误',
+        type: 'error',
+        duration: 300000,
+        offset:50 ,
+        center:true,
+        showClose:true 
+      })
+    },
   }
 }
 </script>
