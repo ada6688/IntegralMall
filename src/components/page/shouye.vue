@@ -100,7 +100,7 @@ export default {
   },
   methods: {
     jumpOrder (id) {
-      window.orderid = id
+      window.localStorage.setItem('orderid', id)
       this.$router.push('/order')
     },
     infiniteHandler($state) {

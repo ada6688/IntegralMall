@@ -28,7 +28,6 @@ Vue.use(VueScroller)
 
 Vue.config.productionTip = false
 window.token = localStorage.getItem('token')
-window.orderid = 115
 window.oldPath = '/'
 window.requirePath = '/'
 window.search = ''
