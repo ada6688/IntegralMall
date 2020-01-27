@@ -92,6 +92,7 @@
         </div>
       </div>
     </div>
+    <br>
     <BottomNav></BottomNav>
   </div>
 </template>
@@ -264,7 +265,7 @@ export default {
     logOut () {
       localStorage.setItem('token', '')
       window.token = ''
-      this.$router.push({path: 'login'})
+      this.$router.push({path: '/'})
     }
   }
 }
