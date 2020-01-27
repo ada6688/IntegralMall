@@ -8,12 +8,14 @@
         <div class="member-person-info">
           <!-- 会员头像 -->
           <div class="member-img">
-            <img :src="auth.avatar === '' ? 'http://www.gravatar.com/avatar/4ee3113dc16bc05c2bba9393c8e1f7ef?s=50&d=mm' : 'http://127.0.0.1:8000' + auth.avatar" alt="">
+            <img :src="'https://bmw1984.com' + auth.avatar" v-if="auth.avatar">
+            <img src="https://www.gravatar.com/avatar/4ee3113dc16bc05c2bba9393c8e1f7ef?s=50&d=mm" alt="" v-else>
           </div>
           <!-- 会员名称与设置图标 -->
           <p class="member-name">
             <span>{{auth.first_name + auth.last_name}}</span>
-            <img src="../../assets/images/member/sz.png" alt="">
+            <span style="font-size: 10px; color: rgb(181, 128, 36);" @click="logOut">/登出</span>
+            <!-- <img src="../../assets/images/member/sz.png" alt=""> -->
           </p>
           <!-- 会员等级图标 -->
           <div class="member-level-sign">
@@ -82,9 +84,15 @@
               <i class="el-icon-arrow-right"></i>
             </div>
           </router-link>
+          <!-- APP下载活动申请 -->
+          <div class="member-guize" :class="{red_bag_button:r_b_dis_allow}">
+            <button class="downland" @click="AppDownlandRedBag">APP下载活动申请</button>
+          </div>
+
         </div>
       </div>
     </div>
+    <br>
     <BottomNav></BottomNav>
   </div>
 </template>
@@ -92,6 +100,7 @@
 import BottomNav from '@/components/common/Bottomnav'
 import TopNav from '@/components/common/Topnav'
 import Axios from 'axios'
+
 
 export default {
   name: 'App',
@@ -116,7 +125,8 @@ export default {
         require('@/assets/images/levelSign/zz@3x.png'),
         require('@/assets/images/levelSign/wz@3x.png'),
         require('@/assets/images/levelSign/ty@2x.png'),
-      ]
+      ],
+      r_b_dis_allow: true
     }
   },
   created () {
@@ -126,7 +136,7 @@ export default {
     } else {
       Axios({
         method: 'get',
-        url: 'http://127.0.0.1:8000/api/auth/user/?format=json',
+        url: 'https://bmw1984.com/api/auth/user/?format=json',
         headers: {
           Authorization: 'Token ' + token
         }
@@ -142,7 +152,7 @@ export default {
         })
       Axios({
         method: 'get',
-        url: 'http://127.0.0.1:8000/api/auth/points/?format=json',
+        url: 'https://bmw1984.com/api/auth/points/?format=json',
         headers: {
           Authorization: 'Token ' + token
         }
@@ -156,9 +166,9 @@ export default {
           alert('等级加载错误，请联系在线客服！')
           // this.$router.push('/shouye')
         })
-        Axios({
+      Axios({
         method: 'get',
-        url: 'http://127.0.0.1:8000/api/auth/sign/query/?format=json',
+        url: 'https://bmw1984.com/api/auth/sign/query/?format=json',
         headers: {
           Authorization: 'Token ' + token
         }
@@ -174,6 +184,19 @@ export default {
           console.log(error)
           alert('签到获取错误')
           // this.$router.push('/shouye')
+        })
+      Axios({
+        method: 'get',
+        url: 'https://bmw1984.com/api/auth/app/downland/',
+        headers: {
+          Authorization: 'Token ' + token
+        }
+      })
+        .then(Response => {
+          this.r_b_dis_allow = Response.data.r_b_dis_allow
+        })
+        .catch(error => {
+          console.log(error)
         })
     }
   },
@@ -205,9 +228,9 @@ export default {
     },
     qiandao () {
       if (this.sign_status === 200) {
-        Axios({
+      Axios({
         method: 'get',
-        url: 'http://127.0.0.1:8000/api/auth/sign/in/',
+        url: 'https://bmw1984.com/api/auth/sign/in/?format=json',
         headers: {
           Authorization: 'Token ' + token
         }
@@ -223,10 +246,41 @@ export default {
           alert('签到获取错误')
         })
       }
+    },
+    AppDownlandRedBag () {
+      Axios({
+        method: 'POST',
+        url: 'https://bmw1984.com/api/auth/app/downland/',
+        headers: {
+          Authorization: 'Token ' + token
+        }
+      })
+        .then(Response => {
+          alert(Response.data.message)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    logOut () {
+      localStorage.setItem('token', '')
+      window.token = ''
+      this.$router.push({path: '/'})
     }
   }
 }
 </script>
 <style>
-
+.red_bag_button {
+  display: none;
+}
+.downland {
+    width: 40%;
+    line-height: 26px;
+    background: -webkit-gradient(linear,left bottom,left top,color-stop(26%,#b58024),to(#e7ae4b));
+    margin: 0 auto;
+    border: 0;
+    font-size: 15px;
+    color: #fff;
+}
 </style>

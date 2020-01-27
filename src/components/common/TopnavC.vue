@@ -18,6 +18,13 @@ export default {
     return { 
     }
   },
+  onBackPress(options) {
+  	if (options.from === 'navigateBack') {  
+  	  return false;  
+  	}  
+  	this.back();  
+  	return true;  
+  },
   methods: {
     goBack () {
       if (this.$route.path == '/order'){
@@ -26,7 +33,12 @@ export default {
       } else {
         this.$router.go(-1)
       }
-    }
+    },
+	back() {  
+	  uni.navigateBack({  
+	    delta: 2  
+	  });  
+	}  
   }
 }
 </script>

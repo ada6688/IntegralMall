@@ -8,8 +8,8 @@
       <img class="NavSigh" :src="'/Youhui' === $route.path ? tabBarImgArr[1].selected : tabBarImgArr[1].normal" alt="推荐">
       <p :class="{on: '/Youhui' === $route.path}">优惠</p>
     </div>
-    <div class="tab-item">
-      <img class="NavSigh" :src="'/' === $route.path ? tabBarImgArr[2].selected : tabBarImgArr[2].normal" alt="搜索">
+    <div class="tab-item" @click="switchTo('/toOfficial')">
+      <img class="NavSigh" :src="tabBarImgArr[2].normal" alt="搜索">
       <p :class="{on: '/' === $route.path}">官网</p>
     </div>
     <div class="tab-item" @click="switchTo('/Vip')">
@@ -32,12 +32,12 @@ export default {
         {normal: require('../../assets/images/navLogo/gw_x@3x.png'), selected: require('../../assets/images/navLogo/gw@3x.png')},
         {normal: require('../../assets/images/navLogo/zs_x@3x.png'), selected: require('../../assets/images/navLogo/zs@3x.png')},
         {normal: require('../../assets/images/navLogo/wd_x@3x.png'), selected: require('../../assets/images/navLogo/wd@3x.png')}
-      ]
+      ],
     }
   },
   methods: {
     switchTo (path) {
-      this.$router.replace(path)
+      this.$router.push(path)
     }
   }
 }

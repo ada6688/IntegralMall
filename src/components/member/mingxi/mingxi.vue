@@ -38,7 +38,8 @@
                   <span v-else>时间数据丢失</span>
                 </div>
               </li>
-              <li>-{{data.points_record}}</li>
+              <li v-if="data.points_record >= 0"> -{{data.points_record}}</li>
+              <li v-else> +{{data.points_record * -1}}</li>
             </ul>
           </el-tab-pane>
         </el-tabs>
@@ -69,7 +70,7 @@ export default {
     } else {
       Axios({
       method: 'get',
-      url: 'http://45.64.53.115:8000/api/auth/sign/records/?format=json',
+      url: 'https://bmw1984.com/api/auth/sign/records/?format=json',
       headers: {
         Authorization: 'Token ' + token
       }
@@ -83,7 +84,7 @@ export default {
       })
     Axios({
       method: 'get',
-      url: 'http://45.64.53.115:8000/api/auth/common/points/?format=json',
+      url: 'https://bmw1984.com/api/auth/common/points/?format=json',
       headers: {
         Authorization: 'Token ' + token
       }
@@ -97,7 +98,7 @@ export default {
       })
     Axios({
       method: 'get',
-      url: 'http://45.64.53.115:8000/api/auth/points/records/?format=json',
+      url: 'https://bmw1984.com/api/auth/points/records/?format=json',
       headers: {
         Authorization: 'Token ' + token
       }

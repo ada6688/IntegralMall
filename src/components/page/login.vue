@@ -21,7 +21,7 @@
 </template>
 <script>
 import '../../assets/css/login.css'
-import {mapMutations} from 'vuex'
+// import {mapMutations} from 'vuex'
 import axios from 'axios'
 // import store from '../../store/index'
 
@@ -36,7 +36,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['changeLogin']),
+    // ...mapMutations(['changeLogin']),
     login: function () {
       let _this = this
       let error1 = document.getElementById('error_prompt')
@@ -47,13 +47,14 @@ export default {
       } else {
         axios({
           method: 'post',
-          url: 'http://127.0.0.1:8000/rest-auth/login/',
+          url: 'https://bmw1984.com/rest-auth/login/',
           data: {
             username: _this.loginForm.username,
             password: _this.loginForm.password
           }
         })
           .then(res => {
+            window.localStorage.setItem('token', res.data.key)
             window.token = res.data.key
             this.$router.push({path: window.requirePath})
           }).catch(error => {

@@ -33,7 +33,7 @@
       </div>
       <!-- 表单 -->
       <div class="order-form">
-        <form v-if="J_status === 1" @submit="submit()">
+        <form v-if="J_status === 1" @submit.prevent="submit($event)">
           <div>
             <span>*</span><span class="order-name-T">姓名</span><span>:</span>
             <input v-model="order.take_name" type="text" placeholder="请输入您的真实姓名" required>
@@ -58,12 +58,12 @@
             <span class="order-bz">*</span><span class="order-name-T">备注</span><span>:</span>
             <input v-model="order.tips" type="text" placeholder="如有其它注意事项，请在此备注！">
           </div>
-          <button>提交</button>
+          <button type="submit">提交</button>
         </form>
-        <form v-else @submit="goback()">
+        <form v-else @submit.prevent="goback($event)">
           <div>
             <span>*</span><span class="order-name-T">姓名</span><span>:</span>
-            <input v-model="order.take_name" type="text" placeholder="请输入您的真实姓名" required>
+            <input v-model="order.take_name" type="text" placeholder="请输入您的真实姓名">
           </div>
           <div>
             <span>*</span><span class="order-name-T">邮箱</span><span>:</span>
@@ -85,7 +85,7 @@
             <span class="order-bz">*</span><span class="order-name-T">备注</span><span>:</span>
             <input v-model="order.tips" type="text" placeholder="如有其它注意事项，请在此备注！">
           </div>
-          <button style="background:linear-gradient(0deg,rgba(191, 186, 176) 26%,rgba(189, 177, 160) 100%);">积分不足,点击返回首页</button>
+          <button style="background:linear-gradient(0deg,rgba(191, 186, 176) 26%,rgba(189, 177, 160) 100%);" type="submit">积分不足,点击返回首页</button>
         </form>
       </div>
     </div>
@@ -94,6 +94,7 @@
 <script>
 import TopNavC from '@/components/common/TopnavC'
 import Axios from 'axios'
+
 
 export default {
   components: {
@@ -113,7 +114,7 @@ export default {
       order: {
         take_name: '',
         user_name: '',
-        goods_id: orderid,
+        goods_id: localStorage.getItem('orderid'),
         email: '',
         phone: '',
         wechart: '',
@@ -130,61 +131,84 @@ export default {
       this.$router.push('/login')
     } else {
       Axios({
-      method: 'get',
-      url: 'http://127.0.0.1:8000/api/mulu/' + window.orderid +'/?format=json',
-    })
-      .then(Response => {
-        this.commodity = Response.data
-        this.commodity.pc_img.url = 'http://127.0.0.1:8000' + this.commodity.pc_img.url
-        if (this.commodity.app_img) {
-          this.commodity.app_img.url = 'http://127.0.0.1:8000' + this.commodity.app_img.url
+        method: 'get',
+        url: 'https://bmw1984.com/api/mulu/' + localStorage.getItem('orderid') +'/?format=json',
+      })
+        .then(Response => {
+          this.commodity = Response.data
+          this.commodity.pc_img.url = 'https://bmw1984.com' + this.commodity.pc_img.url
+          if (this.commodity.app_img) {
+            this.commodity.app_img.url = 'https://bmw1984.com' + this.commodity.app_img.url
+          }
+        })
+        .catch(error => {
+          console.log('商品加载错误')
+          this.$router.push('/shouye')
+        })
+      Axios({
+        method: 'get',
+        url: 'https://bmw1984.com/api/auth/points/?format=json',
+        headers: {
+          Authorization: 'Token ' + window.token
         }
       })
-      .catch(error => {
-        console.log('商品加载错误')
-        alert('商品加载错误，请联系在线客服！')
-        this.$router.push('/shouye')
-      })
-    Axios({
-      method: 'get',
-      url: 'http://127.0.0.1:8000/api/auth/points/?format=json',
-      headers: {
-        Authorization: 'Token ' + window.token
-      }
-    })
-      .then(Response => {
-        this.D_price = Math.round(this.commodity.points * Response.data.discount)
-        this.J_status = Response.data.balance_common_points > this.D_price ? 1 : 0
-        console.log('加载用户信息完毕')
-      })
-      .catch(error => {
-        console.log('加载用户信息错误')
-        alert('加载用户信息错误，请联系在线客服！')
-      })
+        .then(Response => {
+          this.D_price = Math.round(this.commodity.points * Response.data.discount)
+          this.J_status = Response.data.balance_common_points > this.D_price ? 1 : 0
+          console.log('加载用户信息完毕')
+        })
+        .catch(error => {
+          console.log('加载用户信息错误')
+        })
     }
     
   },
   methods: {
     submit (e) {
-      Axios({
-      method: 'POST',
-      url: 'http://127.0.0.1:8000/api/auth/orders/',
-      data: this.order,
-      headers: {
-        Authorization: 'Token ' + window.token
+      e.preventDefault();
+      if (localStorage.getItem('orderid') == 300) {
+        Axios({
+          method: 'post',
+          url: 'https://bmw1984.com/api/auth/sign/orders/',
+          data: this.order,
+          headers: {
+            Authorization: 'Token ' + token
+          }
+        })
+          .then(Response => {
+            alert(Response.data.message)
+            this.$router.push('/shouye')
+          })
+          .catch(error => {
+            alert('提交错误')
+            this.$router.push('/shouye')
+          })
+      } else {
+        Axios({
+          method: 'post',
+          url: 'https://bmw1984.com/api/auth/orders/',
+          data: this.order,
+          headers: {
+            Authorization: 'Token ' + token
+          }
+        })
+          .then(Response => {
+            alert(Response.data.message)
+            this.$router.push('/shouye')
+          })
+          .catch(error => {
+            alert('提交错误')
+            this.$router.push('/shouye')
+          })
       }
-    })
-      .then(Response => {
-        alert(Response.data.message)
-        this.$router.push('/shouye')
-      })
-      .catch(error => {
-        alert('提交错误')
-        this.$router.push('/shouye')
-      })
+    },
+    goback (e) {
+      e.preventDefault();
+      this.$router.push('/shouye')
     }
   }
 }
+
 </script>
 <style>
 

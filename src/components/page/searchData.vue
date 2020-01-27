@@ -8,29 +8,29 @@
         </div>
         <div class="recommend-wrap1">
         <div>
-          <div class="items-list" v-if="isGet=='no'">            
+          <div class="items-list" v-if="isGet=='no'">
             <div class="items-pro" v-for="goods in SearchData" v-bind:key="goods.pk" @click="jumpOrder(goods.pk)">
                 <div class="item-img-wrap"  v-if="goods.app_img">
-                    <img :src="'http://45.64.53.115:8000' + goods.app_img.url" alt="">
+                    <img :src="'https://bmw1984.com' + goods.app_img.url" alt="">
                 </div>
                 <div class="item-img-wrap"  v-else>
-                    <img :src="'http://45.64.53.115:8000' + goods.pc_img.url" alt="">
+                    <img :src="'https://bmw1984.com' + goods.pc_img.url" alt="">
                 </div>
                 <div class="item-pro-text">
                   <b>{{ goods.title }}</b>
                   <p>{{ goods.description }}</p>
                   <span>{{ goods.points }}积分</span>
                 </div>
-            </div>            
+            </div>
           </div>
           <div v-else-if="isGet=='yes'">
-              <p style="color:#FFFFFF">关于&nbsp;<span style="color:red">"{{ searchWord }}"</span>&nbsp;的搜索结果不存在</p>              
+              <p style="color:#FFFFFF">关于&nbsp;<span style="color:red">"{{ searchWord }}"</span>&nbsp;的搜索结果不存在</p>
           </div>
           <div v-else></div>
         </div>
       </div>
     </div>
-    <!-- <Result></Result> -->    
+    <!-- <Result></Result> -->
   </div>
 </template>
 <script>
@@ -40,18 +40,18 @@ import vuescroll from 'vuescroll'
 // import Result from '@/components/page/result'
 export default {
   components: {
-    TopNavC,      
-    vuescroll    
-  },  
+    TopNavC,
+    vuescroll
+  },
   data() {
       return {
         searchWord: window.search,
-        SearchData: [],  
+        SearchData: [],
         inWord: '',
         notice: '',
         isGet: ''
       }
-  },  
+  },
   methods: {
     goBack () {
       if (window.history.length <= 1) {
@@ -65,42 +65,42 @@ export default {
       setTimeout(() => {
         done()
       }, 1500)
-    },    
+    },
     // 加载开始
     loadStart (done) {
       setTimeout(() => {
         done()
       }, 1500)
-    },        
-    SearchAgain () {        
-        axios.get('http://45.64.53.115:8000/api/mulu/?format=json&search=' + this.inWord)
-      .then(Response => {         
+    },
+    SearchAgain () {
+        axios.get('https://bmw1984.com/api/mulu/?format=json&search=' + this.inWord)
+      .then(Response => {
         this.SearchData = Response.data.results;
         window.search = this.inWord
         this.searchWord = window.search
-        this.isGet = this.SearchData.length == 0 ? 'yes' : 'no'      
+        this.isGet = this.SearchData.length == 0 ? 'yes' : 'no'
       })
-      .catch(error => {                  
-        console.log(error)         
+      .catch(error => {
+        console.log(error)
         // alert('商品加载错误，请联系在线客服！')
       })
      },
      jumpOrder (id) {
       window.orderid = id
       this.$router.push('/order')
-      }     
+      }
     },
-created () {     
-    axios.get('http://45.64.53.115:8000/api/mulu/?format=json&search=' + window.search)
-      .then(Response => {                   
+created () {
+    axios.get('https://bmw1984.com/api/mulu/?format=json&search=' + window.search)
+      .then(Response => {
         this.SearchData = Response.data.results;
         this.isGet = this.SearchData.length == 0 ? 'yes' : 'no'
       })
-      .catch(error => {           
-        console.log(error)            
+      .catch(error => {
+        console.log(error)
         // alert('商品加载错误，请联系在线客服！')
-      }) 
-  },  
+      })
+  },
 }
 </script>
 <style>
@@ -111,15 +111,15 @@ created () {
 .search-box{
     background: #2A2C35;
     color: #ffffff;
-    position: absolute;    
+    position: absolute;
     left: 16.67px;
     width: 70%;
     height: 36.67px;
-    border: none;        
+    border: none;
     padding-left: 10px;
 }
 input:focus{
-    outline: none;  
+    outline: none;
 }
 .search-btn{
     font-size: 15.33px;
@@ -129,11 +129,11 @@ input:focus{
     position: absolute;
     right: 17px;
     text-align: center;
-    background: #B58024;   
-    color: #FFFFFF; 
+    background: #B58024;
+    color: #FFFFFF;
     border: none;
     border-radius: 0%;
-    font-family: "PingFangSC";    
+    font-family: "PingFangSC";
 }
 
 </style>

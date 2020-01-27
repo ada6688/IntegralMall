@@ -17,6 +17,7 @@ import ChouJiang from '@/components/page/chouJiang'
 import Search from '@/components/page/search'
 import SearchData from '@/components/page/searchData'
 import guessNBA from '@/components/page/guessNBA'
+import toOfficial from '@/components/page/toOfficial'
 
 Vue.use(Router)
 
@@ -83,7 +84,7 @@ export default new Router({
       component: guessNBA
     },
     {
-      path: '/search',      
+      path: '/search',     
       component: Search,
       meta: {index: 2, title: '<p>搜索</p>'}
     },
@@ -92,6 +93,10 @@ export default new Router({
       name: 'search',
       component: SearchData,
       meta: {index: 3, title: '<p>搜索结果</p>'}
+    },
+    {
+      path: '/toOfficial',
+      component: toOfficial
     }
   ]
 })
