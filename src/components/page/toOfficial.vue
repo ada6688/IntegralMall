@@ -1,47 +1,43 @@
 <template>
-    <div id="addBox">
-        <TopnavC for-child-msg='宝马会官方网址导航'></TopnavC>
-        <div id="toOfficial-top-msg">
-            <!-- <p>宝马会官方网址导航</p>   -->
-        </div>
-        <div id="toOfficial-url" 
-          v-for="(urlMessage,index) in url" 
-          :key="index">
-            <div class="toOfficial-url-div">
-              <!--线路-->
-              <div class="toOfficial-1">
-                <span>线路{{index+1}}</span>
-                <!-- <span>延时</span> -->
-              </div> 
-
-                <!--地址-->   
-                <div class="toOfficial-2">
-                  <span>{{urlMessage}}</span>  
-                  <!-- <span>复制</span> -->
-              </div>
-
-              <!--跳转-->
-              <div class="toOfficial-3">
-                <a :href="url[index]">立即前往</a> 
-              </div>        
-          </div>           
-        </div>    
+  <div id="addBox">
+    <TopnavC for-child-msg='宝马会官方网址导航'></TopnavC>
+    <div id="toOfficial-top-msg">
+        <!-- <p>宝马会官方网址导航</p>   -->
     </div>
+    <div id="toOfficial-url"
+      v-for="(urlMessage,index) in url"
+      :key="index">
+        <div class="toOfficial-url-div">
+          <!--线路-->
+          <div class="toOfficial-1">
+            <span>线路{{index+1}}</span>
+            <!-- <span>延时</span> -->
+          </div>
+            <!--地址-->
+            <div class="toOfficial-2">
+              <span>{{urlMessage}}</span>
+              <!-- <span>复制</span> -->
+          </div>
+          <!--跳转-->
+          <div class="toOfficial-3">
+            <a :href="url[index]">立即前往</a>
+          </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-
 import TopnavC from '@/components/common/TopnavC'
-import axios from 'axios'
 export default {
   components: {
     TopnavC
   },
   data () {
     return {
-      Newdate:null,
-      pingtime:1,
-      url:[
+      Newdate: null,
+      pingtime: 1,
+      url: [
         'https://bmw163.net',
         'https://bmw168.org',
         'https://bmw268.net',
@@ -63,10 +59,8 @@ export default {
         'https://bmw786.net',
         'https://bmw800.net'
       ]
-    }   //data结束
-
-  },
-
+    } // data结束
+  }
 }
 </script>
 
@@ -89,7 +83,8 @@ a {
 #toOfficial-url{
   color: rgb(248, 244, 244); 
   margin-top: 1em;
-} 
+}
+
 .toOfficial-url-div {
   background-color: #292C35;
   margin: 0 auto;
@@ -97,7 +92,6 @@ a {
   height: 3em;
   line-height: 3em;
   display: flex;
-
 }
 
 .toOfficial-1 {
@@ -108,14 +102,10 @@ a {
 .toOfficial-2 {
   width: 65%;
   color: #5D6279;
-  
-
 }
 
 .toOfficial-3 {
   width: 22%;
 }
-
-
 
 </style>
