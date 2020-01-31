@@ -67,6 +67,9 @@ export default {
 }
 </script>
 <style>
+.loginBg{
+  height: 100vh;
+}
 #app{
   background: transparent !important
 }

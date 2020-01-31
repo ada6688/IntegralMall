@@ -322,13 +322,13 @@
                   if(RequsMessages == "提交成功"){
                     this.winerOneBg.backgroundColor = '#b51e1a'
                   } else {
-                    alert(RequsMessages)  
+                    this.requestMessages() 
                   }
                 }).catch(error => {
                   if(status = 401){
                     this.loginMessages()
                   }else{
-                    alert("提交错误，请联系客服")
+                    this.errorMessages()
                   }
                   
               })

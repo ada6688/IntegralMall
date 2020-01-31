@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="guizePage">
     <TopNavC></TopNavC>
     <div class="main-second-wrap">
       <div class="rules-request-wrap">
@@ -46,5 +46,7 @@ export default {
 
 </script>
 <style>
-
+#guizePage {
+  height: 100vh;
+}
 </style>
