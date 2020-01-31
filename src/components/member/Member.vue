@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="memberPage">
     <TopNav for-child-msg='个人中心'></TopNav>>
     <div class="main-wrap">
       <div class="member-half-circle"></div>
@@ -271,6 +271,9 @@ export default {
 }
 </script>
 <style>
+#memberPage{
+  height: 100vh;
+}
 .red_bag_button {
   display: none;
 }

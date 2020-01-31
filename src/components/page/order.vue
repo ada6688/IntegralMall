@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="oderPage">
     <TopNavC for-child-msg='商品详情'></TopNavC>
     <div class="main-second-wrap">
       <!-- 商品详情 -->
@@ -211,5 +211,7 @@ export default {
 
 </script>
 <style>
-
+#oderPage{
+  height: 100vh;
+}
 </style>
