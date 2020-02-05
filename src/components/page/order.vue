@@ -145,21 +145,40 @@ export default {
           console.log('商品加载错误')
           this.$router.push('/shouye')
         })
-      Axios({
-        method: 'get',
-        url: 'https://bmw1984.com/api/auth/points/?format=json',
-        headers: {
-          Authorization: 'Token ' + window.token
-        }
-      })
-        .then(Response => {
-          this.D_price = Math.round(this.commodity.points * Response.data.discount)
-          this.J_status = Response.data.balance_common_points > this.D_price ? 1 : 0
-          console.log('加载用户信息完毕')
+      if (localStorage.getItem('orderid') == 300) {
+        Axios({
+          method: 'get',
+          url: 'https://bmw1984.com/api/auth/sign/query/?format=json',
+          headers: {
+            Authorization: 'Token ' + window.token
+          }
         })
-        .catch(error => {
-          console.log('加载用户信息错误')
+          .then(Response => {
+            this.D_price = Math.round(this.commodity.points * 1)
+            this.J_status = Response.data.total_points >= 280 ? 1 : 0
+            console.log('加载用户信息完毕')
+          })
+          .catch(error => {
+            console.log('加载用户信息错误')
+          })
+      } else {
+        Axios({
+          method: 'get',
+          url: 'https://bmw1984.com/api/auth/points/?format=json',
+          headers: {
+            Authorization: 'Token ' + window.token
+          }
         })
+          .then(Response => {
+            this.D_price = Math.round(this.commodity.points * Response.data.discount)
+            this.J_status = Response.data.balance_common_points > this.D_price ? 1 : 0
+            console.log('加载用户信息完毕')
+          })
+          .catch(error => {
+            console.log('加载用户信息错误')
+          })
+      }
+      
     }
     
   },
