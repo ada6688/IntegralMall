@@ -1,5 +1,5 @@
 <template>
-  <div id="memberPage">
+  <div>
     <TopNav for-child-msg='个人中心'></TopNav>>
     <div class="main-wrap">
       <div class="member-half-circle"></div>
@@ -100,8 +100,6 @@
 import BottomNav from '@/components/common/Bottomnav'
 import TopNav from '@/components/common/Topnav'
 import Axios from 'axios'
-
-
 export default {
   name: 'App',
   components: {
@@ -124,13 +122,13 @@ export default {
         require('@/assets/images/levelSign/zs@3x.png'),
         require('@/assets/images/levelSign/zz@3x.png'),
         require('@/assets/images/levelSign/wz@3x.png'),
-        require('@/assets/images/levelSign/ty@2x.png'),
+        require('@/assets/images/levelSign/ty@2x.png')
       ],
       r_b_dis_allow: true
     }
   },
   created () {
-    if (window.token == '') {
+    if (window.token === '') {
       window.requirePath = '/Member'
       this.$router.push('/login')
     } else {
@@ -138,6 +136,7 @@ export default {
         method: 'get',
         url: 'https://bmw1984.com/api/auth/user/?format=json',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       })
@@ -154,6 +153,7 @@ export default {
         method: 'get',
         url: 'https://bmw1984.com/api/auth/points/?format=json',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       })
@@ -170,6 +170,7 @@ export default {
         method: 'get',
         url: 'https://bmw1984.com/api/auth/sign/query/?format=json',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       })
@@ -189,6 +190,7 @@ export default {
         method: 'get',
         url: 'https://bmw1984.com/api/auth/app/downland/',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       })
@@ -201,7 +203,6 @@ export default {
     }
   },
   mounted: function () {
-    // 
   },
   methods: {
     setclass (demo, arr = []) {
@@ -228,23 +229,24 @@ export default {
     },
     qiandao () {
       if (this.sign_status === 200) {
-      Axios({
-        method: 'get',
-        url: 'https://bmw1984.com/api/auth/sign/in/?format=json',
-        headers: {
-          Authorization: 'Token ' + token
-        }
-      })
-        .then(Response => {
-          this.Sign = Response.data.data
-          this.Sing_day = Response.data.continuity_days
-          this.last_sign = Response.data.tomorrow
-          this.sign_status = Response.data.status
+        Axios({
+          method: 'get',
+          url: 'https://bmw1984.com/api/auth/sign/in/?format=json',
+          headers: {
+            // eslint-disable-next-line no-undef
+            Authorization: 'Token ' + token
+          }
         })
-        .catch(error => {
-          console.log(error)
-          alert('签到获取错误')
-        })
+          .then(Response => {
+            this.Sign = Response.data.data
+            this.Sing_day = Response.data.continuity_days
+            this.last_sign = Response.data.tomorrow
+            this.sign_status = Response.data.status
+          })
+          .catch(error => {
+            console.log(error)
+            alert('签到获取错误')
+          })
       }
     },
     AppDownlandRedBag () {
@@ -252,6 +254,7 @@ export default {
         method: 'POST',
         url: 'https://bmw1984.com/api/auth/app/downland/',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       })
@@ -271,9 +274,6 @@ export default {
 }
 </script>
 <style>
-#memberPage{
-  height: 100vh;
-}
 .red_bag_button {
   display: none;
 }

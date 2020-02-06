@@ -1,5 +1,5 @@
 <template>
-  <div id="yiwenPage">
+  <div>
     <TopNavC></TopNavC>
     <div class="main-second-wrap">
       <div class="integral-question">
@@ -81,10 +81,6 @@ export default {
 
 </script>
 <style>
-
-  #yiwenPage{
-    height: 100vh;
-  }
   #rule {
       margin-top: 3rem;
       height: 650px;

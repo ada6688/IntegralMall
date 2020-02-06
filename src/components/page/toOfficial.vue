@@ -1,27 +1,22 @@
 <template>
-  <div id="addBox">
+  <div>
     <TopnavC for-child-msg='宝马会官方网址导航'></TopnavC>
-    <div id="toOfficial-top-msg">
-        <!-- <p>宝马会官方网址导航</p>   -->
-    </div>
-    <div id="toOfficial-url"
-      v-for="(urlMessage,index) in url"
-      :key="index">
-        <div class="toOfficial-url-div">
+    <div id="addBox">
+      <div class="toOfficial-url-div" v-for="(urlMessage,index) in url" :key="index">
           <!--线路-->
-          <div class="toOfficial-1">
-            <span>线路{{index+1}}</span>
-            <!-- <span>延时</span> -->
-          </div>
-            <!--地址-->
-            <div class="toOfficial-2">
-              <span>{{urlMessage}}</span>
-              <!-- <span>复制</span> -->
-          </div>
-          <!--跳转-->
-          <div class="toOfficial-3">
-            <a :href="url[index]">立即前往</a>
-          </div>
+        <div class="toOfficial-1">
+          <span>线路{{index+1}}</span>
+          <!-- <span>延时</span> -->
+        </div>
+          <!--地址-->
+        <div class="toOfficial-2">
+            <span>{{urlMessage}}</span>
+            <!-- <span>复制</span> -->
+        </div>
+        <!--跳转-->
+        <div class="toOfficial-3">
+          <a :href="url[index]">立即前往</a>
+        </div>
       </div>
     </div>
   </div>
@@ -65,32 +60,24 @@ export default {
 </script>
 
 <style scoped>
-#addBox {
-  height: 100%;
-  padding: 1em 0;
-}
 a {
   color: blanchedalmond;
   text-decoration:none
 }
 
-#toOfficial-top-msg {
-  color: rgb(248, 244, 244); 
-  margin-top:5.98vh;
-  background-color: #161415;
-}
-
-#toOfficial-url{
-  color: rgb(248, 244, 244); 
-  margin-top: 1em;
+#addBox {
+  padding: 2rem 0;
+  background-color: #151515
 }
 
 .toOfficial-url-div {
+  color: rgb(248, 244, 244);
   background-color: #292C35;
   margin: 0 auto;
   width: 98%;
-  height: 3em;
-  line-height: 3em;
+  height: 3rem;
+  margin-top: 1rem;
+  line-height: 3rem;
   display: flex;
 }
 

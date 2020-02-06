@@ -1,5 +1,5 @@
 <template>
-  <div id="oderPage">
+  <div>
     <TopNavC for-child-msg='商品详情'></TopNavC>
     <div class="main-second-wrap">
       <!-- 商品详情 -->
@@ -94,11 +94,9 @@
 <script>
 import TopNavC from '@/components/common/TopnavC'
 import Axios from 'axios'
-
-
 export default {
   components: {
-    TopNavC,
+    TopNavC
   },
   data () {
     return {
@@ -230,7 +228,4 @@ export default {
 
 </script>
 <style>
-#oderPage{
-  height: 100vh;
-}
 </style>

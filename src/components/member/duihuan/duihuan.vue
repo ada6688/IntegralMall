@@ -90,7 +90,4 @@ export default {
 
 </script>
 <style>
-#duihuanPage{
-  height: 100vh;
-}
 </style>
