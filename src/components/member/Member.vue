@@ -101,8 +101,6 @@
 import BottomNav from '@/components/common/Bottomnav'
 import TopNav from '@/components/common/Topnav'
 import Axios from 'axios'
-
-
 export default {
   name: 'App',
   components: {

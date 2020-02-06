@@ -1,5 +1,5 @@
 <template>
-  <div id="youHuiPage">
+  <div>
     <TopNav for-child-msg='优惠专区'></TopNav>>
     <div class="yh-wrap main-wrap">
       <div v-for="(temp, index) in youHui" :key="index">
@@ -32,7 +32,4 @@ export default {
 }
 </script>
 <style>
-#youHuiPage{
-  height: 100vh;
-}
 </style>
