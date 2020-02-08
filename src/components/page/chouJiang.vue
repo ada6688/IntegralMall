@@ -66,10 +66,10 @@
           <p class="moneyMessage" id="moneyMessage1"><span id="moneySize">{{sendMoney}}</span>元</p>
           <p class="moneyMessage" id="moneyMessage2">恭喜您获得{{sendMoney}}元红包</p>
           <p class="moneyMessage" id="moneyMessage3">请在我的账户里查看</p>
-          <div id='messagesImgBotton' @click='moneyBoxHide'></div> 
-        </div>    
+          <div id='messagesImgBotton' @click='moneyBoxHide'></div>
+        </div>
       </div>
-    </div>    
+    </div>
   </div>
 
 </template>
@@ -130,8 +130,6 @@ export default {
       // 请求前再次判断是否有抽奖机会，避免用户不停点击造成不断请求
       if (this.chance === 0) {
         this.chanceMessages()
-        this.divDisable.pointerEvents = 'none' // 点击按钮后禁用按钮
-        return false
       } else {
         this.chance -= 1
         //  请求规则
@@ -139,6 +137,7 @@ export default {
           method: 'post',
           url: 'https://bmw1984.com/api/lucky_everyday/lottery/?format=json',
           headers: {
+            // eslint-disable-next-line no-undef
             Authorization: 'Token ' + token
           }
         }).then(Response => {
@@ -208,6 +207,7 @@ export default {
         method: 'get',
         url: 'https://bmw1984.com/api/lucky_everyday/lottery/?format=json',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       }).then(Response => { // 已登录时查询到抽奖次数为零时，禁用按钮并且返回false
@@ -215,21 +215,22 @@ export default {
         // if(this.chance == 0){
         //   this.divDisable.pointerEvents = 'none'
         //   return false
-        // }    
+        // }
+      // eslint-disable-next-line handle-callback-err
       }).catch(error => { // 未登录时，从后台接收到401时弹出未登录，禁用按钮
         this.divDisable.pointerEvents = 'none'
-        if( status = 401 ) {
+        if (status === 401) {
           this.loginMessages()
         } else {
           this.errorMessages()
-        }          
+        }
       })
     },
     // 错误消息弹出
     chanceMessages () {
       this.$message({
-        message: '您的抽奖次数为完。若有疑问，请联系在线客服',
-        duration: 8000,
+        message: '您的抽奖次数为0。若有疑问，请联系在线客服',
+        duration: 2200,
         offset: 50,
         center: true,
         showClose: true
@@ -465,8 +466,6 @@ export default {
     background-position-y: var(--pthird);
   }
 }
-
-
 /* 抽奖动画 end */
 
 /*禁用按钮*/

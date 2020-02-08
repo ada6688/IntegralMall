@@ -118,6 +118,7 @@ export default {
       Sing_day: 0,
       last_sign: 0,
       sign_status: 200,
+      total_sign_points: 0,
       level_img: [
         require('@/assets/images/levelSign/pt@3x.png'),
         require('@/assets/images/levelSign/hj@3x.png'),
@@ -297,10 +298,20 @@ export default {
 .sign-in-already {
   background:linear-gradient(0deg,rgba(191, 186, 176) 26%,rgba(189, 177, 160) 100%);
 }
-
-@media screen and (max-width:655px){
+@media screen and (max-height:674px){
   .main-wrap {
     margin-bottom: 3.66vh;
+  }
+}
+@media screen and (max-height:551px){
+  .main-wrap {
+    margin-bottom: 1.66vh;
+}
+}
+
+@media screen and (max-height:345px){
+  .main-wrap {
+    margin-bottom: 1vh;
 }
 }
 </style>
