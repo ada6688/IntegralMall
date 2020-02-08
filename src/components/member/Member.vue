@@ -118,6 +118,7 @@ export default {
       Sing_day: 0,
       last_sign: 0,
       sign_status: 200,
+      total_sign_points: 0,
       level_img: [
         require('@/assets/images/levelSign/pt@3x.png'),
         require('@/assets/images/levelSign/hj@3x.png'),
