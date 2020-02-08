@@ -125,13 +125,13 @@ export default {
         require('@/assets/images/levelSign/zs@3x.png'),
         require('@/assets/images/levelSign/zz@3x.png'),
         require('@/assets/images/levelSign/wz@3x.png'),
-        require('@/assets/images/levelSign/ty@2x.png'),
+        require('@/assets/images/levelSign/ty@2x.png')
       ],
       r_b_dis_allow: true
     }
   },
   created () {
-    if (window.token == '') {
+    if (window.token === '') {
       window.requirePath = '/Member'
       this.$router.push('/login')
     } else {
@@ -139,6 +139,7 @@ export default {
         method: 'get',
         url: 'https://bmw1984.com/api/auth/user/?format=json',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       })
@@ -155,6 +156,7 @@ export default {
         method: 'get',
         url: 'https://bmw1984.com/api/auth/points/?format=json',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       })
@@ -171,6 +173,7 @@ export default {
         method: 'get',
         url: 'https://bmw1984.com/api/auth/sign/query/?format=json',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       })
@@ -180,7 +183,7 @@ export default {
           this.Sing_day = Response.data.continuity_days
           this.last_sign = Response.data.tomorrow
           this.sign_status = Response.data.status
-          if (Response.data.status == 201){
+          if (Response.data.status === 201) {
             this.sign_message = '已签到'
             this.sign_active = true
           }
@@ -195,6 +198,7 @@ export default {
         method: 'get',
         url: 'https://bmw1984.com/api/auth/app/downland/',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       })
@@ -207,7 +211,6 @@ export default {
     }
   },
   mounted: function () {
-    // 
   },
   methods: {
     setclass (demo, arr = []) {
@@ -234,22 +237,21 @@ export default {
     },
     qiandao () {
       if (this.sign_status === 200) {
-      Axios({
-        method: 'get',
-        url: 'https://bmw1984.com/api/auth/sign/in/?format=json',
-        headers: {
-          Authorization: 'Token ' + token
-        }
-      })
-        .then(Response => {
+        Axios({
+          method: 'get',
+          url: 'https://bmw1984.com/api/auth/sign/in/?format=json',
+          headers: {
+            // eslint-disable-next-line no-undef
+            Authorization: 'Token ' + token
+          }
+        }).then(Response => {
           this.Sign = Response.data.data
           this.Sing_day = Response.data.continuity_days
           this.last_sign = Response.data.tomorrow
           this.sign_status = Response.data.status
           this.sign_message = '已签到'
           this.sign_active = true
-        })
-        .catch(error => {
+        }).catch(error => {
           console.log(error)
           alert('签到获取错误')
         })
@@ -260,6 +262,7 @@ export default {
         method: 'POST',
         url: 'https://bmw1984.com/api/auth/app/downland/',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       })
@@ -279,9 +282,6 @@ export default {
 }
 </script>
 <style>
-#memberPage{
-  height: 100vh;
-}
 .red_bag_button {
   display: none;
 }
@@ -296,5 +296,11 @@ export default {
 }
 .sign-in-already {
   background:linear-gradient(0deg,rgba(191, 186, 176) 26%,rgba(189, 177, 160) 100%);
+}
+
+@media screen and (max-width:655px){
+  .main-wrap {
+    margin-bottom: 3.66vh;
+}
 }
 </style>

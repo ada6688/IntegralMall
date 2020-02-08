@@ -15,7 +15,7 @@
         </div>
         <!--跳转-->
         <div class="toOfficial-3">
-          <a :href="url[index]">立即前往</a>
+          <a :href="url[index] + '/m/new/#/home'">立即前往</a>
         </div>
       </div>
     </div>
