@@ -146,7 +146,6 @@ export default {
       })
         .then(Response => {
           this.auth = Response.data
-          console.log(Response.data)
         })
         .catch(error => {
           console.log(error)
@@ -167,7 +166,7 @@ export default {
         })
         .catch(error => {
           console.log(error)
-          alert('等级加载错误，请联系在线客服！')
+          this.errorMessages()
           // this.$router.push('/shouye')
         })
       Axios({
@@ -192,7 +191,7 @@ export default {
         })
         .catch(error => {
           console.log(error)
-          alert('签到获取错误')
+          this.errorMessages()
           // this.$router.push('/shouye')
         })
       Axios({
@@ -254,7 +253,7 @@ export default {
           this.sign_active = true
         }).catch(error => {
           console.log(error)
-          alert('签到获取错误')
+          this.errorMessages()
         })
       }
     },
@@ -268,7 +267,7 @@ export default {
         }
       })
         .then(Response => {
-          alert(Response.data.message)
+          this.aleartAppMeg()
         })
         .catch(error => {
           console.log(error)
@@ -278,6 +277,25 @@ export default {
       localStorage.setItem('token', '')
       window.token = ''
       this.$router.push({path: '/'})
+    },
+    aleartAppMeg () {
+      this.$message({
+        message: '您已参加过此活动或官网不存在此用户，若有疑问请联系在线客服。',
+        duration: 2200,
+        offset: 50,
+        center: true,
+        showClose: true
+      })
+    },
+    errorMessages () {
+      this.$message({
+        message: '签到错误，请在线联系客服',
+        type: 'error',
+        duration: 300000,
+        offset: 50,
+        center: true,
+        showClose: true
+      })
     }
   }
 }
