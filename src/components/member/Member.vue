@@ -298,10 +298,20 @@ export default {
 .sign-in-already {
   background:linear-gradient(0deg,rgba(191, 186, 176) 26%,rgba(189, 177, 160) 100%);
 }
-
-@media screen and (max-width:655px){
+@media screen and (max-height:674px){
   .main-wrap {
     margin-bottom: 3.66vh;
+  }
+}
+@media screen and (max-height:551px){
+  .main-wrap {
+    margin-bottom: 1.66vh;
+}
+}
+
+@media screen and (max-height:345px){
+  .main-wrap {
+    margin-bottom: 1vh;
 }
 }
 </style>
