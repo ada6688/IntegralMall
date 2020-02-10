@@ -88,11 +88,11 @@ export default {
         {name: '数码', data: [], index: '1', url: '/shuma/'},
         {name: '奖金', data: [], index: '2', url: '/jiangjin/'},
         {name: '生活', data: [], index: '3', url: '/shenghuo/'},
-        {name: '奢华', data: [], index: '4', url: '/shehua/'},
+        {name: '奢华', data: [], index: '4', url: '/shehua/'}
       ],
       page: 1,
       newsType: 'https://bmw1984.com/api/mulu/tuijian/',
-      infiniteId: +new Date(),
+      infiniteId: +new Date()
     }
   },
   created () {
@@ -103,32 +103,30 @@ export default {
       window.localStorage.setItem('orderid', id)
       this.$router.push('/order')
     },
-    infiniteHandler($state) {
+    infiniteHandler ($state) {
       axios.get(this.newsType, {
         params: {
           page: this.page,
-          format: 'json',
-        },
-      })
-      .then(({ data }) => {
-        if (data.count) {
-          this.page += 1;
-          this.menuData[this.activateName].data.push(...data.results);
-          $state.loaded();
-        } else {
-          $state.complete();
+          format: 'json'
         }
-      })
-      .catch(error => {
-        $state.complete();
+      }).then(({ data }) => {
+        if (data.count) {
+          this.page += 1
+          this.menuData[this.activateName].data.push(...data.results)
+          $state.loaded()
+        } else {
+          $state.complete()
+        }
+      }).catch(error => {
+        $state.complete()
       })
     }
   },
   watch: {
-    'activateName': function(val){
+    'activateName': function (val) {
       this.newsType = api + this.menuData[val].url
       this.page = 1
-      this.infiniteId += 1,
+      this.infiniteId += 1
       this.menuData[val].data = []
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="duihuanPage">
     <TopNavC></TopNavC>
     <div class="main-second-wrap">
       <div class="exchange-item-wrap" v-for="goods in list" v-bind:key="goods.id">
@@ -90,5 +90,4 @@ export default {
 
 </script>
 <style>
-
 </style>

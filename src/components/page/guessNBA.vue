@@ -14,8 +14,8 @@
           <ul id="nbaGuessMain">
               <li
                   class="nbaGuessMain-li"
-                  v-for="(nbanews,index) in Nbadata" 
-                  :key = "index" 
+                  v-for="(nbanews,index) in Nbadata"
+                  :key = "index"
                   >
                <!-- 已结束    -->
               <template v-if="nbanews.competition.competition_status == '已结束'">
@@ -27,8 +27,6 @@
                               <p>{{nbanews.competition.competition_date}}</p>
                               <p>{{nbanews.competition.competition_time}}</p>
                           </li>
-
-
                           <li class="nbaGussSmallBox-team">
                               <div  class="nbaGussSmallBox-team-leftpic" v-if="nbanews.competition.points_one == 0 || nbanews.competition.points_two == 0 ||nbanews.competition.points_one== nbanews.competition.points_two? false : true">
                                   <img :src="nbanews.competition.points_one > nbanews.competition.points_two ? scoreResule[0].win : scoreResule[1].lose">
@@ -37,15 +35,10 @@
                                   <p><img :src="'https://bmw1984.com/' + nbanews.competition.team_one.team_img_url.url" alt="nbanews.competition.team_one.team_name" width="40" height="40"></p>
                               <p>{{nbanews.competition.team_one.team_name}}</p>
                               </div>
-                              
                           </li>
 
                           <li class="nbaGussSmallBox-vs">vs</li>
-
-                         
-
                           <li class="nbaGussSmallBox-team">
-                              
                               <div class="nbaGussSmallBox-team-right">
                                   <p><img :src="'https://bmw1984.com/' + nbanews.competition.team_two.team_img_url.url" alt="nbanews.competition.team_two.team_name" width="40" height="40"></p>
                                   <p>{{nbanews.competition.team_two.team_name}}</p>
@@ -53,10 +46,7 @@
                               <div  class="nbaGussSmallBox-team-rightpic" v-if="nbanews.competition.points_one == 0 || nbanews.competition.points_two == 0 ||nbanews.competition.points_one== nbanews.competition.points_two? false : true">
                                   <img :src="nbanews.competition.points_two > nbanews.competition.points_one ? scoreResule[0].win : scoreResule[1].lose">
                               </div>
-                              
                           </li>
-
-
                           <li class="nbaGussSmallBox-result">
                               <span>{{nbanews.lottery.status}}</span>
                           </li>
@@ -64,10 +54,8 @@
                           <li class="nbaEnd">
                               <img src="../../assets/images/yh/nbaend.png">
                           </li>
-                      </ul>    
+                      </ul>
                   </div>
-                  
-
                   <!-- 需要展开的大box -->
                   <div class="nbaGussBigBox" @click="selectBigBox($event)">
                       <div class="nbaGussBigBox-team">
@@ -102,10 +90,8 @@
                       </div>
                   </div>
               </template>
-
-
               <!-- 进行中 -->
-              <template v-if="nbanews.competition.competition_status == '进行中'">              
+              <template v-if="nbanews.competition.competition_status == '进行中'">
                   <!-- 需要展开的大box -->
                   <div class="nbaGussBigBox" style="display: block;">
                       <div class="nbaGussBigBox-team">
@@ -116,7 +102,6 @@
                                   </p>
                                   <p class="nbaGussBigBox-teamLeftname">{{nbanews.competition.team_one.team_name}}</p>
                                   <div class="NbaWiner" @click="selectTeamOne(index)" id="NbaWinerOne" :style="[winerOneBg,winnerBtnShow]">赢</div>
-                              
                               </li>
                               <li class="nbaGussBigBox-team-2">
                                   <p class="nbaGussBigBox-team-2-timedata">{{nbanews.competition.competition_date}}</p>
@@ -148,8 +133,6 @@
                               <p>{{nbanews.competition.competition_date}}</p>
                               <p>{{nbanews.competition.competition_time}}</p>
                           </li>
-
-
                           <li class="nbaGussSmallBox-team">
                               <div  class="nbaGussSmallBox-team-leftpic" v-if="nbanews.competition.points_one == 0 || nbanews.competition.points_two == 0 ||nbanews.competition.points_one== nbanews.competition.points_two? false : true">
                                   <img :src="nbanews.competition.points_one > nbanews.competition.points_two ? scoreResule[0].win : scoreResule[1].lose">
@@ -158,15 +141,10 @@
                                   <p><img :src="'https://bmw1984.com/' + nbanews.competition.team_one.team_img_url.url" alt="nbanews.competition.team_one.team_name" width="40" height="40"></p>
                               <p>{{nbanews.competition.team_one.team_name}}</p>
                               </div>
-                              
                           </li>
 
                           <li class="nbaGussSmallBox-vs">vs</li>
-
-                         
-
                           <li class="nbaGussSmallBox-team">
-                              
                               <div class="nbaGussSmallBox-team-right">
                                   <p><img :src="'https://bmw1984.com/' + nbanews.competition.team_two.team_img_url.url" alt="nbanews.competition.team_two.team_name" width="40" height="40"></p>
                                   <p>{{nbanews.competition.team_two.team_name}}</p>
@@ -174,10 +152,7 @@
                               <div  class="nbaGussSmallBox-team-rightpic" v-if="nbanews.competition.points_one == 0 || nbanews.competition.points_two == 0 ||nbanews.competition.points_one== nbanews.competition.points_two? false : true">
                                   <img :src="nbanews.competition.points_two > nbanews.competition.points_one ? scoreResule[0].win : scoreResule[1].lose">
                               </div>
-                              
                           </li>
-
-
                           <li class="nbaGussSmallBox-result">
                               <span>{{nbanews.lottery.status}}</span>
                           </li>
@@ -185,15 +160,12 @@
                           <li class="nbaEnd">
                               <img src="../../assets/images/yh/nbanotStart.png">
                           </li>
-                      </ul>    
+                      </ul>
                   </div>
-                  
-
                   <!-- 需要展开的大box -->
               </template>
 
               </li>
-              
           </ul>
           <!-- 竞猜主界面结束 -->
 
@@ -211,208 +183,193 @@
 </template>
 
 <script>
-  import TopnavC from '@/components/common/TopnavC'
-  import axios from 'axios'
-  export default {
-      components: {
-          TopnavC
+import TopnavC from '@/components/common/TopnavC'
+import axios from 'axios'
+export default {
+  components: {
+    TopnavC
+  },
+  data () {
+    return {
+      Nbadata: [],
+      scoreResule: [
+        {win: require('../../assets/images/yh/win.png')},
+        {lose: require('../../assets/images/yh/lose.png')}
+      ],
+      success: false,
+      winerOneBg: {
+        backgroundColor: '#c2c2c2'
       },
-      data () {
-          return {
-              Nbadata: [],
-              scoreResule: [
-                  {win: require('../../assets/images/yh/win.png')},
-                  {lose: require('../../assets/images/yh/lose.png')},
-              ],
-              success: false,
-              winerOneBg: {
-                backgroundColor: '#c2c2c2'
-              },
-              winerTwoBg: {
-                backgroundColor: '#c2c2c2'
-              },
-              winnerBtnShow: {
-                pointerEvents: 'auto'
-              }                     
+      winerTwoBg: {
+        backgroundColor: '#c2c2c2'
+      },
+      winnerBtnShow: {
+        pointerEvents: 'auto'
+      }
+    }
+  },
+  mounted: function () {
+    this.getNbaMessage()
+    this.change()
+  },
+
+  methods: {
+    change () {
+      document.getElementById('top-logo-change').innerHTML = '<p>NBA竞猜</P>'
+    },
+    getNbaMessage () {
+      axios({
+        method: 'get',
+        url: 'https://bmw1984.com/api/nba/competition/?format=json',
+        headers: {
+          Authorization: 'Token ' + window.token
+        }
+      }).then(Response => {
+        this.Nbadata = Response.data
+      })
+    },
+    selectSmallBox (event) {
+      var eventSmallBox = event.currentTarget
+      var eventSmallBoxParent = eventSmallBox.parentNode // 当前点击的元素的父元素
+      // 获取父元素的其他兄弟元素
+      var siblingss = [] // 用来存放父元素的其他的兄弟节点
+      var elseLi = eventSmallBoxParent.parentNode.children
+      for (var i = 0, elseLil = elseLi.length; i < elseLil; i++) {
+        if (elseLi[i] !== eventSmallBoxParent) { // 判断是否是ele节点，是否与触发事件的节点相同
+          siblingss.push(elseLi[i])
+        }
+      }
+      // 当前小box隐藏
+      eventSmallBox.style.display = 'none'
+      // 大box显示
+      eventSmallBox.parentNode.children[1].style.display = 'block'
+
+      // 父元素的其他兄弟元素的子元素操作
+      for (var j = 0; j < siblingss.length; j++) {
+        siblingss[j].children[1].style.display = 'none'
+        siblingss[j].children[0].style.display = 'block'
+      }
+    },
+
+    // 点击大box时 大box隐藏 小box显示
+    selectBigBox (event) {
+      var eventBigBox = event.currentTarget
+      eventBigBox.style.display = 'none'
+      eventBigBox.parentNode.children[0].style.display = 'block'
+    },
+
+    // 点击第一个队伍时
+    selectTeamOne (index) {
+      // 点击后就禁用按钮，防止重复提交
+      this.winnerBtnShow.pointerEvents = 'none'
+      if (window.token === '') {
+        window.requirePath = '/guessNBA'
+        this.$router.push('/login')
+      } else {
+        let nbaNum = this.Nbadata[index].competition.pk
+        let nbaTeam = this.Nbadata[index].competition.team_one.team_name
+        axios({
+          method: 'post',
+          url: 'https://bmw1984.com/api/nba/lottery/?format=json',
+          headers: {
+            Authorization: 'Token ' + window.token
+          },
+          data: {
+            competition_id: nbaNum,
+            competition_team: nbaTeam
           }
-      },
-      mounted: function(){
-          this.getNbaMessage ()
-          this.change()
-
-      },
-
-      methods: {
-          change () {
-            document.getElementById('top-logo-change').innerHTML = '<p>NBA竞猜</P>'
-          },
-          getNbaMessage () {
-              axios({
-                  method: 'get',
-                  url:'https://bmw1984.com/api/nba/competition/?format=json',
-                  headers: {
-                      Authorization: 'Token ' + window.token
-                  }
-                  }) 
-                  .then(Response => {
-                      this.Nbadata = Response.data 
-                      
-                  })
-                  .catch(error => {
-                      console.log(error)
-              })               
-          },
-
-
-          selectSmallBox (event) {
-              var eventSmallBox = event.currentTarget
-              var eventSmallBoxParent = eventSmallBox.parentNode  //当前点击的元素的父元素
-
-              //获取父元素的其他兄弟元素
-              var siblingss = []; //用来存放父元素的其他的兄弟节点
-              var elseLi = eventSmallBoxParent.parentNode.children; 
-              for (var i = 0, elseLil = elseLi.length; i < elseLil; i++) {
-                  if (elseLi[i] !== eventSmallBoxParent) {//判断是否是ele节点，是否与触发事件的节点相同
-                      siblingss.push(elseLi[i]);
-                  }
-              }
-              
-              //当前小box隐藏
-              eventSmallBox.style.display = "none"
-              //大box显示
-              eventSmallBox.parentNode.children[1].style.display = "block"
-
-              //父元素的其他兄弟元素的子元素操作
-              for(var i = 0; i<siblingss.length ;i++){
-                  siblingss[i].children[1].style.display = "none"
-                  siblingss[i].children[0].style.display = "block"
-              }
-             
-          },
-
-          //点击大box时 大box隐藏 小box显示
-          selectBigBox (event) {
-              var eventBigBox = event.currentTarget
-              eventBigBox.style.display = "none"
-              eventBigBox.parentNode.children[0].style.display = "block"
-          },
-
-          //点击第一个队伍时
-          selectTeamOne (index) {
-            //点击后就禁用按钮，防止重复提交
-            this.winnerBtnShow.pointerEvents = 'none'
-            if (window.token == '') {
-              window.requirePath = '/guessNBA'
-              this.$router.push('/login')
-            } else {
-              let nbaNum = this.Nbadata[index].competition.pk
-              let nbaTeam = this.Nbadata[index].competition.team_one.team_name
-              axios({
-                method: 'post',
-                url:'https://bmw1984.com/api/nba/lottery/?format=json',
-                headers: {
-                  Authorization: 'Token ' + window.token
-                },
-                data: {
-                  competition_id: nbaNum,
-                  competition_team: nbaTeam
-                }
-              }).then(Response => {
-                  let RequsMessages = Response.data.message 
-                  if(RequsMessages == "提交成功"){
-                    this.winerOneBg.backgroundColor = '#b51e1a'
-                  } else {
-                    alert(RequsMessages)  
-                  }
-                }).catch(error => {
-                  if(status = 401){
-                    this.loginMessages()
-                  }else{
-                    alert("提交错误，请联系客服")
-                  }
-                  
-              })
-            }
-          },
-          //点击第二个队伍时
-          selectTeamTwo (index) {
-            //点击后就禁用按钮，防止重复提交
-            this.winnerBtnShow.pointerEvents = 'none'
-            if (window.token == '') {
-              window.requirePath = '/order'
-              this.$router.push('/login')
-            } else {
-              let nbaNum = this.Nbadata[index].competition.pk
-              let nbaTeam = this.Nbadata[index].competition.team_two.team_name
-              axios({
-                method: 'post',
-                url:'https://bmw1984.com/api/nba/lottery/?format=json',
-                headers: {
-                  Authorization: 'Token ' + window.token
-                },
-                data: {
-                  competition_id: nbaNum,
-                  competition_team: nbaTeam
-                }
-              }).then(Response => {
-                let RequsMessages = Response.data.message 
-                if(RequsMessages == "提交成功"){
-                  this.winerTwoBg.backgroundColor = '#b51e1a'
-                } else {
-                  this.requestMessages()            
-                }
-              }).catch(error => {
-                if(status = 401){
-                   this.loginMessages()
-                  }else{
-                    this.errorMessages()
-                  }
-              })
-            }
-          },
-
-
-          //错误消息弹出
-          loginMessages() {
-            this.$message({
-              message: '您还未登录,请点击“我的”登录后进行。',
-              type: 'warning',
-              duration: 15000,
-              offset:50 ,
-              center:true,
-              showClose:true
-            });
-          },
-
-          requestMessages() {
-            this.$message({
-              message: '对不起，您今日存款金额不足388元，不能参与竞猜。若有疑问，请联系在线客服',
-              type: 'warning',
-              duration: 8000,
-              offset:50 ,
-              center:true,
-              showClose:true
-            });
-          },
-
-          errorMessages() {
-            this.$message({
-              message: '提交错误，请联系在线客服',
-              type: 'error',
-              duration: 3000,
-              offset:50 ,
-              center:true,
-              showClose:true 
-            })
+        }).then(Response => {
+          let RequsMessages = Response.data.message
+          if (RequsMessages == '提交成功') {
+            this.winerOneBg.backgroundColor = '#b51e1a'
+          } else {
+            this.requestMessages()
           }
-      },
+        // eslint-disable-next-line handle-callback-err
+        }).catch(error => {
+          if (status = 401) {
+            this.loginMessages()
+          } else {
+            this.errorMessages()
+          }
+        })
+      }
+    },
+    // 点击第二个队伍时
+    selectTeamTwo (index) {
+      // 点击后就禁用按钮，防止重复提交
+      this.winnerBtnShow.pointerEvents = 'none'
+      if (window.token === '') {
+        window.requirePath = '/order'
+        this.$router.push('/login')
+      } else {
+        let nbaNum = this.Nbadata[index].competition.pk
+        let nbaTeam = this.Nbadata[index].competition.team_two.team_name
+        axios({
+          method: 'post',
+          url: 'https://bmw1984.com/api/nba/lottery/?format=json',
+          headers: {
+            Authorization: 'Token ' + window.token
+          },
+          data: {
+            competition_id: nbaNum,
+            competition_team: nbaTeam
+          }
+        }).then(Response => {
+          let RequsMessages = Response.data.message
+          if (RequsMessages === '提交成功') {
+            this.winerTwoBg.backgroundColor = '#b51e1a'
+          } else {
+            this.requestMessages()
+          }
+        // eslint-disable-next-line handle-callback-err
+        }).catch(error => {
+          if (status = 401) {
+            this.loginMessages()
+          } else {
+            this.errorMessages()
+          }
+        })
+      }
+    },
+    // 错误消息弹出
+    loginMessages () {
+      this.$message({
+        message: '您还未登录,请点击“我的”登录后进行。',
+        type: 'warning',
+        duration: 8000,
+        offset: 50,
+        center: true,
+        showClose: true
+      })
+    },
 
+    requestMessages () {
+      this.$message({
+        message: '对不起，您今日存款金额不足388元，不能参与竞猜。若有疑问，请联系在线客服',
+        type: 'warning',
+        duration: 5000,
+        offset: 50,
+        center: true,
+        showClose: true
+      })
+    },
+
+    errorMessages () {
+      this.$message({
+        message: '提交错误，请联系在线客服',
+        type: 'error',
+        duration: 3000,
+        offset: 50,
+        center: true,
+        showClose: true
+      })
+    }
   }
+}
 </script>
 
 <style>
-
-
 #nbaBox {
   width: 100%;
   background-image: url('../../assets/images/yh/NBAbackground.png');
@@ -425,13 +382,12 @@
   color: #FFFFFF;
   font-size: 0.8rem;
   margin-top: 5.98vh;
-
-}  
+}
 
 #nbaTopMessages{
   font-weight: bold;
   padding-top:20px;
-  padding-bottom:5px;  
+  padding-bottom:5px;
   margin-bottom: 1rem;
 }
 
@@ -441,8 +397,6 @@
 #nbaGuessMain li{
   margin-bottom: 2px;
 }
-
-
 
 /*竞猜  小盒子 ---开始---*/
 
@@ -472,8 +426,6 @@
   width: 20%;
   position: relative;
 }
-
-
 .nbaGussSmallBox-team-leftpic{
   left: -9%;
   width: 20%;
@@ -497,8 +449,6 @@
   float: left;
   padding: 15px 0;
  }
-
-
 /*vs*/
 .nbaGussSmallBox-vs {
   font-size: 20px;
@@ -508,8 +458,6 @@
   padding: 35px 0;
 
 }
-
-
 
 /*结果*/
 .nbaGussSmallBox-result{
@@ -559,7 +507,7 @@
   overflow: hidden;
   width: 100%;
 }
-.nbaGussBigBox-team li{  
+.nbaGussBigBox-team li{
   float: left;
 }
 
@@ -570,8 +518,6 @@
 .nbaGussBigBox-team-2,.nbaGussBigBox-team-3{
   margin-left: 8%
 }
-
-
 .nbaGussBigBox-team-2-timedata {
   margin-top: 10px;
   color: #4f4f71;
@@ -591,8 +537,6 @@
   margin-bottom: 60%;
 }
 
-
-
 .nbaGussBigBox-team-1 p,.nbaGussBigBox-team-3 p{
   margin-bottom: 10px;
 }
@@ -601,7 +545,6 @@
   margin-top: 35%;
 }
 /*竞猜盒子中  展开的大盒子   -结束-*/
-
 
 /*底部细则部分*/
 #nbaBottomRules {
@@ -614,8 +557,6 @@
   margin-bottom: 5px;
   margin-top: 5px;
 }
-
-
 /*竞猜选择*/
 .NbaWiner{
   text-align: center;
@@ -624,10 +565,7 @@
   height: 10px; */
   border-radius: 5px;
   padding:2px 0;
-}   
-
-
-
+}
 
 @media screen and (min-width: 490px){
   .nbaGussBigBox-team-1{
@@ -635,6 +573,6 @@
   }
   .nbaEnd {
     width: 8%;
-  }  
+  }
 }
 </style>

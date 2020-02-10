@@ -119,4 +119,5 @@ export default {
 .integral-details-wrap .el-tabs--border-card>.el-tabs__content{
   padding: 0 15px !important;
 }
+
 </style>

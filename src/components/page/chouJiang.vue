@@ -66,10 +66,10 @@
           <p class="moneyMessage" id="moneyMessage1"><span id="moneySize">{{sendMoney}}</span>元</p>
           <p class="moneyMessage" id="moneyMessage2">恭喜您获得{{sendMoney}}元红包</p>
           <p class="moneyMessage" id="moneyMessage3">请在我的账户里查看</p>
-          <div id='messagesImgBotton' @click='moneyBoxHide'></div> 
-        </div>    
+          <div id='messagesImgBotton' @click='moneyBoxHide'></div>
+        </div>
       </div>
-    </div>    
+    </div>
   </div>
 
 </template>
@@ -80,7 +80,7 @@ import Axios from 'axios'
 export default {
   name: 'App',
   components: {
-    TopNavC,
+    TopNavC
   },
   data () {
     return {
@@ -88,7 +88,7 @@ export default {
       res: [],
       stop: true,
       start: false,
-      divDisable:{
+      divDisable: {
         pointerEvents: 'auto'
       },
       pfirst: '',
@@ -120,43 +120,41 @@ export default {
     }
   },
   created () {
-    this.getRrlling()  
-    this.getChance()  
+    this.getRrlling()
+    this.getChance()
   },
   methods: {
 
-    //请求规则，执行请求和抽奖
+    // 请求规则，执行请求和抽奖
     getRes () {
       // 请求前再次判断是否有抽奖机会，避免用户不停点击造成不断请求
-      if(this.chance == 0) {
-            this.chanceMessages();
-            this.divDisable.pointerEvents = 'none'  //点击按钮后禁用按钮
-            return false
+      if (this.chance = 0) {
+        this.chanceMessages()
       } else {
-        this.chance -= 1;
-      // 请求规则    
+        this.chance -= 1
+        //  请求规则
         Axios({
           method: 'post',
-            url:'https://bmw1984.com/api/lucky_everyday/lottery/?format=json',
-            headers: {
-              Authorization: 'Token ' + token
-            }
+          url: 'https://bmw1984.com/api/lucky_everyday/lottery/?format=json',
+          headers: {
+            // eslint-disable-next-line no-undef
+            Authorization: 'Token ' + token
+          }
         }).then(Response => {
-            this.res = Response.data.result    
-            //请求完成后再执行转动事件
-            this.post_lettery()  
+          this.res = Response.data.result
+          // 请求完成后再执行转动事件
+          this.post_lettery()
 
-            //中奖信息的弹出
-            this.moneyBoxShow()  
+          // 中奖信息的弹出
+          this.moneyBoxShow()
         }).catch(error => {
-            console.log(error)
-        }) 
+          console.log(error)
+        })
       }
-     
     },
 
-    //抽奖事件 
-    post_lettery() {
+    // 抽奖事件
+    post_lettery () {
       const backgroundCss = {
         p1000: '-222.7%',
         p600: '-231.9%',
@@ -179,97 +177,95 @@ export default {
       this.pthird = backgroundCss['p' + data[2]]
     },
 
-    //请求中奖公告
-    getRrlling() {
+    // 请求中奖公告
+    getRrlling () {
       Axios({
         method: 'get',
-        url:'https://bmw1984.com/api/lucky_everyday/rolling_letter/?format=json&page_size=100',
-      }) 
-      .then(Response => {
+        url: 'https://bmw1984.com/api/lucky_everyday/rolling_letter/?format=json&page_size=100'
+      }).then(Response => {
         this.rolling_letter = Response.data.results
-      })
-      .catch(error => {
+      }).catch(error => {
         console.log(error)
       })
     },
 
-    //中 奖信息显示
-    moneyBoxShow() {  
-        this.moneyShow.display = 'block'
+    // 中 奖信息显示
+    moneyBoxShow () {
+      this.moneyShow.display = 'block'
     },
 
-    //点击隐藏中奖信息
-    moneyBoxHide() {
+    // 点击隐藏中奖信息
+    moneyBoxHide () {
       this.moneyShow.display = 'none'
     },
-    //Mozilla/5.0 (Linux; U; Android 8.1.0; zh-CN; EML-AL00 Build/HUAWEIEML-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 baidu.sogo.uc.UCBrowser/11.9.4.974 UWS/2.13.1.48 Mobile Safari/537.36 AliApp(DingTalk/4.5.11) com.alibaba.android.rimet/10487439 Channel/227200 language/zh-CN
-    //Mozilla/5.0 (Linux; Android 10; VOG-AL00 Build/HUAWEIVOG-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.3945.116 Mobile Safari/537.36
-    //Mozilla/5.0 (Linux; Android 9; EML-L29 Build/HUAWEIEML-L29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.3945.116 Mobile Safari/537.36
-    //请求chance的机会，并写入html。
-    getChance() { 
+    // Mozilla/5.0 (Linux; U; Android 8.1.0; zh-CN; EML-AL00 Build/HUAWEIEML-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 baidu.sogo.uc.UCBrowser/11.9.4.974 UWS/2.13.1.48 Mobile Safari/537.36 AliApp(DingTalk/4.5.11) com.alibaba.android.rimet/10487439 Channel/227200 language/zh-CN
+    // Mozilla/5.0 (Linux; Android 10; VOG-AL00 Build/HUAWEIVOG-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.3945.116 Mobile Safari/537.36
+    // Mozilla/5.0 (Linux; Android 9; EML-L29 Build/HUAWEIEML-L29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.3945.116 Mobile Safari/537.36
+    // 请求chance的机会，并写入html。
+    getChance () {
       Axios({
         method: 'get',
-          url:'https://bmw1984.com/api/lucky_everyday/lottery/?format=json',
-          headers: {
-            Authorization: 'Token ' + token
-          }
-      }).then(Response => {     //已登录时查询到抽奖次数为零时，禁用按钮并且返回false
-          this.chance = Response.data.chance
-          // if(this.chance == 0){
-          //   this.divDisable.pointerEvents = 'none' 
-          //   return false
-          // }    
-      }).catch(error => {       //未登录时，从后台接收到401时弹出未登录，禁用按钮
+        url: 'https://bmw1984.com/api/lucky_everyday/lottery/?format=json',
+        headers: {
+          // eslint-disable-next-line no-undef
+          Authorization: 'Token ' + token
+        }
+      }).then(Response => { // 已登录时查询到抽奖次数为零时，禁用按钮并且返回false
+        this.chance = Response.data.chance
+        // if(this.chance == 0){
+        //   this.divDisable.pointerEvents = 'none'
+        //   return false
+        // }
+      // eslint-disable-next-line handle-callback-err
+      }).catch(error => { // 未登录时，从后台接收到401时弹出未登录，禁用按钮
         this.divDisable.pointerEvents = 'none'
-        if( status = 401 ) {
+        if (status = 401) {
           this.loginMessages()
         } else {
           this.errorMessages()
-        }          
+        }
+      })
+    },
+    // 错误消息弹出
+    chanceMessages () {
+      this.$message({
+        message: '您的抽奖次数为0。若有疑问，请联系在线客服',
+        duration: 2200,
+        offset: 50,
+        center: true,
+        showClose: true
       })
     },
 
-
-    //错误消息弹出
-    chanceMessages() {
-      this.$message({
-        message: '您的抽奖次数为完。若有疑问，请联系在线客服',
-        duration: 8000,
-        offset:50 ,
-        center:true,
-        showClose:true
-      });
-    },
-
-    loginMessages() {
+    loginMessages () {
       this.$message({
         message: '您还未登录,请点击“我的”登录后进行',
         type: 'warning',
-        duration: 15000,
-        offset:50 ,
-        center:true,
-        showClose:true
-      });
+        duration: 5000,
+        offset: 50,
+        center: true,
+        showClose: true
+      })
     },
 
-    errorMessages() {
+    errorMessages () {
       this.$message({
         message: '提交错误，请在线联系客服',
         type: 'error',
-        duration: 300000,
-        offset:50 ,
-        center:true,
-        showClose:true 
+        duration: 10000,
+        offset: 50,
+        center: true,
+        showClose: true
       })
-    }    
+    }
 
   },
 
   computed: {
-    sendMoney () {  //中奖金额
+    sendMoney () { // 中奖金额
       return this.res[0] + this.res[1] + this.res[2]
     }
-  },
+  }
 }
 </script>
 <style scoped>
@@ -407,7 +403,7 @@ export default {
     text-align: center;
     position: absolute;
     top: 33%;
-    left: 20%; 
+    left: 20%;
     overflow: hidden;
 }
 .num_box .tiger {
@@ -470,8 +466,6 @@ export default {
     background-position-y: var(--pthird);
   }
 }
-
-
 /* 抽奖动画 end */
 
 /*禁用按钮*/
@@ -487,8 +481,6 @@ export default {
   left: 0;
 }
 
-
-
 #moneyMessages{
   width: 100%;
   height: 100%;
@@ -497,7 +489,6 @@ export default {
   width: 100%;
   height: 100%;
 }
-
 
 #messagesImg img{
   width: 100%;
@@ -520,7 +511,6 @@ export default {
 #moneyMessage1 span{
   font-size: 50px;
 }
-
 
 #moneyMessage2{
   top: 47%;
@@ -554,8 +544,6 @@ export default {
   #moneyMessage1 span{
     font-size: 35px;
   }
-
-
   #moneyMessage2{
     top: 27%;
     font-size: 8px;
@@ -581,8 +569,6 @@ export default {
     width: 105%;
     height: 100%;
   }
-
-
   #moneyMessage1{
     top:32%
   }
@@ -590,8 +576,6 @@ export default {
   #moneyMessage1 span{
     font-size: 35px;
   }
-
-
   #moneyMessage2{
     top: 45%;
   }
@@ -633,7 +617,5 @@ export default {
 .swiper-container{
   z-index: 0;
 }
-
-
 
 </style>

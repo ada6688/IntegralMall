@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="memberPage">
     <TopNav for-child-msg='个人中心'></TopNav>>
     <div class="main-wrap">
       <div class="member-half-circle"></div>
@@ -23,13 +23,13 @@
           </div>
           <div class="member-integral">
             <div class="member-total">
-              <p>总积分：</p>
-              <span>{{integral.total_common_points}}</span>
+              <p>通用积分：</p>
+              <span>{{integral.balance_common_points}}</span>
             </div>
             <div class="member-integral-slice">|</div>
             <div class="member-useful">
-              <p>可用积分：</p>
-              <span>{{integral.balance_common_points}}</span>
+              <p>签到积分：</p>
+              <span>{{total_sign_points}}</span>
             </div>
           </div>
         </div>
@@ -48,8 +48,9 @@
               <p>明日签到可领{{last_sign}}积分</p>
             </div>
             <!-- 签到按钮 -->
-            <div v-if="sign_status === 200" class="member-signIn-button" @click="qiandao()">签到</div>
-            <div v-else class="member-signIn-button" style="background:linear-gradient(0deg,rgba(191, 186, 176) 26%,rgba(189, 177, 160) 100%);">今日已签到</div>
+            <!-- <div v-if="sign_status === 200" class="member-signIn-button" @click="qiandao()">签到</div> -->
+            <!-- <div v-else class="member-signIn-button" style="">今日已签到</div> -->
+            <div class="member-signIn-button" :class="{'sign-in-already':sign_active}" @click="qiandao()">{{sign_message}}</div>
           </div>
         </div>
         <!-- 积分明细，兑换记录，积分详情疑问规则等 -->
@@ -100,8 +101,6 @@
 import BottomNav from '@/components/common/Bottomnav'
 import TopNav from '@/components/common/Topnav'
 import Axios from 'axios'
-
-
 export default {
   name: 'App',
   components: {
@@ -114,9 +113,12 @@ export default {
       auth: [],
       integral: [],
       Sign: [],
+      sign_message: '签到',
+      sign_active: false,
       Sing_day: 0,
       last_sign: 0,
       sign_status: 200,
+      total_sign_points: 0,
       level_img: [
         require('@/assets/images/levelSign/pt@3x.png'),
         require('@/assets/images/levelSign/hj@3x.png'),
@@ -124,13 +126,13 @@ export default {
         require('@/assets/images/levelSign/zs@3x.png'),
         require('@/assets/images/levelSign/zz@3x.png'),
         require('@/assets/images/levelSign/wz@3x.png'),
-        require('@/assets/images/levelSign/ty@2x.png'),
+        require('@/assets/images/levelSign/ty@2x.png')
       ],
       r_b_dis_allow: true
     }
   },
   created () {
-    if (window.token == '') {
+    if (window.token === '') {
       window.requirePath = '/Member'
       this.$router.push('/login')
     } else {
@@ -138,22 +140,24 @@ export default {
         method: 'get',
         url: 'https://bmw1984.com/api/auth/user/?format=json',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       })
         .then(Response => {
           this.auth = Response.data
-          console.log(Response.data)
+          console.log(Response.data, 2000)
         })
         .catch(error => {
           console.log(error)
-          alert('y用户信息加载错误，请联系在线客服！')
+          this.errorMessages('y用户信息加载错误，请联系在线客服！', 5000)
           // this.$router.push('/shouye')
         })
       Axios({
         method: 'get',
         url: 'https://bmw1984.com/api/auth/points/?format=json',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       })
@@ -163,32 +167,39 @@ export default {
         })
         .catch(error => {
           console.log(error)
-          alert('等级加载错误，请联系在线客服！')
+          this.errorMessages('等级加载错误，请联系在线客服！', 5000)
           // this.$router.push('/shouye')
         })
       Axios({
         method: 'get',
         url: 'https://bmw1984.com/api/auth/sign/query/?format=json',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       })
         .then(Response => {
           this.Sign = Response.data.data
+          this.total_sign_points = Response.data.total_points
           this.Sing_day = Response.data.continuity_days
           this.last_sign = Response.data.tomorrow
           this.sign_status = Response.data.status
+          if (Response.data.status === 201) {
+            this.sign_message = '已签到'
+            this.sign_active = true
+          }
           // console.log(Response.data)
         })
         .catch(error => {
           console.log(error)
-          alert('签到获取错误')
+          this.errorMessages('签到获取错误', 5000)
           // this.$router.push('/shouye')
         })
       Axios({
         method: 'get',
         url: 'https://bmw1984.com/api/auth/app/downland/',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       })
@@ -201,7 +212,6 @@ export default {
     }
   },
   mounted: function () {
-    // 
   },
   methods: {
     setclass (demo, arr = []) {
@@ -228,22 +238,23 @@ export default {
     },
     qiandao () {
       if (this.sign_status === 200) {
-      Axios({
-        method: 'get',
-        url: 'https://bmw1984.com/api/auth/sign/in/?format=json',
-        headers: {
-          Authorization: 'Token ' + token
-        }
-      })
-        .then(Response => {
+        Axios({
+          method: 'get',
+          url: 'https://bmw1984.com/api/auth/sign/in/?format=json',
+          headers: {
+            // eslint-disable-next-line no-undef
+            Authorization: 'Token ' + token
+          }
+        }).then(Response => {
           this.Sign = Response.data.data
           this.Sing_day = Response.data.continuity_days
           this.last_sign = Response.data.tomorrow
           this.sign_status = Response.data.status
-        })
-        .catch(error => {
+          this.sign_message = '已签到'
+          this.sign_active = true
+        }).catch(error => {
           console.log(error)
-          alert('签到获取错误')
+          this.errorMessages('签到获取错误', 5000)
         })
       }
     },
@@ -252,11 +263,12 @@ export default {
         method: 'POST',
         url: 'https://bmw1984.com/api/auth/app/downland/',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Token ' + token
         }
       })
         .then(Response => {
-          alert(Response.data.message)
+          this.errorMessages(Response.data.message)
         })
         .catch(error => {
           console.log(error)
@@ -266,6 +278,16 @@ export default {
       localStorage.setItem('token', '')
       window.token = ''
       this.$router.push({path: '/'})
+    },
+    errorMessages (n, time) {
+      this.$message({
+        message: n,
+        type: 'error',
+        duration: time,
+        offset: 50,
+        center: true,
+        showClose: true
+      })
     }
   }
 }
@@ -282,5 +304,23 @@ export default {
     border: 0;
     font-size: 15px;
     color: #fff;
+}
+.sign-in-already {
+  background:linear-gradient(0deg,rgba(191, 186, 176) 26%,rgba(189, 177, 160) 100%);
+}
+@media screen and (max-height:674px){
+  .main-wrap {
+    margin-bottom: 3.66vh;
+  }
+}
+@media screen and (max-height:551px){
+  .main-wrap {
+    margin-bottom: 1.66vh;
+}
+}
+@media screen and (max-height:345px){
+  .main-wrap {
+    margin-bottom: 1vh;
+}
 }
 </style>
