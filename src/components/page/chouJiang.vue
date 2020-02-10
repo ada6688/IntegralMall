@@ -128,7 +128,7 @@ export default {
     // 请求规则，执行请求和抽奖
     getRes () {
       // 请求前再次判断是否有抽奖机会，避免用户不停点击造成不断请求
-      if (this.chance === 0) {
+      if (this.chance = 0) {
         this.chanceMessages()
       } else {
         this.chance -= 1
@@ -219,7 +219,7 @@ export default {
       // eslint-disable-next-line handle-callback-err
       }).catch(error => { // 未登录时，从后台接收到401时弹出未登录，禁用按钮
         this.divDisable.pointerEvents = 'none'
-        if (status === 401) {
+        if (status = 401) {
           this.loginMessages()
         } else {
           this.errorMessages()
@@ -241,7 +241,7 @@ export default {
       this.$message({
         message: '您还未登录,请点击“我的”登录后进行',
         type: 'warning',
-        duration: 15000,
+        duration: 5000,
         offset: 50,
         center: true,
         showClose: true
@@ -252,7 +252,7 @@ export default {
       this.$message({
         message: '提交错误，请在线联系客服',
         type: 'error',
-        duration: 300000,
+        duration: 10000,
         offset: 50,
         center: true,
         showClose: true

@@ -280,14 +280,14 @@ export default {
           }
         }).then(Response => {
           let RequsMessages = Response.data.message
-          if (RequsMessages === '提交成功') {
+          if (RequsMessages == '提交成功') {
             this.winerOneBg.backgroundColor = '#b51e1a'
           } else {
             this.requestMessages()
           }
         // eslint-disable-next-line handle-callback-err
         }).catch(error => {
-          if (status === 401) {
+          if (status = 401) {
             this.loginMessages()
           } else {
             this.errorMessages()
@@ -324,7 +324,7 @@ export default {
           }
         // eslint-disable-next-line handle-callback-err
         }).catch(error => {
-          if (status === 401) {
+          if (status = 401) {
             this.loginMessages()
           } else {
             this.errorMessages()

@@ -146,11 +146,11 @@ export default {
       })
         .then(Response => {
           this.auth = Response.data
-          console.log(Response.data)
+          console.log(Response.data, 2000)
         })
         .catch(error => {
           console.log(error)
-          alert('y用户信息加载错误，请联系在线客服！')
+          this.errorMessages('y用户信息加载错误，请联系在线客服！', 5000)
           // this.$router.push('/shouye')
         })
       Axios({
@@ -167,7 +167,7 @@ export default {
         })
         .catch(error => {
           console.log(error)
-          alert('等级加载错误，请联系在线客服！')
+          this.errorMessages('等级加载错误，请联系在线客服！', 5000)
           // this.$router.push('/shouye')
         })
       Axios({
@@ -192,7 +192,7 @@ export default {
         })
         .catch(error => {
           console.log(error)
-          alert('签到获取错误')
+          this.errorMessages('签到获取错误', 5000)
           // this.$router.push('/shouye')
         })
       Axios({
@@ -254,7 +254,7 @@ export default {
           this.sign_active = true
         }).catch(error => {
           console.log(error)
-          alert('签到获取错误')
+          this.errorMessages('签到获取错误', 5000)
         })
       }
     },
@@ -268,7 +268,7 @@ export default {
         }
       })
         .then(Response => {
-          alert(Response.data.message)
+          this.errorMessages(Response.data.message)
         })
         .catch(error => {
           console.log(error)
@@ -278,6 +278,16 @@ export default {
       localStorage.setItem('token', '')
       window.token = ''
       this.$router.push({path: '/'})
+    },
+    errorMessages (n, time) {
+      this.$message({
+        message: n,
+        type: 'error',
+        duration: time,
+        offset: 50,
+        center: true,
+        showClose: true
+      })
     }
   }
 }
@@ -308,7 +318,6 @@ export default {
     margin-bottom: 1.66vh;
 }
 }
-
 @media screen and (max-height:345px){
   .main-wrap {
     margin-bottom: 1vh;
