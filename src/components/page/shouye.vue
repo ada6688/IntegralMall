@@ -150,7 +150,7 @@ export default {
       })
       .catch(error => {
         console.log(error)
-        alert('商品加载错误，请联系在线客服！')
+        // alert('商品加载错误，请联系在线客服！')
       })
     axios
       .get('http://45.64.53.115:8000/api/mulu/shuma/?format=json')
@@ -160,7 +160,7 @@ export default {
       })
       .catch(error => {
         console.log(error)
-        alert('商品加载错误，请联系在线客服！')
+        // alert('商品加载错误，请联系在线客服！')
       })
     axios
       .get('http://45.64.53.115:8000/api/mulu/jiangjin/?format=json')
@@ -169,7 +169,7 @@ export default {
       })
       .catch(error => {
         console.log(error)
-        alert('商品加载错误，请联系在线客服！')
+        // alert('商品加载错误，请联系在线客服！')
       })
     axios
       .get('http://45.64.53.115:8000/api/mulu/shenghuo/?format=json')
@@ -178,7 +178,7 @@ export default {
       })
       .catch(error => {
         console.log(error)
-        alert('商品加载错误，请联系在线客服！')
+        // alert('商品加载错误，请联系在线客服！')
       })
     axios
       .get('http://45.64.53.115:8000/api/mulu/shehua/?format=json')
@@ -187,7 +187,7 @@ export default {
       })
       .catch(error => {
         console.log(error)
-        alert('商品加载错误，请联系在线客服！')
+        // alert('商品加载错误，请联系在线客服！')
       })
   },
   methods: {
