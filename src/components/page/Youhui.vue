@@ -27,8 +27,8 @@ export default {
         {path: 'chouJiang', src: require('../../assets/images/yh/CGCJ@3x.png')},
         {path: 'everydayNBA', src: require('../../assets/images/yh/NBA@3x.png')},
         {path: 'chouJiang', src: require('../../assets/images/yh/CGCJ@3x.png')},
-        {path: 'chouJiang', src: require('../../assets/images/yh/CGCJ@3x.png')}
-      ]
+        {path: 'chouJiang', src: require('../../assets/images/yh/CGCJ@3x.png')},
+      ],
     }
   },
   mounted: function () {
@@ -38,7 +38,7 @@ export default {
     change () {
       // console.log(22213425)
       document.getElementById('top-nav-logo').innerHTML = '<p>优惠专区</p>'
-    }
+    },
   }
 }
 </script>

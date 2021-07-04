@@ -66,7 +66,7 @@ export default new Router({
     },
     {
       path: '/chouJiang',
-      component: ChouJiang
+      component: ChouJiang,
     }
   ]
 })

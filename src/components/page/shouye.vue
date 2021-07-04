@@ -102,7 +102,6 @@ import Notice from '@/components/page/Notice'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import axios from 'axios'
 import vuescroll from 'vuescroll'
-
 export default {
   name: 'App',
   components: {

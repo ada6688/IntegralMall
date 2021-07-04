@@ -61,7 +61,6 @@
 <script>
 // 引用组件
 import TopNavC from '@/components/common/TopNavC'
-
 export default {
   name: 'App',
   components: {
